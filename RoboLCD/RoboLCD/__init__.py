@@ -180,6 +180,9 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
 
     def serial_hook(self, comm_instance, port, baudrate, connection_timeout, *args, **kwargs):
 
+        if port == 'VIRTUAL':
+            return None
+
         if port is None or port == 'AUTO':
             # no known port, try auto detection
             comm_instance._changeState(comm_instance.STATE_DETECT_SERIAL)
