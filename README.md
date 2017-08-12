@@ -6,6 +6,7 @@ Workspace for SuperOcto by Officine Digitali Marchigiane
 ### Getting and installing SuperOcto ###
 ```
 cd ~
+source ~/OctoPrint/venv/bin/activate
 git clone https://github.com/mcecchi/SuperOcto.git
 cp ~/SuperOcto/virtual_printer/* ~/OctoPrint/venv/lib/python2.7/site-packages/octoprint/plugins/virtual_printer
 cd ~/SuperOcto/Meta-Reader/
@@ -91,3 +92,10 @@ printerProfiles:
       origin: lowerleft
       width: 200.0
 ```
+### Running SuperOcto ###
+```
+cd ~
+source ~/OctoPrint/venv/bin/activate
+octoprint serve
+```
+
