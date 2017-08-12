@@ -13,16 +13,16 @@ class Install_Deps(object):
         import os
         import pip
         local_path = os.path.dirname(os.path.realpath(__file__))
-        r = pip.main(['install', '--upgrade', '--no-deps', '--force-reinstall',
-                      'https://github.com/Robo3D/OctoPrint-FirmwareUpdater/archive/0.2.1.zip',
-                      "https://github.com/Robo3D/Meta-Reader/archive/1.0.8.zip",
-                      "https://github.com/Robo3D/roboOctoprint/archive/1.3.2.zip",
-                     ])
-        if r is not 0:
-            print("Could not install RoboLCD dependencies: Meta_Reader and/or OctoPrint_FirmwareUpdater")
-            sys.exit(-1)
-        else:
-            pass
+        #r = pip.main(['install', '--upgrade', '--no-deps', '--force-reinstall',
+        #              'https://github.com/Robo3D/OctoPrint-FirmwareUpdater/archive/0.2.1.zip',
+        #              "https://github.com/Robo3D/Meta-Reader/archive/1.0.8.zip",
+        #              "https://github.com/Robo3D/roboOctoprint/archive/1.3.2.zip",
+        #             ])
+        #if r is not 0:
+        #    print("Could not install RoboLCD dependencies: Meta_Reader and/or OctoPrint_FirmwareUpdater")
+        #    sys.exit(-1)
+        #else:
+        #    pass
         #make USB stuff happen
 
         sh_path = local_path + '/USB_deps.sh'
