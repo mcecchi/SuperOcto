@@ -1,2 +1,2 @@
 # SuperOcto
-Workspace for SuperOcto
+Workspace for SuperOcto by Officine Digitali Marchigione
