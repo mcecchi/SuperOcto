@@ -1,3 +1,0 @@
-[octoprint.plugin]
-Meta_Reader = Meta_Reader
-
