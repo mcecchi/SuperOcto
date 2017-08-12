@@ -1,0 +1,120 @@
+accessControl:
+  salt: HioBH9fJwgXgZ5fwjmHdU08wXWEgPQQh
+api:
+  key: 0CA7A48662E445E2B6388A679A0CF89B
+devel:
+  virtualPrinter:
+    brokenM29: true
+    commandBuffer: 4
+    echoOnM117: true
+    enabled: true
+    extendedSdFileList: false
+    forceChecksum: false
+    hasBed: true
+    includeCurrentToolInTemps: true
+    includeFilenameInOpened: true
+    movementSpeed:
+      e: 300
+      x: 6000
+      y: 6000
+      z: 200
+    numExtruders: 1
+    okAfterResend: false
+    okWithLinenumber: false
+    repetierStyleResends: false
+    repetierStyleTargetTemperature: false
+    rxBuffer: 64
+    sendWait: false
+    smoothieTemperatureReporting: false
+    supportM112: true
+    throttle: 0.01
+    waitInterval: 1
+plugins:
+  RoboLCD:
+    Model: Robo C2
+    Temp_Preset:
+      Robo ABS:
+        Bed: 100
+        Extruder1: 230
+      Robo PLA:
+        Bed: 60
+        Extruder1: 190
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1500983100
+      _important:
+        read_until: 1478614200
+      _octopi:
+        read_until: 1499253000
+      _plugins:
+        read_until: 1500768000
+      _releases:
+        read_until: 1501158300
+  discovery:
+    upnpUuid: ff24b28c-f0ff-4dc3-88b2-91107da5bcfa
+  helloworld:
+    url: https://de.wikipedia.org/wiki/Hallo-Welt-Programm
+  softwareupdate:
+    _config_version: 5
+    check_providers:
+      Meta_Reader: Meta_Reader
+      firmware_updater: firmwareupdater
+      helloworld: helloworld
+      robolcd: RoboLCD
+      systemcommandeditor: systemcommandeditor
+      telegram: telegram
+  telegram:
+    _config_version: 3
+    chats: {}
+    messages:
+      StatusPrinting:
+        combined: true
+printerProfiles:
+  default: _default
+  defaultProfile:
+    axes:
+      e:
+        inverted: false
+        speed: 300
+      x:
+        inverted: false
+        speed: 6000
+      y:
+        inverted: false
+        speed: 6000
+      z:
+        inverted: false
+        speed: 200
+    color: default
+    extruder:
+      count: 1
+      nozzleDiameter: 0.4
+      offsets:
+      - - 0.0
+        - 0.0
+      sharedNozzle: false
+    heatedBed: true
+    id: _default
+    model: Robo C2
+    name: Default
+    volume:
+      custom_box: false
+      depth: 200.0
+      formFactor: rectangular
+      height: 200.0
+      origin: lowerleft
+      width: 200.0
+serial:
+  autoconnect: true
+  baudrate: 0
+  port: VIRTUAL
+server:
+  firstRun: false
+  secretKey: BHGyfhV1JqQGvX1CqMbZZ6wY4cT3s2H7
+  seenWizards:
+    corewizard: null
+    cura: null
+    softwareupdate: null
+    telegram: 1
