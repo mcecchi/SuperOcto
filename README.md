@@ -91,7 +91,3 @@ printerProfiles:
       origin: lowerleft
       width: 200.0
 ```
-
-## Attributions ##
-Victor E Fimbres & Matt Pedler & Peri Smith (https://github.com/victorevector/RoboLCD)
-
