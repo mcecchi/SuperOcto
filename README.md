@@ -2,17 +2,17 @@
 Workspace for SuperOcto by Officine Digitali Marchigiane
 ## Setup ##
 ### Requirements ###
-* 1 sudo apt-get install usbmount
+* sudo apt-get install usbmount
 ### Getting and installing SuperOcto ###
 ```
 cd ~
 git clone https://github.com/mcecchi/SuperOcto.git
 cp ~/SuperOcto/virtual_printer/* ~/OctoPrint/venv/lib/python2.7/site-packages/octoprint/plugins/virtual_printer
-cd SuperOcto/Meta-Reader/
+cd ~/SuperOcto/Meta-Reader/
 octoprint dev plugin:install
-cd SuperOcto/OctoPrint-FirmwareUpdater/
+cd ~/SuperOcto/OctoPrint-FirmwareUpdater/
 octoprint dev plugin:install
-cd SuperOcto/RoboLCD/
+cd ~/SuperOcto/RoboLCD/
 octoprint dev plugin:install
 ```
 ### Settings ###
