@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+Meta_Reader/File_Reader.py
+Meta_Reader/__init__.py
+Meta_Reader.egg-info/PKG-INFO
+Meta_Reader.egg-info/SOURCES.txt
+Meta_Reader.egg-info/dependency_links.txt
+Meta_Reader.egg-info/entry_points.txt
+Meta_Reader.egg-info/not-zip-safe
+Meta_Reader.egg-info/requires.txt
+Meta_Reader.egg-info/top_level.txt
+Meta_Reader/static/css/Meta_Reader.css
+Meta_Reader/static/js/Meta_Reader.js
+Meta_Reader/static/less/Meta_Reader.less
+Meta_Reader/templates/README.txt
