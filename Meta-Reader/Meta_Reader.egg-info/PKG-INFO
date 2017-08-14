@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: Meta-Reader
-Version: 1.0.7
+Version: 1.0.8
 Summary: Scans all Simplify 3D and Cura Gcode files for metadata and saves it locally to the printer
 Home-page: https://github.com/Robo3D/Meta-Reader
 Author: Robo3D

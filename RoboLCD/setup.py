@@ -76,7 +76,8 @@ plugin_url = "https://github.com/victorevector/RoboLCD"
 plugin_license = "AGPLv3"
 
 # Any additional requirements besides OctoPrint should be listed here
-plugin_requires = ['qrcode>=5.3', 'sysv-ipc>=0.7.0', 'gitpython>=2.1.1']
+#plugin_requires = ['qrcode>=5.3', 'sysv-ipc>=0.7.0', 'gitpython>=2.1.1']
+plugin_requires = ['qrcode>=5.3', 'gitpython>=2.1.1']
 
 
 ### --------------------------------------------------------------------------------------------------------------------
