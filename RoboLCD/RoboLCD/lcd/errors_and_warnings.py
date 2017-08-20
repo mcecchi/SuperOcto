@@ -1,4 +1,5 @@
 # coding=utf-8
+import sys
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty, StringProperty, BooleanProperty, NumericProperty, ListProperty
@@ -316,7 +317,8 @@ class Error_Detection(Button):
         #check to see if this is the first error to populate the system. If it is then kill the splash screen
         if not self.first_default:
             self.first_default = True
-            #subprocess.call(['sudo pkill omxplayer'], shell=True)
+            if sys.platform != "win32":
+                subprocess.call(['sudo pkill omxplayer'], shell=True)
 
         self.last_error = error
 
