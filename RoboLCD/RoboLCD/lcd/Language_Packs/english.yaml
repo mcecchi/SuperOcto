@@ -685,8 +685,8 @@ Error_Detection:
     Body: "Please reload more filament"
     E_Title: "Filament Status"
   DEFAULT:
-    Title_Idle: "ODM1 ready"
-    Title_Active: "ODM1 active"
+    Title_Idle: "SuperOcto ready"
+    Title_Active: "SuperOcto active"
     Body_Idle: "Let's print something!"
     Body_Active: "Print in progress."
 
