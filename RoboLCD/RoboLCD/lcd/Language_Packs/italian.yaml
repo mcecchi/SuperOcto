@@ -1,0 +1,796 @@
+#A 3D printer is a machine that takes a computer generated model and prints it in 3D. It does this by taking feeding plastic to 
+#an extruder that melts it and deposits it in layers to create the 3D model. The following text will be displayed on a built in
+#screen to help a user properly utlize their printer. 
+
+#Do not remove '\n' from the text. It means a new line on the screen.
+#Only translate text that is between quotation marks (""). 
+
+Load_Success:
+  #Replace 'English' with the language being translated into 
+  pass: "Italian Loaded"
+
+
+Main_Screen:
+  Files: "Files"
+  Printer: "Printer"
+  Utilities: "Utilities"
+
+Printer_Status:
+  Minute_Left: "Meno di un minuto"
+  Percent: "%"
+
+
+File_Screen:
+  Z_Offset: "Z-Offset"
+  Infill: "Infill"
+  Layer_Height: "Altezza\nStrato"
+  Layers: "Strati"
+  Estimated_Time: "Tempo Stimato"
+  Start: "Inizia"
+  Save: "Salva"
+  Pause: "Pausa"
+  Resume: "Riprendi"
+  Cancel: "Annulla"
+  Canceling: "Annullamento..."
+
+File_Options:
+  Delete: "Cancella"
+  Add_Folder: "Aggiungi Cartella"
+  Move_File: "Sposta File"
+  Move_Folder: "Move Cartella"
+  Continue: "Continua"
+  Show_Keyboard: "Mostra Tastiera"
+  New_Folder: "Nuova_cartella"
+
+
+Error:
+  File_Error: "Errore del file"
+  File_Error_Body: "C'è un errore nel file selezionato\nProvare di nuovo"
+  Filament_Error: "Il filamento è esaurito"
+  Filament_Error_Body: "Caricare altro filamento e ripristinare la stampa."
+
+## Min. Temp. is short for Minimum temperature. Please translate into a similar abbreviated equivalent. 
+##The extruder is the part that heats up and extrudes melted plastic filament through a nozzle
+##The Z-Offset is the calibrated distance between the extruder and the bed
+##The bed is the platform which plastic gets extruded onto
+
+Warning:
+  Mintemp: "Errore dell estrusore"
+  Mintemp_Body: "°C / 175°C\nl'estrusore non è abbastanza caldo per muovere il\nfilamento. Impostare una temperatura\nsopra i 175°C."
+  Mintemp: "Errore Min. Temp. "
+  Z_Offset_Warning:
+    Title: "Z-Offset not ipostato"
+    Body1: "Lo Z-Offset è impostato a "
+    Body2: " Impostare\nlo Z-Offset prima di usare questo strumento."
+
+  Update:
+    Sub_Title: "Aggiornameto disponibile"
+    Body: "\n\nVuoi installare l'aggiornamento?\nModifiche: [color=#69B3E7]Robo3D.com/changelogs"
+
+  USB_Progress:
+    Waiting: "Attendi"
+    P_Completed: "% Completato"
+    Error: "Errore"
+
+
+##The Home function signals the motors to return to their original position. 
+Popup:
+  PYes: "[size=30]Si"
+  PNo: "[size=30]No"
+  OK: "OK"
+  Import_Files: "Importazione file USB"
+  Cancel_Print: "Sei sicuro di voler annullare questa stampa?"
+  MainBoard1: "Scheda madre non rilevata"
+  MainBoard2: "Prova a riconnettere"
+  Connect: "Connetti"
+  Firmware_Title: "Aggiornamento Firmware"
+  Firmware_Body: "La tua stampante sarà riavviata\ndopo la fine dell'aggiornamento"
+  ZOffset_Title: "L'attuale Z-Offset è "
+  ZOffset_Units: "mm"
+  ZOffset_Body: "Questa è l'impostazione base per lo Z-Offset.\n\nImpostare lo Z-Offset\nprima di riprendere la stampa."
+  Continue: "OK"
+  Z_Offset: "Z-Offset"
+  Later: "Dopo"
+  Update: "Aggiorna"
+  Motors_Title: "Motori disallineati"
+  Motors_Body: "Per riallineare i motori portare la stampante a 0."
+
+
+Mainboard:
+  Connection_Title: "Azzera i controlli"
+  Connection_Body: "Azzera la connessione ai controlli della stampante."
+  Connection_Button: "Reset"
+
+##Wizards automate complex tasks by guiding a user through a series of actions.  
+##Slicing is a process in which a program takes a 3D model and divides it up into layers for the printer to process. 
+Utilities:
+  Wizards: "Procedure guidate"
+  Network: "Rete"
+  Update: "Aggiornamento"
+  Options: "Opzioni"
+  System: "Sistema"
+  Print_Tuning: "Aggiustamento Stampante"
+  Fan_Control: "Controllo ventola"
+  Temp_Control: "Controllo Temperatura"
+  Motor_Control: "Controllo Motori"
+  Preheat: "Selezione Materiali" #NOT_TRANSLATED
+  Cooldown: "Raffreddamento"
+  ZOffset: "Z-Offset"
+  Filament: "Filamento"
+  Slicer: "Slicing"
+  FT_Wizard: "Messa a punto di precisone guidata"
+  Bed_Cal: "Calibrazione Piano"
+  Start_Wifi: "Accendi Wi-Fi Hotspot"
+  Network_Status: "Stato Rete"
+  QR_Code: "QR Code"
+  EEPROM: "EEPROM"
+  Firmware: "Firmware"
+  MainBoard: "Stato connessione"
+  Tool1: "Estrusore 1"
+  Tool2: "Estrusore 2"
+  Bed: "Piano"
+  Webcam_Status: "Stato webcam"
+
+
+RoboIcons:
+  Configure_WiFi: "Configura Wi-Fi"
+  Start_WiFi: "Accendi Wi-Fi Hotspot"
+  Network_Status: "Stato Rete"
+  QR: "API QR Code"
+  Z_Offset: "Z-Offset"
+  Fil_Load: "Carica Filamento"
+  Fil_Change: "Cambio Filamento"
+  Slicing: "Slicing"
+  FTZ_Offset: "Messa a punto precisa Offset"
+  Bed_Cal: "Calibratione Piano"
+  Tool1: "Extrusore 1"
+  Tool2: "Extrusore 2"
+  Bed: "Piano"
+  Preheat: "Preriscaldamento"
+  Cooldown: "Rafreddamento"
+  EEPROM: "EEPROM"
+  USB: "Unmount USB"
+  Firmware: "Aggiornamento Firmware"
+  Motors: "Motori Spenti"
+  Mainboard: "Azzera controlli"
+  Shutdown: "Spegni"
+  Reboot: "Restart"
+  Wizards: "Procedure guidate"
+  Print_Tuning: "Messa a punto stampa"
+  Fan_Control: "Controllo ventola"
+  Network: "Rete"
+  Update: "Aggiornamento"
+  System: "Sistema"
+  Options: "Opzioni"
+  Language: "Lingua"
+  Webcam: "Webcam"
+
+
+System:
+  Shutdown_Title: "Spegnimento"
+  Shutdown_Body: "Dopo che lo schermo diventa nero,\npuoi spegnere la stampante."
+  Shutdown_Confirmation: #NOT_TRANSLATED
+    Title: "Spegno la stampante" #NOT_TRANSLATED
+    Body_Text: "Sei sicuro di voler spegnere la stampante?" #NOT_TRANSLATED
+  Reboot_Confirmation: #NOT_TRANSLATED
+    Title: "Riavvia la stampante" #NOT_TRANSLATED
+    Body_Text: "Sei sicuro di voler riavviare la stampante?" #NOT_TRANSLATED
+  Reboot_Title: "Riavvio"
+  Reboot_Body: "Attendere prego."
+  USB_Title: "USB smontata"
+  USB_Body: "Rimuovere il drive USB."
+  positive: "Si"
+  negative: "No"
+
+
+
+
+Robo_Controls:
+  Temperature_Controls: "Controllo Temperature"
+  Motor_Controls: "Controllo Motori"
+
+Motor_Controls:
+  Home: "Home"
+  Retract: "Ritrai"
+  Extrude: "Estrudi"
+  Motors_Off: "Motori Spenti"
+  Raise_BP: "Alza Z"
+  Y+: "Y+"
+  Y-: "Y-"
+  X+: "X+"
+  X-: "X-"
+  Z+: "Z+"
+  Z-: "Z-"
+
+
+Temperature_Controls:
+  Extruder_1: "Estrusore 1"
+  Extruder_2: "Estrusore 2"
+  Bed: "Piatto"
+  Preheat: "Preriscaldamento"
+  Cooldown: "Raffreddamento"
+  Celsius_Alone: "°C"
+  Celsius_with_slash: "°C /"
+  Current: "Attuale:"
+  Desired: "Obbiettivo:"
+  Delete: "Delete"
+  Set: "Imposta"
+  one: "1"
+  two: "2"
+  three: "3"
+  four: "4"
+  five: "5"
+  six: "6"
+  seven: "7"
+  eight: "8"
+  nine: "9"
+  zero: "0"
+
+##Keep underscores '_' in between words where shown, if multiple spaces are required for a translation use an underscore instead of a space
+WiFi:
+  Start_Hotspot: "Connettendo un hot-spot Wi-Fi, puoi connetterti\n alla tua stampante attraverso delle periferiche Wi-Fi abilitate."
+  Start: "Inizia"
+  Cancel: "Cancella"
+  Retry: "Riprova"
+  Ok: "OK"
+  AP_Title: "Wi-Fi Hotspot"
+  Empty_SSID: "SSID vuoto"
+  Connect: "Connetti"
+  Connected: "Connesso"
+  Select_Network: "Seleziona la Rete"
+  Show_Keyboard: "Mostra tastiera"
+  Enter_Password: "**Inserisci_la_Password**"
+  Hotspot_Title: "Inizializzazione Hotspot..."
+  Hotspot_Body: "\npotrebbe impiegare fino ad un paio di minuti."
+  Initiating: "Inizializzazione... potrebbe impiegare fino ad un paio di minuti."
+  Hotspot_Failure_Title: "Hotspot non attivato"
+  Hotspot_Failure_Body: "\nPremi riprova per aggiornare il modulo di rete."
+  Hotspot_Success_Title: "Hotspot Wi-Fi Creato"
+  Hotspot_Success_Body: "\nOra puoi usare delle periferiche Wi-Fi abilitate per\nconnetterti alla stampante."
+  Connecting: "Connessione a "
+  ellipsis: "..."
+  Time_Warning: "Potrebbero occorrere fino ad un paio di minuti."
+  Success_Connect: "Connesso con successo a"
+  WiFi_Failure_Title: "Impossibile connettersi"
+  WiFi_Failure_Body: "Assicurati di avere un segnale forte \n e che la password che hai inserito sia corretta."
+  Connecting_dots: "Connessione..."
+  WiFi: "Wi-Fi"
+  And_Wired: " e rete Ethernet"
+  Hot_and_Wired: "Modalità Hotspot e rete Ethernet"
+  Hot_ Mode: "Modalità Hotspot"
+  Hot_IP: "10.250.250.1"
+  Wired: "Rete Ethernet"
+  No_Mode: "Non in modalità hot spot o connesso al Wi-Fi"
+  Error_WiFi: "Errore -- non può essere determinato"
+  Connection_Status: "Stato Connessione:"
+  Hostname: "Hostname:"
+  IP: "IP:"
+  Getting_Status: "Ottengo lo stato della rete..."
+
+##In this screen the extruder is being designated a temperature to heat up to. 
+##PLA and ABS are standardized types of plastic filament for 3D printers. 
+Preheat:
+  Celsius_Alone: "°C"
+  Celsius_190: "°C/190°C"
+  Celsius_100: "°C/100°C"
+  Celsius_60: "°C/60°C"
+  Heating_to: "Riscaldando a"
+  Heating_to_230: "Riscaldando a 230°C"
+  Heating_to_190: "Riscaldando a 190°C"
+  Material_Error: "Errore: plastica non registrata"
+  Material_Message: "Preriscaldamento dell'estrusore a" 
+  Choose_Type: "Scegli il tuo tipo di filamento"
+  PLA: "PLA"
+  ABS: "ABS"
+  Stop: "Stop"
+  Printer: "Stampante"
+  PLA_C2: "Scalda l'estrusore a 190°C"
+  PLA_R2: "Scalda l'estrusore a 190°C ed il piatto a 60°C"
+  ABS_C2: "Scalda l'estrusore a 230°C"
+  ABS_R2: "Scalda l'estrusore a 230°C ed il piatto a 100°C"
+  Preheat_Head: "Estrusore: "
+  And_Bed: "°C Piatto: "
+  Extruder: "Estrusore: "
+  Bed: "Piatto: "
+  Edit: "Modifica"
+  Preheat: "Preriscaldamento"
+  Select: "Seleziona"
+  Edit_Preset:
+    Title: "Cambia Materiale"
+    Select_Preset: "Info Materiale"
+    Add_Material: "Crea un nuovo materiale"
+    Name: "Nome: "
+    Name_Default: "Senza-nome"
+    Set_Name: "Imposta il nome del materiale"
+    Ext: "Extruder: "
+    Ext_Body: "Imposta la temperatura del materiale"
+    Bed: "Piatto: "
+    Bed_Body: "Imposta la temperatura del materiale"
+    Save: "[size=30]Salva[/size]"
+    Delete: "[size=30]Cancella[/size]"
+  Keyboard:
+    Title: "Modifica Nome"
+  Keypad:
+    Title_ext1: "Cambia Temp. Estrusore"
+    Title_bed: "Cambia Temp. Piatto"
+
+  Errors:
+    Ext1_Error: "\nAvviso Max. Temp."
+    Ext1_Body: "La temperatura max. per l'estrusore è 290°C"
+    Bed_Error: "\nAvviso Max. Temp."
+    Bed_Body: "La temperatura max. per il piatto è 100°C"
+  Delete:
+    Title: "Cancella Materiale"
+    Body: "Sei sicuro di voler cancellare le impostazioni per\n [color=#69B3E7][font=fonts/S-Core - CoreSansD55Bold.otf][b]"
+    Q_Mark: "[/color][/b][/font]?"
+    positive: "Elimina"
+    negative: "Annulla"
+    Deleted: "è stato cancellato."
+  Duplicate:
+    Title: "Nome Duplicato"
+    Body_Text: "C'è già un materiale chiamato\n[color=#69B3E7][font=fonts/S-Core - CoreSansD55Bold.otf][b]"
+    Body_Text1: "\n[/color][/b][/font]Vuoi sovrascriverlo?"
+    option1: "Sovrascrivi"
+    option2: "Annulla"
+
+
+
+#The Filament Wizard is a tool that guides the user through the process of loading plastic filament into extruder for printing. 
+##Plastic filaments are packaged in spools, which are reels of material.  
+Filament_Wizard:
+  Wizard_Description: "Usa questa procedura per caricare una nuova bobbina di filamento nella tua stampante."
+  Start: "Inizia"
+  Heat_230: "Scalda a "
+  Celsius_Alone: "°C"
+  Auto_Next: "Riscaldamento estrusore. La procedura andrà al\nprossimo passaggio una volta raggiunta la temperatura obiettivo."
+  Remove_Filament: "Rimuovi il filamento dalla tua stampante."
+  Next: "Successivo"
+  Cut_Tip: "Taglia di netto la fine del filamento, quindi inserici la punta del filamento nell'estrusore."
+  Extrude_Filament: "Premi il bottone Successivo quando vedi il\n filamento uscire fuori dall'ugello."
+  Complete_Title: "procedura Completata"
+  Complete_Body: "\nIl nuovo filamento è pronto per la stampa!"
+  Ok: "OK"
+
+  Title_15: "Preparazione Stampante"
+  Title_25: "Rimuovere il filamento"
+  Title_35: "Caricare il filamento"
+  Title_45: "Estrudere il filamento"
+  Title_55: "Cambio del filamento Completato"
+
+  Title_14: "Preparazione Stampante"
+  Title_24: "Caricare il filamento"
+  Title_34: "Estrudere il filamento"
+  Title_44: "Carica del filamento Completato"
+
+
+#The Z Offset Wizard is a tool that guides the user to calibrate the distance between the extruder and the printing bed. 
+#XYZ are the variables used to characterize a 3 Dimensional Space
+ZOffset_Wizard:
+  Wizard_Description: "Usa questa procedura per impostare l'offset Z\nQuesto imposta l'altezza del piatto quando si stampa.\nAssicurati che l'ugello sia pulito prima di usare questo attrezzo."
+  Start: "Inizia"
+  Auto_Next: "Posizionamento dell'asse Z. La procedura andrà al passo successivo dopo averla completata."
+  Adjust_Instructions: "Posiziona l'attrezzo per lo Z-Offset tra il piano di\nstampa e l'ugello dell' estrusore. Aggiusta l'altezza del piano \nfino a che non senti un po' di resistenza nel rimuovere la carta."
+  Z+: "Z+"
+  Z-: "Z-"
+  Done: "Fatto"
+  Capture_Offset: "Registrazione del valore di Z-Offset. La procedura andrà\n al passo successivo appena questo verrà completato."
+  Finish_Title: "Procedura Completa"
+  Finish_Body1: "\nIl nuovo valore del Z-Offset di"
+  Finish_Body2: "è stato registrato."
+  Save: "Salva"
+  Cooldown: "Raffreddamento dell'estrusore e del piano di stampaad una temperatura sicura.\nLa procedura andrà al passo successivo una volta completata questa."
+  Welcome: "Procedura Z-Offset"
+  Wait: "Preparazione Stampante"
+  Z_14: "Preparazione Stampante"
+  Z_24: "Regolazione altezza piano"
+  Z_34: "Registrazione Z-Offset"
+  Z_44: "Z-Offset registrato"
+  zero_five: "0.05mm"
+  one_zero: "0.1mm"
+  two_zero: "0.2mm"
+
+
+Print_Tuning:
+  Fan_Speed: "Velocità ventola"
+  Print_Speed: "Velocità Stampa"
+  Flow_Rate: "Flusso Estrusione"
+  Printing_Speed: "Velocità di Stampa"
+  
+#The EEPROM screen has various settings for the printer that can be customized
+EEPROM:
+  Apply: "Applica"  
+  Home_Offset: "Offset Inizio"
+  Probe_Offset: "Offset Sonda"
+  Filament_Settings: "Impostazioni Filamento"
+  Feed_Rates: "Quantità di alimentazione"
+  PID_Settings: "Impostazioni PID"
+  Bed_PID: "Impostazioni Piatto PID"
+  Steps_Unit: "Passi per unità"
+  Accelerations: "Accelerazioni"
+  Max_Accelerations: "Max Accelerazioni"
+  Advanced: "Variabili Avanzate"
+  Reset: "Reset EEPROM"
+  Error_Title: "Valore Cambiato"
+  Error_Body: "Il valore è stato applicato alla EEPROM"
+  Reset_Confirmation: #NOT_TRANSLATED
+    Title: "Reset EEPROM" #NOT_TRANSLATED
+    Body_Text: "Sei sicuro di voler cancellare TUTTI i valori della EEPROM?" #NOT_TRANSLATED
+    positive: "Si" #NOT_TRANSLATED
+    negative: "No" #NOT_TRANSLATED
+  Acknowledge_Reset: #NOT_TRANSLATED
+    Title: "Reset EEPROM" #NOT_TRANSLATED
+    Body_Text: "I valori di default della EEPROM sono stati ripristinati." #NOT_TRANSLATED
+    Button: "OK" #NOT_TRANSLATED
+
+##Slicing is a process in which a program takes a 3D model and turns it into a printable file. 
+##The infill is the density within the model.
+Slicing_Wizard:
+  Wizard_Description: "Usa questa procedura per preparare il file STL da stampare\nIl tempo di elaborazione dipende dalle dimensioni del file."
+  Continue: "Inizia"
+  Layer_Height: "Strato\nAltezza"
+  Infill: "Riempimento %"
+  Material: "Materiale"
+  Raft: "Piattaforma"
+  Supports: "Supporti"
+  
+
+FT_ZOffset_Wizard:
+  Side_View: "Vista Laterale"
+  Front_View: "Vista Frontale"
+  Bed_High: "Il piatto\nè troppo alto"
+  Bed_Ideal: "Il piatto\nè ok"
+  Bed_Low: "Il piatto\nè troppo alto"
+  Test_Instructions: "Usa il pulsante in basso per correggere e testare l'offset attuale.\n"
+  Bed_Down: "Piatto Giù"
+  Bed_Up: "Piatto Su"
+  Test_Offset: "Prova\nOffset"
+
+  Welcome:
+    Title: "Messa a punto di precisione Z-Offset"
+    Body: "Usa questa procedura per mettere a punto lo Z-Offset."
+
+  Set_Mode:
+    Title: "Messa a punto precisa"
+    Sub_Title: "Seleziona l' angolo iniziale"
+    Body: "\nInizia dall'angolo Sinistro o Destro."
+    Option1: "Sinistr"
+    Option2: "Destro"
+
+  Z_Error:
+    Title: "Z-Offset Non Impostato"
+    Body: "The Z-Offset è impostato a "
+    Body1: " Impostare lo\nZ-Offset prima di usare questo strumento."
+
+#Here do not change what is inside the brackets []. 
+  Prepare_Lines:
+    Title: "Preparazione stampante"
+    Sub_Title: "Preparazione stampante"
+    Body: "Attendere che la stampante si prepari per la prossima fase\n[color=FF0000]Attenzione: l'estrusore è caldo! Non toccarlo.[/color]"
+
+  Warn_Restart:
+    Title: "Rimuovere la plastica"
+    Body: "Rimuovere tutte le plastiche dal piatto prima di procedere."
+
+
+  Instruction:
+    Title: "Instruzioni"
+    Body: "Per testare l'attuale Z-Offset, stampa una linea sul piatto.\nQuindi regola l'altezza del piatto fino a trovare\nun valore ideale Guarda la prossima schermata per un riferimento visuale."
+
+
+  Update_HO:
+    Title: "Regola Offset"
+
+  Choose_Finish:
+    Title: "Salva il nuovo Z-Offset"
+    Sub_Title: "Finito?"
+    Body: "Premi Seleziona l'Angolo per continuare a provare,\noppure Salva per terminare la procedura."
+    Option1: "Seleziona l'Angolo"
+    Option2: "Salva"
+
+  Finish:
+    Title: "Z-Offset Salvato"
+    Sub_Title: "Procedura Completata"
+    Body: "Il valore di Z-Offset ora è "
+
+
+  Update_Offset:
+    mm_001: "0.01mm"
+    mm_005: "0.05mm"
+    Body: "Usa i pulsanti sotto per regolare e verificare l'offset attuale."
+
+#The firmware wizard guides a user through the process of updating the version of the printer software. 
+#Hex files are the file type that contains the software update
+Firmware_Wizard:
+  Select_Firmware: "Seleziona Firmware"
+  Hex_Error_Title: "Nessun Hex File"
+  Hex_Error_Body: "Fornire un hex\nfile valido su una penna USB."
+  Confirm_Hex: "Conferma il File Hex"
+  Start_Firmware: "Premi Inizio per aggiornare il firmware.\nQuesta azione riprisinerà tutte le impostazioni di base."
+  Start: "Inizio"
+
+#The bed calibration wizard is a guide that instructs the user to calibrate the bed to lay flat
+Bed_Cal_Wizard:
+  Welcome:
+    Title: "Procedura calibrazione piatto"
+    Body: "Usa questa procedura per livellare il piatto\nmanualmente regolando le viti sotto i 4 angoli del piatto."
+    Button: "Inizia"
+
+#Ignore what is in the brackets. 
+  Tilt_Instructions:
+    Title: "Controllo di stabilità"
+    Body: "Controlla che il piatto sia posizionato fermamente.\n [color=#69B3E7]Premi ogni angolo.[/color] Se un angolo si muove,\nregola la vite sotto fino a che smette di muoversi."
+    Button: "Successivo"
+
+  Mode:
+    Title: "Selezione Modalità"
+    Sub_Title: "Seleziona modalità"
+    Body: "Seleziona Guidata per un'esperienza passo-passo.\nScegli manuale per un opzione più veloce ed avanzata."
+    Button1: "Manuale"
+    Button2: "Guidata"
+
+  Prepare:
+    Title1: "Manuale"
+    Title2: "Guidata"
+    Sub_Title: "Prreparazione Stampante"
+    Body: "Attendere che la stampante sia pronta per il prossimo passo."
+
+  Guided_Instructions:
+    Title: "Regolazione precisa"
+    Error: "Errore"
+    L_Point: "Angolo fronte sinistro"
+    LF_Screw: "Vite fronte sinistra"
+    R_Point: "Angolo fronte Destro"
+    RF_Screw: "Vite fronte destro"
+    BR_Point: "Angolo retro destro"
+    BR_Screw: "Vite retro destra"
+    BL_Point: "Angolo retro sinistro"
+    BL_Screw: "Vite retro sinistra"
+    Body1: "Imposta il " 
+    Body2: " \nusando l'attrezzo Z-Offset."
+    Button_Text: "Successivo"
+
+  Manual_Instructions:
+    Title: "Regolazione precisa"
+    Sub_Title: "Seleziona un angolo e regola la vite corrispondente."
+    Left: "Fronte Sinistro"
+    Right: "Fronte Destro"
+    Back_Right: "Retro Destro"
+    Back_Left: "Retro Sinistro"
+
+  Finish_Wizard:
+    Title: "Calibrazione del piatto completata"
+    Sub_Title: "Procedura completata"
+    Body: "Ora sei pronto per stampare!"
+
+#Here do not translate \robo.profile\
+Slicer_Wizard:
+  Confirmation:
+    Title: "Procedura di slicing"
+    Button: "Fatto"
+  Select_File:
+    Title: "Seleziona un file STL"
+  Overrides:
+    Title: "Seleziona le opzioni di Slicing"
+  Progress:
+    Sub_Title: "Slicing "
+  Error:
+    Profile:
+      Sub_Title: "Errore del profilo"
+      Body: "Il profilo \"robo.profile\" non esiste\n e non può essere ripristinato automaticamente."
+    Slice:
+      Sub_Title: "Slicing Fallito"
+      Body: "Il file non è stato elaborato correttamente.\nProvare di nuovo."
+
+  Support: #NOT_TRANSLATED
+    Title: "Supporti" #NOT_TRANSLATED
+    Body: "I supporti sono suggeriti per stampe con sottosquadri.\nPossono essere stampati dal piatto o su tutta la stampa." #NOT_TRANSLATED
+    Buildplate: "Stampa dal piatto" #NOT_TRANSLATED
+    Everywhere: "Dappertutto" #NOT_TRANSLATED
+    No_Supports: "No" #NOT_TRANSLATED
+  Fans: #NOT_TRANSLATED
+    Title: "Stampa in raffreddamento" #NOT_TRANSLATED
+    Body: "PLA: Seleziona Ventole ON.\nABS: Seleziona ventole OFF." #NOT_TRANSLATED
+    fan_on: "On" #NOT_TRANSLATED
+    fan_off: "Off" #NOT_TRANSLATED
+
+#Overhangs are shapes in a 3D model that have no material or structure beneath them. 
+  Raft_Support:
+    Title: "Aderenza al piatto" #NOT_TRANSLATED
+    Body: "Aggiungi una base sotto la tua stampa o un bordo attorno\nad essa per migliorare l'adesione al piano." #NOT_TRANSLATED
+    no_raft: "No" #NOT_TRANSLATED
+    raft: "Base" #NOT_TRANSLATED
+    brim: "Orlo" #NOT_TRANSLATED
+
+  Print_Quality:
+    Title: "Qualità di stampa"
+    Body: "Strati sottili producono una stampa di qualità migliore\nma incrementano anche il tempo di stampa."
+    mm_20: "0.20 mm"
+    mm_15: "0.15 mm"
+    mm_10: "0.10 mm"
+    mm_06: "0.06 mm"
+  
+  Infill:
+    Title: "Densità riempimento"
+    Body: "Il riempimento determina la densità interna di stampa. \nStampe ad alta densità sono più robuste, ma usano più filamento."
+    p_0: "0%"
+    p_10: "10%"
+    p_25: "25%"
+    p_100: "100%"
+
+Refresh_Screen:
+  Soft_Reset:
+    Status: "Connessione Offline"
+    Title: "Connessione Interrotta"
+    Please: "Prego "
+    Body: " la connessione dai controlli della stampante. Se\nl'errore persiste, chiamare l'assistenza clienti e riferie:\n"
+
+  Reset:
+    Title: " In Corso"
+    Body: "Disconnessione. Lo schermo potrebbe disconnettersi momentaneamente."
+
+  Update_Connection:
+    Successful: " Riuscita"
+    In_Progress: " In Corso"
+    bed_connect: "Controllo connessione del piatto"
+    offline: "Offline"
+
+Firmware:
+  Title: "Aggiornamento Firmware"
+  Body: "Prego attendere. Molte funzioni sono disabilitate fino a che\nl'aggiornamento non è completato."
+
+Bed_Hot:
+  Title: "Il piano di stampa è caldo"
+  Body: "Non rimuovere il piano di stampa mentre è in uso.\naltrimenti potrebbero essere causati danni permanenti al piatto."
+
+Filament:
+  Title: "Il Filamento è terminato"
+  Body: "\nCaricare altro filamento quando la stampante è in pausa.\nquindi ripristinare la stampa."
+  Button1: "OK"
+  Button2: "Procedura per il filamento"
+
+#Robo is the product name
+Error_Detection:
+  MAINBOARD:
+    Title: "Errore di connessione"
+    Body: "Reimpostare la connessione"
+    Connection_Offline: "Connessione Offline"
+    E_Sub_Title: "Connessione Interrotta"
+    E_Body: "Reimpostare la connessione dai controlli della stampante. Se\nl'errore persiste, chiamare l'assistenza clienti e riferie:"
+    E_Button: "Reimposta"
+    E_Title: "Rilevato errore"
+    Reset_Confirmation: #NOT_TRANSLATED
+      Title: "Reimosti Controlli" #NOT_TRANSLATED
+      Body: "Sei sicuro di voler reimpostare la connessione ai \ncontrolli della stampante? Questo interromperà ogni attività della stampante come stampare e scaldarsi." #NOT_TRANSLATED
+      positive: "Si" #NOT_TRANSLATED
+      negative: "No" #NOT_TRANSLATED
+  FIRMWARE:
+    Title: "Aggiornamento Firmware"
+    Body: "Attendere..."
+    E_Title: "Aggiornamento Firmware"
+  BED_HOT:
+    Title: "Il piano di stampa è caldo"
+    Body: "Non rimuovere il piano"
+  BED_DISCONNECT:
+    Title: "Il piano è disconnesso"
+    Body: "Riconnettere il piano"
+    E_Sub_Title: "Il piano di stampa è disconnesso"
+    E_Body: "Rimettere il piano di stampa a posto, quindi ricollegarlo.."
+    E_Button: "Riconnesso"
+    E_Title: "Stato del piano di stampa"
+  PAUSED:
+    Title: "Stampa in pausa"
+    Body: "Riprendere quando si è pronti"
+  FIL_RUNOUT:
+    Title: "Filamento esaurito"
+    Body: "Caricare altro filamento"
+    E_Title: "Stato del Filamento"
+  DEFAULT:
+    Title_Idle: "Stampante pronta"
+    Title_Active: "Stampante attiva"
+    Body_Idle: "Stampiamo qualcosa!"
+    Body_Active: "Stampa in corso."
+
+Files:
+  File_Options:
+    Title: "Menu File"
+    Move: "Muovi File"
+    MoveF: "Muovi Cartella"
+    Delete: "Cancella"
+    AddF: "Aggiungi Cartella"
+  Delete_File_Conf: #NOT_TRANSLATED
+    Title: "Cancella File" #NOT_TRANSLATED
+    Body: "Sei sicuro di vole cancellare questo file?" #NOT_TRANSLATED
+    positive: "Si" #NOT_TRANSLATED
+    negative: "No" #NOT_TRANSLATED
+  Delete_Folder_Conf: #NOT_TRANSLATED
+    Title: "Cancella Cartella" #NOT_TRANSLATED
+    Body: "Sei sicuro di voler cancellare questa cartella\ne tutto il suo contenuto?" #NOT_TRANSLATED
+
+  Error:
+    Title: "Il File non può essere cancellato"
+    Body: "Riprova.\nSe il problema persiste,\ncontrolla se il tuo filesystem ha errori."
+
+  Move_Error:
+    Title: "Il File non può essere spostato"
+    Body: "Se il problema persiste, il file che hai provato\na spostare potrebbe già esistere nella destinazione."
+
+  Warning:
+    Title: "Salvo"
+    Body: "Attendere."
+
+  Keyboard:
+    Title: "Nome Cartella"
+    New_Folder: "Nuova cartella"
+    Default_Title: "Tastiera"
+
+  Save_File:
+    Title: "Salva File"
+    Sub_Title: "File Salvato"
+    Body: " è stato salvato."
+
+  File_Status:
+    Title: ""
+    Busy: "Stampante occupata"
+    Start: "Inizia"
+
+  File_Error:
+    Title: "Errore File"
+    Body: "C'è un problema con il file selezionato.\nRiprova di nuovo."
+
+  File_Saved:
+    Title: "File Salvato"
+    Body: "Il File è stato salvato nella\ncartella locale."
+
+Update_Printer:
+  Checking: "Controllo..."
+  Connection_Error: "Errore di connessione!"
+  Connect_Error:
+    Title: "Errore di connessione"
+    Body: "Controlla la connessione internet."
+  Loading:
+    Title: "Caricamento Aggiornmento"
+    Body: "Può impiegare anche un minuto."
+  No_Update:
+    Title: "Notifica Aggiornamento"
+    Body: "Nessun aggiornamento necessario."
+  Welcome:
+    Installed: "Installata:"
+    Available: "Disponibile:"
+    RoboOS: "Supercoto"
+    Update: "Aggiornamento"
+    Up2Date: "Aggiornamento"
+
+Button_Screen:
+  Default_Button: "OK"
+
+Tool_Status:
+  Tool1: "Temp. Estrusore 1"
+  Tool2: "Temp. Estrusore 2"
+  Bed: "Temp. Piatto"
+
+Switch_Lang:
+  Welcome:
+    Title: "Seleziona Lingua"
+  Confirmation:
+    Title: "Selezionato "
+    Body1: "Lingua cambiata a "
+    Body2: ".\nla stampante si riavvierà."
+    Button: "OK"
+  Choose:
+    Select: "Seleziona "
+    Switch_to: "Passa a "
+    Are_You_Sure: "Sei sicuro di voler selezionare questa lingua?"
+    Yes_option: "Si"
+    No_option: "No"
+    Question: ""
+
+Webcam:
+  Sub_Title: "Controllo Stato"
+  Body: "Usa il pulsante sotto per cambiare lo\nstato della Webcam."
+  Button: "Controllo Stato"
+  Webcam_On: "Webcam Accesa"
+  Webcam_Off: "Webcam Spenta"
+  Button_On: "On"
+  Button_Off: "Off"
+
+

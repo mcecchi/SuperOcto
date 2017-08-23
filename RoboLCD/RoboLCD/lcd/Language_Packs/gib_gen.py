@@ -54,4 +54,5 @@ def output_gib(in_name, out_name):
 
                     
 
-output_gib("english.yaml", "redo.yaml")
+#output_gib("english.yaml", "redo.yaml")
+output_gib("italian.yaml", "redo.yaml")
