@@ -69,6 +69,7 @@ class Select_Language(Scroll_Box_Even):
 
         self.acceptable_languages = {'English': 'en',
                                      'Spanish': 'sp',
+                                     'Italian': 'it',
                                      'Giberish': 'gib'
                                }
         self.callback = callback
@@ -153,7 +154,7 @@ class Language_Confirmation_Screen(Button_Screen):
         super(Language_Confirmation_Screen, self).__init__(self.body_text, self.button_function, button_text=self.button_text)
 
     def restart(self):
-        subprocess.call('/home/pi/scripts/webcam stop & sudo pkill -9 octoprint & sudo service octoprint restart', shell=True)
+        subprocess.call('/home/user/scripts/webcam stop & sudo pkill -9 octoprint & sudo service octoprint restart', shell=True)
 
 
 
