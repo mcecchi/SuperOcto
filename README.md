@@ -98,4 +98,5 @@ cd ~
 source ~/OctoPrint/venv/bin/activate
 octoprint serve
 ```
-
+## To do ##
+https://github.com/mcecchi/SuperOcto/wiki/To-do
