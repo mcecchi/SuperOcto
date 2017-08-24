@@ -1,4 +1,4 @@
-#A 3D printer is a machine that takes a computer generated model and prints it in 3D. It does this by taking feeding plastic to 
+﻿#A 3D printer is a machine that takes a computer generated model and prints it in 3D. It does this by taking feeding plastic to 
 #an extruder that melts it and deposits it in layers to create the 3D model. The following text will be displayed on a built in
 #screen to help a user properly utlize their printer. 
 
@@ -12,8 +12,8 @@ Load_Success:
 
 Main_Screen:
   Files: "Files"
-  Printer: "Printer"
-  Utilities: "Utilities"
+  Printer: "Stampante"
+  Utilities: "Utilità"
 
 Printer_Status:
   Minute_Left: "Meno di un minuto"
@@ -22,7 +22,7 @@ Printer_Status:
 
 File_Screen:
   Z_Offset: "Z-Offset"
-  Infill: "Infill"
+  Infill: "Riempimento"
   Layer_Height: "Altezza\nStrato"
   Layers: "Strati"
   Estimated_Time: "Tempo Stimato"
@@ -118,7 +118,7 @@ Utilities:
   ZOffset: "Z-Offset"
   Filament: "Filamento"
   Slicer: "Slicing"
-  FT_Wizard: "Messa a punto di precisone guidata"
+  FT_Wizard: "Fine tuning guidato"
   Bed_Cal: "Calibrazione Piano"
   Start_Wifi: "Accendi Wi-Fi Hotspot"
   Network_Status: "Stato Rete"
@@ -141,7 +141,7 @@ RoboIcons:
   Fil_Load: "Carica Filamento"
   Fil_Change: "Cambio Filamento"
   Slicing: "Slicing"
-  FTZ_Offset: "Messa a punto precisa Offset"
+  FTZ_Offset: "Fine Tuning Offset"
   Bed_Cal: "Calibratione Piano"
   Tool1: "Extrusore 1"
   Tool2: "Extrusore 2"
@@ -149,14 +149,14 @@ RoboIcons:
   Preheat: "Preriscaldamento"
   Cooldown: "Rafreddamento"
   EEPROM: "EEPROM"
-  USB: "Unmount USB"
+  USB: "Scollega USB"
   Firmware: "Aggiornamento Firmware"
   Motors: "Motori Spenti"
   Mainboard: "Azzera controlli"
   Shutdown: "Spegni"
   Reboot: "Restart"
   Wizards: "Procedure guidate"
-  Print_Tuning: "Messa a punto stampa"
+  Print_Tuning: "Controllo stampa"
   Fan_Control: "Controllo ventola"
   Network: "Rete"
   Update: "Aggiornamento"
@@ -186,14 +186,14 @@ System:
 
 
 Robo_Controls:
-  Temperature_Controls: "Controllo Temperature"
+  Temperature_Controls: "Controllo Temp."
   Motor_Controls: "Controllo Motori"
 
 Motor_Controls:
   Home: "Home"
   Retract: "Ritrai"
   Extrude: "Estrudi"
-  Motors_Off: "Motori Spenti"
+  Motors_Off: "Motori Off"
   Raise_BP: "Alza Z"
   Y+: "Y+"
   Y-: "Y-"
@@ -446,11 +446,11 @@ FT_ZOffset_Wizard:
   Test_Offset: "Prova\nOffset"
 
   Welcome:
-    Title: "Messa a punto di precisione Z-Offset"
+    Title: "Fine tuning Z-Offset"
     Body: "Usa questa procedura per mettere a punto lo Z-Offset."
 
   Set_Mode:
-    Title: "Messa a punto precisa"
+    Title: "Fine Tuning"
     Sub_Title: "Seleziona l' angolo iniziale"
     Body: "\nInizia dall'angolo Sinistro o Destro."
     Option1: "Sinistr"
