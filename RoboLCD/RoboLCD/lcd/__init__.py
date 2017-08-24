@@ -18,7 +18,7 @@ def start():
   Config.set('kivy', 'keyboard_mode', 'dock')
   #Config.set('graphics', 'height', '320')
   #Config.set('graphics', 'width', '480')
-  Config.set('graphics', 'height', '600')
+  Config.set('graphics', 'height', '480')
   Config.set('graphics', 'width', '800')
   Config.set('graphics', 'borderless', 1)
 
