@@ -5,6 +5,7 @@ from kivy.clock import Clock
 from kivy.properties import StringProperty
 import yaml
 import os
+import stat
 import imp
 import requests
 from git import Repo
@@ -24,10 +25,10 @@ class UpdateScreen(FloatLayout):
 
         self.data_path = roboprinter.printer_instance.get_plugin_data_folder()
 
-        self.repo_info_url = 'https://api.github.com/repos/robo3d/Update_Script/releases'
+        self.repo_info_url = 'https://api.github.com/repos/mcecchi/Update_Script/releases'
         self.repo_local_path = self.data_path + '/Update_Script'
         self.updater_path = self.repo_local_path + '/Update_Checker/Update_Checker.py'
-        self.repo_remote_path = 'https://github.com/Robo3d/Update_Script.git'
+        self.repo_remote_path = 'https://github.com/mcecchi/Update_Script.git'
         self.versioning_path = self.data_path + '/roboOS.txt'
 
         self.printer_model = roboprinter.printer_instance._settings.get(['Model'])
@@ -61,7 +62,7 @@ class UpdateScreen(FloatLayout):
                 v = f.readline().strip()
         else:
             with open(path, 'w') as f:
-                v = '1.0.3'
+                v = '0.0.0'
                 f.write(v)
         return v
 
@@ -80,25 +81,32 @@ class UpdateScreen(FloatLayout):
 
     def _get_avail_version(self, r):
         # parse json response for latest release version
-        model = 'r2' if self.printer_model == 'Robo R2' else 'c2'
+        #model = 'r2' if self.printer_model == 'Robo R2' else 'c2'
+        model = ''
         versions = map(lambda info: info.get('tag_name', '0'), r)
         m_versions = filter(lambda v: model in v, versions)
         if len(m_versions) > 1:
             m_versions.sort()
+            avail = m_versions.pop()
+        elif len(m_versions) == 1:
             avail = m_versions.pop()
         else:
             avail = self.installed_version
         return avail
 
     def update_updater(self, *args):
-        if self.printer_model == 'Robo R2':
-            branch = 'r2'
-        else:
-            branch = 'c2'
+        #if self.printer_model == 'Robo R2':
+        #    branch = 'r2'
+        #else:
+        #    branch = 'c2'
+        branch = 'master'
 
         if os.path.exists(self.repo_local_path):
+            def del_rw(action, name, exc):
+                os.chmod(name, stat.S_IWRITE)
+                os.remove(name)
             # start fresh every time to avoid potential corruptions or misconfigurations
-            rmtree(self.repo_local_path)
+            rmtree(self.repo_local_path, onerror=del_rw)
         Repo.clone_from(self.repo_remote_path, self.repo_local_path, branch=branch)
 
     def run_updater(self, *args):
