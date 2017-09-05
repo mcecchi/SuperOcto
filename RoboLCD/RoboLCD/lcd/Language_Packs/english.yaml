@@ -155,6 +155,8 @@ RoboIcons:
   Mainboard: "Reset Controls"
   Shutdown: "Shut Down"
   Reboot: "Restart"
+  PrinterOn: "Printer On"
+  PrinterOff: "Printer Off"
   Wizards: "Wizards"
   Print_Tuning: "Print Tuning"
   Fan_Control: "Fan Control"
@@ -177,6 +179,13 @@ System:
     Body_Text: "Are you sure you want to restart the printer?" #NOT_TRANSLATED
   Reboot_Title: "Restarting"
   Reboot_Body: "Please wait."
+  PrinterOn_Title: "Powering On Printer"
+  PrinterOn_Body: "Printer powered on."
+  PrinterOff_Title: "Powering Off Printer"
+  PrinterOff_Body: "Printer powered off."
+  PrinterOff_Confirmation: #NOT_TRANSLATED
+    Title: "Power Off Printer" #NOT_TRANSLATED
+    Body_Text: "Are you sure you want to power off the printer?" #NOT_TRANSLATED
   USB_Title: "USB Unmounted"
   USB_Body: "Please remove the USB drive."
   positive: "Yes"
