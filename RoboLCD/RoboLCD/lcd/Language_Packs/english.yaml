@@ -65,7 +65,7 @@ Warning:
 
   Update:
     Sub_Title: "Update Available"
-    Body: "\n\nWould you like to install the update?\nChangelog: [color=#69B3E7]Robo3D.com/changelogs"
+    Body: "\n\nWould you like to install the update?"
 
   USB_Progress:
     Waiting: "Waiting"
@@ -170,13 +170,13 @@ RoboIcons:
 
 System:
   Shutdown_Title: "Shutting Down"
-  Shutdown_Body: "After the screen turns black,\nyou may power off the printer."
+  Shutdown_Body: "After the screen turns black,\nyou may power off SuperOcto."
   Shutdown_Confirmation: #NOT_TRANSLATED
-    Title: "Shut Down Printer" #NOT_TRANSLATED
-    Body_Text: "Are you sure you want to shut down the printer?" #NOT_TRANSLATED
+    Title: "Shut Down SuperOcto" #NOT_TRANSLATED
+    Body_Text: "Are you sure you want to shut down SuperOcto?" #NOT_TRANSLATED
   Reboot_Confirmation: #NOT_TRANSLATED
-    Title: "Restart Printer" #NOT_TRANSLATED
-    Body_Text: "Are you sure you want to restart the printer?" #NOT_TRANSLATED
+    Title: "Restart SuperOcto" #NOT_TRANSLATED
+    Body_Text: "Are you sure you want to restart SuperOcto?" #NOT_TRANSLATED
   Reboot_Title: "Restarting"
   Reboot_Body: "Please wait."
   PrinterOn_Title: "Powering On Printer"
