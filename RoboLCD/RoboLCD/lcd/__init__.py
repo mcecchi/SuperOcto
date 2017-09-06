@@ -267,9 +267,17 @@ def start():
               'title':'', 
               'back_destination': '', 
               'function':self.system_handler},
-        
-        
-        
+
+        'PRINTER_OFF': {'name': 'PrinterOff', 
+              'title':'', 
+              'back_destination': 'system', 
+              'function':self.system_handler},
+
+        'PRINTER_ON': {'name': 'PrinterOn', 
+               'title':'', 
+               'back_destination': 'system', 
+               'function':self.system_handler},
+
         #extruder Control sub screens
 
         'TOOL1' :{'name': 'TOOL1', 
@@ -454,7 +462,7 @@ def start():
       Logger.info('Screens: {}'.format(
         self.screen_names))  # not necessary; using this to show me that screen gets properly deleted
 
-    def go_back_to_screen(self, current, destination):
+    def go_back_to_screen(self, current=None, destination=None, **kwargs):
       # Goes back to destination and deletes current screen
       #ps = self.get_screen(current)
       try:
@@ -692,10 +700,12 @@ def start():
 
       power = Robo_Icons('Icons/System_Icons/Shutdown.png', roboprinter.lang.pack['RoboIcons']['Shutdown'], 'SHUTDOWN')
       reboot = Robo_Icons('Icons/System_Icons/Reboot.png', roboprinter.lang.pack['RoboIcons']['Reboot'], 'REBOOT')
+      printer_off = Robo_Icons('Icons/System_Icons/printer_off.png', roboprinter.lang.pack['RoboIcons']['PrinterOff'], 'PRINTER_OFF')
+      printer_on = Robo_Icons('Icons/System_Icons/printer_on.png', roboprinter.lang.pack['RoboIcons']['PrinterOn'], 'PRINTER_ON')
       
       
 
-      buttons = [power, reboot]
+      buttons = [power, reboot, printer_off, printer_on]
 
       layout = Scroll_Box_Icons(buttons)
 
@@ -724,6 +734,22 @@ def start():
               'Body_Text': roboprinter.lang.pack['System']['Reboot_Confirmation']['Body_Text']
               },
 
+        'PrinterOff' : {'command': 'sudo /home/pi/OctoPower/octopower 0 off', 'popup': "ERROR",
+              'error': roboprinter.lang.pack['System']['PrinterOff_Title'],
+              'body_text': roboprinter.lang.pack['System']['PrinterOff_Body'] ,
+              'delay': 0.1,
+              'confirmation': True,
+              'Title': roboprinter.lang.pack['System']['PrinterOff_Confirmation']['Title'],
+              'Body_Text': roboprinter.lang.pack['System']['PrinterOff_Confirmation']['Body_Text']
+              },
+
+        'PrinterOn': {'command': 'sudo /home/pi/OctoPower/octopower 0 on', 'popup': "ERROR",
+               'error': roboprinter.lang.pack['System']['PrinterOn_Title'] ,
+               'body_text': roboprinter.lang.pack['System']['PrinterOn_Body'] ,
+               'delay': 0.1,
+               'confirmation': False
+               },
+
         'umount': {'command':'sudo umount /dev/sda1' if not 'usb_location' in session_saver.saved else 'sudo umount ' + session_saver.saved['usb_location'] , 'popup': "ERROR",
               'error': roboprinter.lang.pack['System']['USB_Title'] ,
               'body_text': roboprinter.lang.pack['System']['USB_Body'] ,
@@ -742,7 +768,11 @@ def start():
   
           elif popup == "ERROR":
             Logger.info("Showing Error")
-            ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_main, tab='printer_status_tab'))
+            if acceptable_options[option]['confirmation']:
+              #ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_main, tab='printer_status_tab'))
+              ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_screen, current='view_preheat', destination='system'))
+            else:
+              ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'])
             ep.show()
   
           Logger.info("Executing: " + acceptable_options[option]['command'])
