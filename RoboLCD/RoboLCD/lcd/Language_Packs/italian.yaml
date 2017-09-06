@@ -65,7 +65,7 @@ Warning:
 
   Update:
     Sub_Title: "Aggiornameto disponibile"
-    Body: "\n\nVuoi installare l'aggiornamento?\nModifiche: [color=#69B3E7]Robo3D.com/changelogs"
+    Body: "\n\nVuoi installare l'aggiornamento?"
 
   USB_Progress:
     Waiting: "Attendi"
@@ -155,6 +155,8 @@ RoboIcons:
   Mainboard: "Azzera controlli"
   Shutdown: "Spegni"
   Reboot: "Restart"
+  PrinterOn: "Stampante On"
+  PrinterOff: "Stampante Off"
   Wizards: "Procedure guidate"
   Print_Tuning: "Controllo stampa"
   Fan_Control: "Controllo ventola"
@@ -168,15 +170,22 @@ RoboIcons:
 
 System:
   Shutdown_Title: "Spegnimento"
-  Shutdown_Body: "Dopo che lo schermo diventa nero,\npuoi spegnere la stampante."
+  Shutdown_Body: "Dopo che lo schermo diventa nero,\npuoi spegnere SuperOcto."
   Shutdown_Confirmation: #NOT_TRANSLATED
-    Title: "Spegno la stampante" #NOT_TRANSLATED
-    Body_Text: "Sei sicuro di voler spegnere la stampante?" #NOT_TRANSLATED
+    Title: "Spengo SuperOcto" #NOT_TRANSLATED
+    Body_Text: "Sei sicuro di voler spegnere SuperOcto?" #NOT_TRANSLATED
   Reboot_Confirmation: #NOT_TRANSLATED
-    Title: "Riavvia la stampante" #NOT_TRANSLATED
-    Body_Text: "Sei sicuro di voler riavviare la stampante?" #NOT_TRANSLATED
+    Title: "Riavvia SuperOcto" #NOT_TRANSLATED
+    Body_Text: "Sei sicuro di voler riavviare SuperOcto?" #NOT_TRANSLATED
   Reboot_Title: "Riavvio"
   Reboot_Body: "Attendere prego."
+  PrinterOn_Title: "Accensione Stampante"
+  PrinterOn_Body: "Stampante accesa."
+  PrinterOff_Title: "Spegnimento Stampante"
+  PrinterOff_Body: "Stampante spenta."
+  PrinterOff_Confirmation: #NOT_TRANSLATED
+    Title: "Spegnimento Stampante" #NOT_TRANSLATED
+    Body_Text: "Sei sicuro di voler spegnere la stampante?" #NOT_TRANSLATED
   USB_Title: "USB smontata"
   USB_Body: "Rimuovere il drive USB."
   positive: "Si"
@@ -338,7 +347,7 @@ Preheat:
 #The Filament Wizard is a tool that guides the user through the process of loading plastic filament into extruder for printing. 
 ##Plastic filaments are packaged in spools, which are reels of material.  
 Filament_Wizard:
-  Wizard_Description: "Usa questa procedura per caricare una nuova bobbina di filamento nella tua stampante."
+  Wizard_Description: "Usa questa procedura per caricare una nuova bobina di filamento nella tua stampante."
   Start: "Inizia"
   Heat_230: "Scalda a "
   Celsius_Alone: "°C"
@@ -756,7 +765,7 @@ Update_Printer:
   Welcome:
     Installed: "Installata:"
     Available: "Disponibile:"
-    RoboOS: "Supercoto"
+    RoboOS: "SuperOcto"
     Update: "Aggiornamento"
     Up2Date: "Aggiornamento"
 
@@ -792,5 +801,4 @@ Webcam:
   Webcam_Off: "Webcam Spenta"
   Button_On: "On"
   Button_Off: "Off"
-
 

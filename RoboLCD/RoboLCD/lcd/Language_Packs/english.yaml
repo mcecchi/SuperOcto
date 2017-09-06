@@ -765,7 +765,7 @@ Update_Printer:
   Welcome:
     Installed: "Installed:"
     Available: "Available:"
-    RoboOS: "RoboOS"
+    RoboOS: "SuperOcto"
     Update: "Update"
     Up2Date: "Up-to-date"
 
@@ -801,5 +801,4 @@ Webcam:
   Webcam_Off: "Camera Is Off"
   Button_On: "On"
   Button_Off: "Off"
-
 
