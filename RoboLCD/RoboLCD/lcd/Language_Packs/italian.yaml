@@ -7,7 +7,7 @@
 
 Load_Success:
   #Replace 'English' with the language being translated into 
-  pass: "Italian Loaded"
+  pass: "Caricato Italiano"
 
 
 Main_Screen:

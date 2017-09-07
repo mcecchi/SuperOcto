@@ -68,9 +68,7 @@ class Select_Language(Scroll_Box_Even):
     def __init__(self, callback):
 
         self.acceptable_languages = {'English': 'en',
-                                     'Spanish': 'sp',
-                                     'Italian': 'it',
-                                     'Giberish': 'gib'
+                                     'Italiano': 'it'
                                }
         self.callback = callback
         self.load_buttons()

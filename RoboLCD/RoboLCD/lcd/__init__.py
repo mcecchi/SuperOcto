@@ -678,11 +678,12 @@ def start():
 
       model = roboprinter.printer_instance._settings.get(['Model'])
       if model == "Robo R2":
-       #buttons = [opt,usb, firm, language, main_status, cam]
-       buttons = [opt,usb, firm, main_status, cam]
+       #buttons = [opt, usb, firm, language, main_status, cam]
+       buttons = [opt, usb, firm, main_status, cam]
       else:
-       #buttons = [opt,usb, firm, language, main_status]
-       buttons = [opt,usb, firm, main_status]
+       #buttons = [opt, usb, firm, language, main_status]
+       #buttons = [opt, usb, firm, main_status]
+       buttons = [opt, usb, firm, language, main_status, cam]
 
       layout = Scroll_Box_Icons(buttons)
 
