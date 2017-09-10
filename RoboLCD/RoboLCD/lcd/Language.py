@@ -1,8 +1,6 @@
 import yaml
 import os
 
-
-
 class Language():
     def __init__(self, language):
         self.pack = None
@@ -12,8 +10,7 @@ class Language():
 
     def load_language(self, language):
         acceptable_languages = {'en': "Language_Packs/english.yaml",
-                                'sp': "Language_Packs/spanish.yaml",
-                                'gib': 'Language_Packs/redo.yaml'}
+                                'it': "Language_Packs/italian.yaml"}
 
         if language in acceptable_languages:
             _dir = os.path.dirname(__file__)
@@ -23,16 +20,7 @@ class Language():
 
             self.current_lang = language
 
-
     def reload_language(self, language):
         self.load_language(language)
 
 lang = Language("en")
-
-
-
-
-
-
-    
-                    

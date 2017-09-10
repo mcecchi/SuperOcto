@@ -694,8 +694,8 @@ Error_Detection:
     Body: "Please reload more filament"
     E_Title: "Filament Status"
   DEFAULT:
-    Title_Idle: "SuperOcto ready"
-    Title_Active: "SuperOcto active"
+    Title_Idle: "Printer ready"
+    Title_Active: "Printer active"
     Body_Idle: "Let's print something!"
     Body_Active: "Print in progress."
 
@@ -765,7 +765,7 @@ Update_Printer:
   Welcome:
     Installed: "Installed:"
     Available: "Available:"
-    RoboOS: "RoboOS"
+    RoboOS: "SuperOcto"
     Update: "Update"
     Up2Date: "Up-to-date"
 
@@ -801,5 +801,4 @@ Webcam:
   Webcam_Off: "Camera Is Off"
   Button_On: "On"
   Button_Off: "Off"
-
 
