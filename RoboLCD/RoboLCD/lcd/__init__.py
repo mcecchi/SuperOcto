@@ -504,7 +504,9 @@ def start():
         bed_calib = Robo_Icons('Icons/Bed_Calibration/Bed placement.png', roboprinter.lang.pack['RoboIcons']['Bed_Cal'], 'BED_CALIBRATION')
         buttons = [fc, fl, z, slicer, bed_calib, fine_tune]
       else:
-        buttons = [fc, fl, z, slicer, fine_tune]
+        bed_calib = Robo_Icons('Icons/Bed_Calibration/Bed placement.png', roboprinter.lang.pack['RoboIcons']['Bed_Cal'], 'BED_CALIBRATION')
+        #buttons = [fc, fl, z, slicer, fine_tune]
+        buttons = [fc, fl, z, slicer, bed_calib, fine_tune]
 
 
       c = Scroll_Box_Icons(buttons)
