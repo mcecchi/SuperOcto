@@ -26,7 +26,6 @@ class Meta_reader(octoprint.plugin.SettingsPlugin,
     def __init__(self, **kwargs):
         # super(Meta_Reader,self).__init__(**kwargs)
         self.printing = False
-        self.spinning = False
         self.child_pipe, self.parent_pipe = Pipe()
         self.files = {}
         self.meta_process = Process(target = File_Reader, args=(self.child_pipe, self.files, ) )
@@ -45,14 +44,16 @@ class Meta_reader(octoprint.plugin.SettingsPlugin,
 
     def analyze_files(self, files={}, *args , **kwargs):
         self._logger.info("Spinning = " + str(self.meta_process.is_alive()))
-        if self.meta_process.is_alive() == False:
+        if not self.meta_process.is_alive():
 
             #Start the Meta Process
             self.files = files
             self.meta_process = Process(target = File_Reader, args=(self.child_pipe, self.files, ))
-            self.spinning = True
             self._logger.info("Started Analyzing files")
             self.meta_process.start()
+        else:
+            #send file lists to process
+            self.parent_pipe.send(files)
 
     #this function collects data from the pipe when it is available. It is fired off by a parent program
     #so it does not interfere with the UI Since they run within the same processing space
@@ -76,10 +77,8 @@ class Meta_reader(octoprint.plugin.SettingsPlugin,
 
         
     def on_event(self,event, payload):
+        pass
 
-        if event == 'PrintStarted':
-            self.printing = True
-            self.parent_pipe.send(["Exit"])
     ##~~ SettingsPlugin mixin
 
     def get_settings_defaults(self):
