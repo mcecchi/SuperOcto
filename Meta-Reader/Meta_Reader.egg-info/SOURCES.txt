@@ -1,6 +1,5 @@
 MANIFEST.in
 README.md
-setup.py
 Meta_Reader/File_Reader.py
 Meta_Reader/File_Reader.pyc
 Meta_Reader/__init__.py
