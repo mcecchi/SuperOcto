@@ -61,7 +61,7 @@ Warning:
   Z_Offset_Warning:
     Title: "Z-Offset not ipostato"
     Body1: "Lo Z-Offset è impostato a "
-    Body2: " Impostare\nlo Z-Offset prima di usare questo strumento."
+    Body2: ". Impostare\nlo Z-Offset prima di usare questo strumento."
 
   Update:
     Sub_Title: "Aggiornameto disponibile"
@@ -142,7 +142,7 @@ RoboIcons:
   Fil_Change: "Cambio Filamento"
   Slicing: "Slicing"
   FTZ_Offset: "Fine Tuning Offset"
-  Bed_Cal: "Calibratione Piano"
+  Bed_Cal: "Calibrazione Piano"
   Tool1: "Extrusore 1"
   Tool2: "Extrusore 2"
   Bed: "Piano"
@@ -150,7 +150,7 @@ RoboIcons:
   Cooldown: "Rafreddamento"
   EEPROM: "EEPROM"
   USB: "Scollega USB"
-  Firmware: "Aggiornamento Firmware"
+  Firmware: "Aggiorn. Firmware"
   Motors: "Motori Spenti"
   Mainboard: "Azzera controlli"
   Shutdown: "Spegni"
@@ -237,7 +237,7 @@ Temperature_Controls:
 
 ##Keep underscores '_' in between words where shown, if multiple spaces are required for a translation use an underscore instead of a space
 WiFi:
-  Start_Hotspot: "Connettendo un hot-spot Wi-Fi, puoi connetterti\n alla tua stampante attraverso delle periferiche Wi-Fi abilitate."
+  Start_Hotspot: "Connettendo un hot-spot Wi-Fi, \npuoi connetterti alla tua stampante attraverso\n delle periferiche Wi-Fi abilitate."
   Start: "Inizia"
   Cancel: "Cancella"
   Retry: "Riprova"
@@ -347,14 +347,14 @@ Preheat:
 #The Filament Wizard is a tool that guides the user through the process of loading plastic filament into extruder for printing. 
 ##Plastic filaments are packaged in spools, which are reels of material.  
 Filament_Wizard:
-  Wizard_Description: "Usa questa procedura per caricare una nuova bobina di filamento nella tua stampante."
+  Wizard_Description: "Usa questa procedura per caricare una nuova bobina\n di filamento nella tua stampante."
   Start: "Inizia"
   Heat_230: "Scalda a "
   Celsius_Alone: "°C"
-  Auto_Next: "Riscaldamento estrusore. La procedura andrà al\nprossimo passaggio una volta raggiunta la temperatura obiettivo."
+  Auto_Next: "Riscaldamento estrusore. La procedura andrà al\nprossimo passaggio una volta raggiunta la temperatura\n obiettivo."
   Remove_Filament: "Rimuovi il filamento dalla tua stampante."
   Next: "Successivo"
-  Cut_Tip: "Taglia di netto la fine del filamento, quindi inserici la punta del filamento nell'estrusore."
+  Cut_Tip: "Taglia di netto la fine del filamento,\n quindi inserici la punta del filamento nell'estrusore."
   Extrude_Filament: "Premi il bottone Successivo quando vedi il\n filamento uscire fuori dall'ugello."
   Complete_Title: "procedura Completata"
   Complete_Body: "\nIl nuovo filamento è pronto per la stampa!"
@@ -375,7 +375,7 @@ Filament_Wizard:
 #The Z Offset Wizard is a tool that guides the user to calibrate the distance between the extruder and the printing bed. 
 #XYZ are the variables used to characterize a 3 Dimensional Space
 ZOffset_Wizard:
-  Wizard_Description: "Usa questa procedura per impostare l'offset Z\nQuesto imposta l'altezza del piatto quando si stampa.\nAssicurati che l'ugello sia pulito prima di usare questo attrezzo."
+  Wizard_Description: "Usa questa procedura per impostare l'offset Z.\nQuesto imposta l'altezza del piatto quando si stampa.\nAssicurati che l'ugello sia pulito prima di usare questo attrezzo."
   Start: "Inizia"
   Auto_Next: "Posizionamento dell'asse Z. La procedura andrà al passo successivo dopo averla completata."
   Adjust_Instructions: "Posiziona l'attrezzo per lo Z-Offset tra il piano di\nstampa e l'ugello dell' estrusore. Aggiusta l'altezza del piano \nfino a che non senti un po' di resistenza nel rimuovere la carta."
@@ -434,7 +434,7 @@ EEPROM:
 ##Slicing is a process in which a program takes a 3D model and turns it into a printable file. 
 ##The infill is the density within the model.
 Slicing_Wizard:
-  Wizard_Description: "Usa questa procedura per preparare il file STL da stampare\nIl tempo di elaborazione dipende dalle dimensioni del file."
+  Wizard_Description: "Usa questa procedura per preparare il file STL da stampare.\nIl tempo di elaborazione dipende dalle dimensioni del file."
   Continue: "Inizia"
   Layer_Height: "Strato\nAltezza"
   Infill: "Riempimento %"
@@ -462,7 +462,7 @@ FT_ZOffset_Wizard:
     Title: "Fine Tuning"
     Sub_Title: "Seleziona l' angolo iniziale"
     Body: "\nInizia dall'angolo Sinistro o Destro."
-    Option1: "Sinistr"
+    Option1: "Sinistro"
     Option2: "Destro"
 
   Z_Error:
@@ -478,7 +478,7 @@ FT_ZOffset_Wizard:
 
   Warn_Restart:
     Title: "Rimuovere la plastica"
-    Body: "Rimuovere tutte le plastiche dal piatto prima di procedere."
+    Body: "Rimuovere tutte le plastiche dal piatto\n prima di procedere."
 
 
   Instruction:
@@ -511,8 +511,8 @@ FT_ZOffset_Wizard:
 #Hex files are the file type that contains the software update
 Firmware_Wizard:
   Select_Firmware: "Seleziona Firmware"
-  Hex_Error_Title: "Nessun Hex File"
-  Hex_Error_Body: "Fornire un hex\nfile valido su una penna USB."
+  Hex_Error_Title: "Nessun File Hex"
+  Hex_Error_Body: "Fornire un file hex\nvalido su una penna USB."
   Confirm_Hex: "Conferma il File Hex"
   Start_Firmware: "Premi Inizio per aggiornare il firmware.\nQuesta azione riprisinerà tutte le impostazioni di base."
   Start: "Inizio"
@@ -593,11 +593,11 @@ Slicer_Wizard:
   Support: #NOT_TRANSLATED
     Title: "Supporti" #NOT_TRANSLATED
     Body: "I supporti sono suggeriti per stampe con sottosquadri.\nPossono essere stampati dal piatto o su tutta la stampa." #NOT_TRANSLATED
-    Buildplate: "Stampa dal piatto" #NOT_TRANSLATED
+    Buildplate: "Dal piatto" #NOT_TRANSLATED
     Everywhere: "Dappertutto" #NOT_TRANSLATED
     No_Supports: "No" #NOT_TRANSLATED
   Fans: #NOT_TRANSLATED
-    Title: "Stampa in raffreddamento" #NOT_TRANSLATED
+    Title: "Raffreddamento Stampa" #NOT_TRANSLATED
     Body: "PLA: Seleziona Ventole ON.\nABS: Seleziona ventole OFF." #NOT_TRANSLATED
     fan_on: "On" #NOT_TRANSLATED
     fan_off: "Off" #NOT_TRANSLATED
@@ -635,7 +635,7 @@ Refresh_Screen:
 
   Reset:
     Title: " In Corso"
-    Body: "Disconnessione. Lo schermo potrebbe disconnettersi momentaneamente."
+    Body: "Disconnessione. Lo schermo potrebbe disconnettersi\n momentaneamente."
 
   Update_Connection:
     Successful: " Riuscita"
@@ -668,7 +668,7 @@ Error_Detection:
     E_Button: "Reimposta"
     E_Title: "Rilevato errore"
     Reset_Confirmation: #NOT_TRANSLATED
-      Title: "Reimosti Controlli" #NOT_TRANSLATED
+      Title: "Reimposta Controlli" #NOT_TRANSLATED
       Body: "Sei sicuro di voler reimpostare la connessione ai \ncontrolli della stampante? Questo interromperà ogni attività della stampante come stampare e scaldarsi." #NOT_TRANSLATED
       positive: "Si" #NOT_TRANSLATED
       negative: "No" #NOT_TRANSLATED
@@ -757,7 +757,7 @@ Update_Printer:
     Title: "Errore di connessione"
     Body: "Controlla la connessione internet."
   Loading:
-    Title: "Caricamento Aggiornmento"
+    Title: "Caricamento Aggiornamento"
     Body: "Può impiegare anche un minuto."
   No_Update:
     Title: "Notifica Aggiornamento"
