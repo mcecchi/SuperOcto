@@ -59,7 +59,7 @@ Warning:
   Mintemp_Body: "°C / 175°C\nl'estrusore non è abbastanza caldo per muovere il\nfilamento. Impostare una temperatura\nsopra i 175°C."
   Mintemp: "Errore Min. Temp. "
   Z_Offset_Warning:
-    Title: "Z-Offset not ipostato"
+    Title: "Z-Offset Non Impostato"
     Body1: "Lo Z-Offset è impostato a "
     Body2: ". Impostare\nlo Z-Offset prima di usare questo strumento."
 
@@ -467,8 +467,8 @@ FT_ZOffset_Wizard:
 
   Z_Error:
     Title: "Z-Offset Non Impostato"
-    Body: "The Z-Offset è impostato a "
-    Body1: " Impostare lo\nZ-Offset prima di usare questo strumento."
+    Body: "Lo Z-Offset è impostato a "
+    Body1: ". Impostare lo\nZ-Offset prima di usare questo strumento."
 
 #Here do not change what is inside the brackets []. 
   Prepare_Lines:
