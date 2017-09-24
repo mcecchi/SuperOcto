@@ -3,8 +3,9 @@
 #Only translate text that is between quotation marks ("").
 
 Load_Success:
-  #Replace 'English' with the language being translated into
-  pass: "English Loaded"
+  #Replace 'English' with the language being translated into 
+  pass: "Caricato Italiano"
+
 
 #https://docs.google.com/presentation/d/16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo/edit#slide=id.p
 Main_Screen:
