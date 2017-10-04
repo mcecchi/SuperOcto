@@ -399,7 +399,7 @@ def start():
           ip = roboprinter.lang.pack['WiFi']['WiFi']
           hostname = roboprinter.lang.pack['WiFi']['WiFi']
           Logger.error('RoboScreenManager.generate_ip_screen: {}'.format(e))
-        t = roboprinter.lang.pack['WiFi']['Connection_Status'] + ' \n    {}\n\n '.format(mode) + roboprinter.lang.pack['WiFi']['IP'] + ' \n    {}\n\n '.format(ip) + roboprinter.lang.pack['WiFi']['Hostname'] +' \n    {}'.format(hostname)
+        t = roboprinter.lang.pack['WiFi']['Connection_Status'] + u' \n    {}\n\n '.format(mode) + roboprinter.lang.pack['WiFi']['IP'] + ' \n    {}\n\n '.format(ip) + roboprinter.lang.pack['WiFi']['Hostname'] +' \n    {}'.format(hostname)
         c.text = t
         return
       t = roboprinter.lang.pack['WiFi']['Getting_Status']
