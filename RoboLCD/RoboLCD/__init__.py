@@ -33,7 +33,8 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
             Wifi = {},
             Model = None,
             Language = None,
-            Temp_Preset = {}
+            Temp_Preset = {},
+            Screen_Blank_Interval = 600
             )
 
     def _get_api_key(self):

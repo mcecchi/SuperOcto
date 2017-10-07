@@ -81,10 +81,42 @@ def start():
     wait_temp = None
     wifi_grid = []
     wifi_list = []     
-    lang = roboprinter.lang   
+    lang = roboprinter.lang
+    screen_blank = False
+    screen_blank_interval = 600
+
+    def on_window_touch_down(self, x, y):
+      self.screen_blank_event.cancel()
+      self.screen_blank_event = Clock.schedule_once(self.blank_screen, self.screen_blank_interval)
+      if self.screen_blank:
+        self.screen_blank = False
+        self.set_backlight('on')
+        return True
+      return False
+
+    def blank_screen(self, *args):
+      self.screen_blank = True
+      self.set_backlight('off')
+
+    def set_backlight(self, command):
+      if sys.platform != "win32":
+        file = open('/sys/devices/platform/rpi_backlight/backlight/rpi_backlight/bl_power','r+')
+        if command == 'off': bl_set = 1
+        if command == 'on': bl_set = 0
+        file.seek(0)
+        file.write(str(bl_set))
+        file.close
+      else:
+        Logger.info('===================>>> Backlight: ' + command.upper())
+
+    def start_screen_blank(self):
+      self.screen_blank_interval = roboprinter.printer_instance._settings.get_int(['Screen_Blank_Interval'])
+      Window.bind(on_touch_down=self.on_window_touch_down)
+      self.screen_blank_event = Clock.schedule_once(self.blank_screen, self.screen_blank_interval)
 
     def __init__(self, **kwargs):
       super(RoboScreenManager, self).__init__(transition=NoTransition())
+      self.start_screen_blank()
       #Load Language
       roboprinter.robosm = self
       roboprinter.robo_screen = self.get_current_screen
