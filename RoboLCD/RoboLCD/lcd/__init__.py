@@ -111,8 +111,9 @@ def start():
 
     def start_screen_blank(self):
       self.screen_blank_interval = roboprinter.printer_instance._settings.get_int(['Screen_Blank_Interval'])
-      Window.bind(on_touch_down=self.on_window_touch_down)
-      self.screen_blank_event = Clock.schedule_once(self.blank_screen, self.screen_blank_interval)
+      if self.screen_blank_interval > 0:
+        Window.bind(on_touch_down=self.on_window_touch_down)
+        self.screen_blank_event = Clock.schedule_once(self.blank_screen, self.screen_blank_interval)
 
     def __init__(self, **kwargs):
       super(RoboScreenManager, self).__init__(transition=NoTransition())

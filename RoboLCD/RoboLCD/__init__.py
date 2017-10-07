@@ -34,7 +34,7 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
             Model = None,
             Language = None,
             Temp_Preset = {},
-            Screen_Blank_Interval = 600
+            Screen_Blank_Interval = 0
             )
 
     def _get_api_key(self):
