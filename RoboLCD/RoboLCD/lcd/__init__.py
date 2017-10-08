@@ -82,36 +82,36 @@ def start():
     wifi_grid = []
     wifi_list = []     
     lang = roboprinter.lang
-    screen_blank = False
-    screen_blank_interval = 600
 
     def on_window_touch_down(self, x, y):
       self.screen_blank_event.cancel()
       self.screen_blank_event = Clock.schedule_once(self.blank_screen, self.screen_blank_interval)
       if self.screen_blank:
         self.screen_blank = False
-        self.set_backlight('on')
+        self.set_backlight('0')
         return True
       return False
 
     def blank_screen(self, *args):
       self.screen_blank = True
-      self.set_backlight('off')
+      self.set_backlight('1')
 
-    def set_backlight(self, command):
+    def set_backlight(self, bl_set):
       if sys.platform != "win32":
-        file = open('/sys/devices/platform/rpi_backlight/backlight/rpi_backlight/bl_power','r+')
-        if command == 'off': bl_set = 1
-        if command == 'on': bl_set = 0
+        file = open(self.bl_ctl,'r+')
         file.seek(0)
-        file.write(str(bl_set))
+        file.write(bl_set)
         file.close
       else:
-        Logger.info('===================>>> Backlight: ' + command.upper())
+        Logger.info('===================>>> Backlight: ' + bl_set)
 
     def start_screen_blank(self):
       self.screen_blank_interval = roboprinter.printer_instance._settings.get_int(['Screen_Blank_Interval'])
       if self.screen_blank_interval > 0:
+        self.screen_blank = False
+        self.bl_ctl = '/sys/devices/platform/rpi_backlight/backlight/rpi_backlight/bl_power'
+        if sys.platform != "win32":
+          subprocess.call('sudo chmod 666 ' + self.bl_ctl, shell=True)
         Window.bind(on_touch_down=self.on_window_touch_down)
         self.screen_blank_event = Clock.schedule_once(self.blank_screen, self.screen_blank_interval)
 
