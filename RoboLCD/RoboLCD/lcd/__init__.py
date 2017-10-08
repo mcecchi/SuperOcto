@@ -106,14 +106,15 @@ def start():
         Logger.info('===================>>> Backlight: ' + bl_set)
 
     def start_screen_blank(self):
+      self.bl_ctl = '/sys/devices/platform/rpi_backlight/backlight/rpi_backlight/bl_power'
+      if sys.platform != "win32":
+        subprocess.call('sudo chmod 666 ' + self.bl_ctl, shell=True)
+      self.set_backlight('0')
       self.screen_blank_interval = roboprinter.printer_instance._settings.get_int(['Screen_Blank_Interval'])
       if self.screen_blank_interval > 0:
         self.screen_blank = False
-        self.bl_ctl = '/sys/devices/platform/rpi_backlight/backlight/rpi_backlight/bl_power'
-        if sys.platform != "win32":
-          subprocess.call('sudo chmod 666 ' + self.bl_ctl, shell=True)
-        Window.bind(on_touch_down=self.on_window_touch_down)
         self.screen_blank_event = Clock.schedule_once(self.blank_screen, self.screen_blank_interval)
+        Window.bind(on_touch_down=self.on_window_touch_down)
 
     def __init__(self, **kwargs):
       super(RoboScreenManager, self).__init__(transition=NoTransition())
@@ -998,6 +999,12 @@ def start():
       sm = Builder.load_file(path)
       Logger.info('Screen Type: {}'.format('R2'))
       return sm
+
+    def on_stop(self):
+      sm = roboprinter.robosm
+      if sm.screen_blank_event != None:
+        sm.screen_blank_event.cancel()
+      sm.set_backlight('0')
 
   RoboLCD = RoboLcdApp()
   RoboLCD.run()
