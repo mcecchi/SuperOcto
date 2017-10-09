@@ -968,8 +968,5 @@ def start():
       Logger.info('Screen Type: {}'.format('R2'))
       return sm
 
-    def on_stop(self):
-      screen_blanker.stop()
-
   RoboLCD = RoboLcdApp()
   RoboLCD.run()

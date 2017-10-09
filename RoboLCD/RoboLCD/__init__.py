@@ -20,7 +20,6 @@ import time
 class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
                     octoprint.plugin.AssetPlugin,
                     octoprint.plugin.StartupPlugin,
-                    octoprint.plugin.ShutdownPlugin,
                     octoprint.plugin.EventHandlerPlugin,
                     ):
 
@@ -45,10 +44,6 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
         folder = self.get_plugin_data_folder()
         img = qrcode.make(api_key)
         img.save('{}/{}'.format(folder, 'qr_code.png'))
-
-    def on_shutdown(self):
-        from .lcd.screen_blanker import screen_blanker
-        screen_blanker.stop()
 
     def on_after_startup(self):
         
