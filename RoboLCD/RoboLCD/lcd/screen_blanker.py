@@ -1,5 +1,6 @@
 import sys
 import subprocess
+import atexit
 import logging
 from kivy.core.window import Window
 from kivy.clock import Clock
@@ -15,6 +16,7 @@ class Screen_Blanker():
         if sys.platform != "win32":
             subprocess.call('sudo chmod 666 ' + self.bl_ctl, shell=True)
         self.set(False)
+        atexit.register(self.set, False)
 
     def set(self, bl_set):
         if bl_set:
