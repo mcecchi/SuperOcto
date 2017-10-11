@@ -69,6 +69,7 @@ def start():
   from Select_Language import Change_Language
   from webcam import Camera
   from common_screens import Modal_Question_No_Title
+  from screen_blanker import screen_blanker
 
   class RoboScreenManager(ScreenManager):
     """
@@ -79,10 +80,11 @@ def start():
     wait_temp = None
     wifi_grid = []
     wifi_list = []     
-    lang = roboprinter.lang   
+    lang = roboprinter.lang
 
     def __init__(self, **kwargs):
       super(RoboScreenManager, self).__init__(transition=NoTransition())
+      screen_blanker.start(roboprinter.printer_instance._settings.get_int(['Screen_Blank_Interval']))
       #Load Language
       roboprinter.robosm = self
       roboprinter.robo_screen = self.get_current_screen
@@ -354,7 +356,7 @@ def start():
           ip = roboprinter.lang.pack['WiFi']['WiFi']
           hostname = roboprinter.lang.pack['WiFi']['WiFi']
           Logger.error('RoboScreenManager.generate_ip_screen: {}'.format(e))
-        t = roboprinter.lang.pack['WiFi']['Connection_Status'] + ' \n    {}\n\n '.format(mode) + roboprinter.lang.pack['WiFi']['IP'] + ' \n    {}\n\n '.format(ip) + roboprinter.lang.pack['WiFi']['Hostname'] +' \n    {}'.format(hostname)
+        t = roboprinter.lang.pack['WiFi']['Connection_Status'] + u' \n    {}\n\n '.format(mode) + roboprinter.lang.pack['WiFi']['IP'] + ' \n    {}\n\n '.format(ip) + roboprinter.lang.pack['WiFi']['Hostname'] +' \n    {}'.format(hostname)
         c.text = t
         return
       t = roboprinter.lang.pack['WiFi']['Getting_Status']
@@ -905,6 +907,3 @@ def start():
 
   RoboLCD = RoboLcdApp()
   RoboLCD.run()
-  
-
-  

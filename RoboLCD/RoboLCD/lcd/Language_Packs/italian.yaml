@@ -34,7 +34,6 @@ File_Screen:
   Cancel: "Annulla"
   Canceling: "Annullamento..."
 
-
 Error:
   File_Error: "Errore del file"
   File_Error_Body: "C'è un errore nel file selezionato\nProvare di nuovo"
@@ -53,7 +52,7 @@ Warning:
 
   #https://docs.google.com/presentation/d/1iEd7ki0_fwSYEnNK841HurdfQlp2GWo3jn3CdA2OZVw/edit#slide=id.g23e889f9e4_0_19
   Update:
-    Sub_Title: "Aggiornameto disponibile"
+    Sub_Title: "Aggiornamento disponibile"
     Body: "\n\nVuoi installare l'aggiornamento?"
 
   USB_Progress:
@@ -209,7 +208,7 @@ Temperature_Controls:
   Celsius_Alone: "°C"
   Celsius_with_slash: "°C /"
   Current: "Attuale:"
-  Desired: "Obbiettivo:"
+  Desired: "Obiettivo:"
   Delete: "Delete"
   Set: "Imposta"
   one: "1"
