@@ -6,7 +6,6 @@ Load_Success:
   #Replace 'English' with the language being translated into 
   pass: "Caricato Italiano"
 
-
 #https://docs.google.com/presentation/d/16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo/edit#slide=id.p
 Main_Screen:
   Files: "Files"
@@ -34,7 +33,6 @@ File_Screen:
   Cancel: "Annulla"
   Canceling: "Annullamento..."
 
-
 Error:
   File_Error: "Errore del file"
   File_Error_Body: "C'è un errore nel file selezionato\nProvare di nuovo"
@@ -60,7 +58,6 @@ Warning:
     Waiting: "Attendi"
     P_Completed: "% Completato"
     Error: "Errore"
-
 
 Popup:
   PYes: "[size=30]Si"
@@ -356,7 +353,6 @@ Filament_Wizard:
   Title_34: "Estrudere il filamento"
   Title_44: "Carica del filamento Completato"
 
-
 # https://drive.google.com/open?id=1bAXEAEQoVEFHL2dvBLB0XiQA6E9x9lHr3dHif4G90kA
 ZOffset_Wizard:
   Wizard_Description: "Usa questa procedura per impostare l'offset Z.\nQuesto imposta l'altezza del piatto quando si stampa.\nAssicurati che l'ugello sia pulito prima di usare questo attrezzo."
@@ -424,7 +420,6 @@ Slicing_Wizard:
   Material: "Materiale"
   Raft: "Piattaforma"
   Supports: "Supporti"
-  
 
 # https://drive.google.com/open?id=1bAXEAEQoVEFHL2dvBLB0XiQA6E9x9lHr3dHif4G90kA
 FT_ZOffset_Wizard:
@@ -690,6 +685,7 @@ Error_Detection:
     Title_Active: "Stampante attiva"
     Body_Idle: "Stampiamo qualcosa!"
     Body_Active: "Stampa in corso."
+
 File_Options:   
   Delete: "Delete"    
   Add_Folder: "Add Folder"    
@@ -821,6 +817,8 @@ Files:
   File_Saved:
     Title: "File Salvato"
     Body: "Il File è stato salvato nella\ncartella locale."
+
+
 
 Update_Printer:
   Checking: "Controllo..."
