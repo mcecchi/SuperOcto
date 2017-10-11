@@ -35,8 +35,8 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
             Model = None,
             Language = None,
             Temp_Preset = {},
-            Screen_Blank_Interval = 0,
-            sorting_config = {}
+            sorting_config = {},
+            Screen_Blank_Interval = 0
             )
 
     def _get_api_key(self):
@@ -193,6 +193,9 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
 
     def serial_hook(self, comm_instance, port, baudrate, connection_timeout, *args, **kwargs):
 
+        if port == 'VIRTUAL':
+            return None
+
         if port is None or port == 'AUTO':
             # no known port, try auto detection
             comm_instance._changeState(comm_instance.STATE_DETECT_SERIAL)
@@ -246,7 +249,8 @@ def __plugin_load__():
     global __plugin_hooks__
     if sys.platform == "win32":
         __plugin_hooks__ = {
-            "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
+            "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+            "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
         }
     else:
         __plugin_hooks__ = {

@@ -28,7 +28,6 @@ from file_screen import StandardFileButton, StandardFileView, File_Option_Button
 #python
 from datetime import datetime
 import os
-import sys
 import shutil
 import traceback
 from functools import partial
@@ -63,10 +62,7 @@ class FileOptions(Scroll_Box_Even):
         self.modify_files_observer = Button_Group_Observer()
 
         #initialize this so that we can edit files on octoprint.
-        if sys.platform == "win32":
-            base_folder = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\uploads'
-        else:
-            base_folder = '/home/pi/.octoprint/uploads'
+        base_folder = '/home/pi/.octoprint/uploads'
         self.storage = LocalFileStorage(base_folder)
 
 

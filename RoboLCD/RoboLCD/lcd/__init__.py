@@ -454,7 +454,9 @@ def start():
         bed_calib = Robo_Icons('Icons/Bed_Calibration/Bed placement.png', roboprinter.lang.pack['RoboIcons']['Bed_Cal'], 'BED_CALIBRATION')
         buttons = [fc, fl, z, bed_calib, fine_tune]
       else:
-        buttons = [fc, fl, z, fine_tune]
+        bed_calib = Robo_Icons('Icons/Bed_Calibration/Bed placement.png', roboprinter.lang.pack['RoboIcons']['Bed_Cal'], 'BED_CALIBRATION')
+        #buttons = [fc, fl, z, slicer, fine_tune]
+        buttons = [fc, fl, z, slicer, bed_calib, fine_tune]
 
 
       c = Scroll_Box_Icons(buttons)
@@ -627,11 +629,13 @@ def start():
 
       model = roboprinter.printer_instance._settings.get(['Model'])
       if model == "Robo R2":
-       #buttons = [opt,usb, firm, language, main_status, cam]
-       buttons = [opt,usb, main_status, cam]
+       #buttons = [opt, usb, firm, language, main_status, cam]
+       buttons = [opt, usb, main_status, cam]
       else:
-       #buttons = [opt,usb, firm, language, main_status]
-       buttons = [opt,usb, main_status]
+       #buttons = [opt, usb, firm, language, main_status]
+       #buttons = [opt, usb, main_status]
+       buttons = [opt, usb, language, main_status, cam]
+
 
       layout = Scroll_Box_Icons(buttons)
 
@@ -717,11 +721,7 @@ def start():
   
           elif popup == "ERROR":
             Logger.info("Showing Error")
-            if acceptable_options[option]['confirmation']:
-              #ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_main, tab='printer_status_tab'))
-              ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_screen, current='view_preheat', destination='system'))
-            else:
-              ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'])
+            ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_main, tab='printer_status_tab'))
             ep.show()
   
           Logger.info("Executing: " + acceptable_options[option]['command'])

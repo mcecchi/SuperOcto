@@ -1,8 +1,6 @@
 import yaml
 import os
 
-
-
 class Language():
     def __init__(self, language):
         self.pack = None
@@ -22,10 +20,7 @@ class Language():
 
             self.current_lang = language
 
-
     def reload_language(self, language):
         self.load_language(language)
 
-lang = Language("en")
-
-                  
+lang = Language("it")

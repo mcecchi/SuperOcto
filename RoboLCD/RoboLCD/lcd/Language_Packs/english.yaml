@@ -3,9 +3,8 @@
 #Only translate text that is between quotation marks ("").
 
 Load_Success:
-  #Replace 'English' with the language being translated into 
-  pass: "Caricato Italiano"
-
+  #Replace 'English' with the language being translated into
+  pass: "English Loaded"
 
 #https://docs.google.com/presentation/d/16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo/edit#slide=id.p
 Main_Screen:
@@ -74,7 +73,7 @@ Popup:
   ZOffset_Title: "Current Z-Offset is "
   ZOffset_Units: "mm"
   ZOffset_Body: "This is the default setting for the Z-Offset.\n\nPlease set the Z-Offset\nbefore resuming the print."
-  Continue: "OK"
+  Continue: "Start Print"
   Z_Offset: "Z-Offset"
   Later: "Later"
   Update: "Update"

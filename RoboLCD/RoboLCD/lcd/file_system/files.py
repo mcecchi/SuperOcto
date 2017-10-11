@@ -18,7 +18,6 @@ from kivy.uix.vkeyboard import VKeyboard
 
 #python
 import math
-import sys
 import os
 import shutil
 import re
@@ -52,12 +51,8 @@ class FilesTab(TabbedPanelHeader):
     pass
 
 
-if sys.platform == "win32":
-    USB_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\uploads\\USB'
-    FILES_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\uploads'
-else:
-    USB_DIR = '/home/pi/.octoprint/uploads/USB'
-    FILES_DIR = '/home/pi/.octoprint/uploads'
+USB_DIR = '/home/pi/.octoprint/uploads/USB'
+FILES_DIR = '/home/pi/.octoprint/uploads'
 class FilesContent(BoxLayout):
     """
     This class represents the properties and methods necessary to render the dynamic components of the FilesTab
@@ -79,9 +74,8 @@ class FilesContent(BoxLayout):
         self.dir_observe = Observer()
         self.callback = FileSystemEventHandler()
         self.callback.on_any_event = self.on_any_event
-        if sys.platform != "win32":
-            self.dir_observe.schedule(self.callback, "/dev", recursive=True)
-            self.dir_observe.start()
+        self.dir_observe.schedule(self.callback, "/dev", recursive=True)
+        self.dir_observe.start()
 
         #All new Screens will call File_Overseer
         self.file_screen = File_Overseer()
@@ -140,14 +134,11 @@ class FilesContent(BoxLayout):
         return str("{0:0.1f}".format(amount)) + suffix
 
     def disk_usage(self,path):
-        if sys.platform != "win32":
-            st = os.statvfs(path)
-            free = st.f_bavail * st.f_frsize
-            total = st.f_blocks * st.f_frsize
-            used = (st.f_blocks - st.f_bfree) * st.f_frsize
-            return [self.get_size(int(total)), self.get_size(int(free)), self.get_size(int(used))]
-        else:
-            return [100, 20, 80]
+        st = os.statvfs(path)
+        free = st.f_bavail * st.f_frsize
+        total = st.f_blocks * st.f_frsize
+        used = (st.f_blocks - st.f_bfree) * st.f_frsize
+        return [self.get_size(int(total)), self.get_size(int(free)), self.get_size(int(used))]
 
     # This seems like a roundabout way to call 'update_files' However if it is not called in this way 
     # Graphical issues become present. It is called in this way to make the request come from the 

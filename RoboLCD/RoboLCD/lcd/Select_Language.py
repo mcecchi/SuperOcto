@@ -153,7 +153,3 @@ class Language_Confirmation_Screen(Button_Screen):
 
     def restart(self):
         subprocess.call('/home/pi/scripts/webcam stop & sudo pkill -9 octoprint & sudo service octoprint restart', shell=True)
-
-
-
-
