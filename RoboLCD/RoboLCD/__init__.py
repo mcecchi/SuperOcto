@@ -26,6 +26,7 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
     def __init__(self, **kwargs):
         super(RobolcdPlugin, self).__init__(**kwargs)
         self.lcd_thread = None
+        self.file_lock = False
 
 
     def get_settings_defaults(self):
@@ -35,6 +36,7 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
             Language = None,
             Temp_Preset = {},
             Screen_Blank_Interval = 0
+            sorting_config = {}
             )
 
     def _get_api_key(self):
@@ -129,6 +131,9 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
 
     def on_event(self,event, payload):
 
+        # self._logger.info(str(event))
+        # self._logger.info(str(payload))
+
         def reset_data():
             session_saver.save_variable('FLOW', 100)
             session_saver.save_variable('FEED', 100)
@@ -153,13 +158,20 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
         elif event == "UpdatedFiles":
             if 'file_callback' in session_saver.saved:
                 session_saver.saved['file_callback']()
-                    
+        #throw events to anyone who wants to listen
+        session_saver.update_event(event, payload)
 
 
 
     def updater_placeholder(self, **kwargs):
         return False
 
+    def support_hex_files(*args, **kwargs):
+        return dict(
+                firmware=dict(
+                    hex_file=["hex", "HEX"]
+                    )
+            )
 
 
     def get_update_information(self):
@@ -180,9 +192,6 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
         )
 
     def serial_hook(self, comm_instance, port, baudrate, connection_timeout, *args, **kwargs):
-
-        if port == 'VIRTUAL':
-            return None
 
         if port is None or port == 'AUTO':
             # no known port, try auto detection
@@ -242,5 +251,6 @@ def __plugin_load__():
     else:
         __plugin_hooks__ = {
             "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
-            "octoprint.comm.transport.serial.factory": __plugin_implementation__.serial_hook
+            "octoprint.comm.transport.serial.factory": __plugin_implementation__.serial_hook,
+            "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
         }
