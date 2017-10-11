@@ -1,31 +1,32 @@
-﻿#A 3D printer is a machine that takes a computer generated model and prints it in 3D. It does this by taking feeding plastic to 
-#an extruder that melts it and deposits it in layers to create the 3D model. The following text will be displayed on a built in
-#screen to help a user properly utlize their printer. 
-
+﻿#Please read all comments marked with #
 #Do not remove '\n' from the text. It means a new line on the screen.
-#Only translate text that is between quotation marks (""). 
+#Only translate text that is between quotation marks ("").
 
 Load_Success:
   #Replace 'English' with the language being translated into 
   pass: "Caricato Italiano"
 
 
+#https://docs.google.com/presentation/d/16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo/edit#slide=id.p
 Main_Screen:
   Files: "Files"
   Printer: "Stampante"
   Utilities: "Utilità"
 
+#https://docs.google.com/presentation/d/16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo/edit#slide=id.g23e8891638_0_0
 Printer_Status:
   Minute_Left: "Meno di un minuto"
   Percent: "%"
 
-
+#https://docs.google.com/presentation/d/16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo/edit#slide=id.g23e8891638_0_0
+#https://docs.google.com/presentation/d/16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo/edit#slide=id.g24aeb5eac6_0_0
 File_Screen:
   Z_Offset: "Z-Offset"
   Infill: "Riempimento"
   Layer_Height: "Altezza\nStrato"
   Layers: "Strati"
   Estimated_Time: "Tempo Stimato"
+  Get_Meta: "Loading Meta Data"
   Start: "Inizia"
   Save: "Salva"
   Pause: "Pausa"
@@ -33,26 +34,13 @@ File_Screen:
   Cancel: "Annulla"
   Canceling: "Annullamento..."
 
-File_Options:
-  Delete: "Cancella"
-  Add_Folder: "Aggiungi Cartella"
-  Move_File: "Sposta File"
-  Move_Folder: "Sposta Cartella"
-  Continue: "Continua"
-  Show_Keyboard: "Mostra Tastiera"
-  New_Folder: "Nuova_cartella"
-
 
 Error:
   File_Error: "Errore del file"
   File_Error_Body: "C'è un errore nel file selezionato\nProvare di nuovo"
+  # https://drive.google.com/open?id=13kowfaZp4buygNewhMEuHXeXxFs93PbfXvK1Xl3509g
   Filament_Error: "Il filamento è esaurito"
   Filament_Error_Body: "Caricare altro filamento e ripristinare la stampa."
-
-## Min. Temp. is short for Minimum temperature. Please translate into a similar abbreviated equivalent. 
-##The extruder is the part that heats up and extrudes melted plastic filament through a nozzle
-##The Z-Offset is the calibrated distance between the extruder and the bed
-##The bed is the platform which plastic gets extruded onto
 
 Warning:
   Mintemp: "Errore dell estrusore"
@@ -63,8 +51,9 @@ Warning:
     Body1: "Lo Z-Offset è impostato a "
     Body2: ". Impostare\nlo Z-Offset prima di usare questo strumento."
 
+  #https://docs.google.com/presentation/d/1iEd7ki0_fwSYEnNK841HurdfQlp2GWo3jn3CdA2OZVw/edit#slide=id.g23e889f9e4_0_19
   Update:
-    Sub_Title: "Aggiornamento disponibile"
+    Sub_Title: "Aggiornameto disponibile"
     Body: "\n\nVuoi installare l'aggiornamento?"
 
   USB_Progress:
@@ -73,7 +62,6 @@ Warning:
     Error: "Errore"
 
 
-##The Home function signals the motors to return to their original position. 
 Popup:
   PYes: "[size=30]Si"
   PNo: "[size=30]No"
@@ -101,8 +89,7 @@ Mainboard:
   Connection_Body: "Azzera la connessione ai controlli della stampante."
   Connection_Button: "Reset"
 
-##Wizards automate complex tasks by guiding a user through a series of actions.  
-##Slicing is a process in which a program takes a 3D model and divides it up into layers for the printer to process. 
+
 Utilities:
   Wizards: "Procedure guidate"
   Network: "Rete"
@@ -193,11 +180,12 @@ System:
 
 
 
-
+# https://drive.google.com/open?id=16jVMkRUa_RTTgvGakc6jX5m7wA8YPxQbMaOtkY1dDCo
 Robo_Controls:
   Temperature_Controls: "Controllo Temp."
   Motor_Controls: "Controllo Motori"
 
+#https://docs.google.com/presentation/d/1me8Q0OUtd5Ect7NhsfIgWeYL734LlYm51LuODFNStDA/edit#slide=id.p
 Motor_Controls:
   Home: "Home"
   Retract: "Ritrai"
@@ -211,7 +199,7 @@ Motor_Controls:
   Z+: "Z+"
   Z-: "Z-"
 
-
+# https://drive.google.com/open?id=1IBkq4eQFuOIp7n_Px2KOKwz1vbk8tf9l7ih2eJysXL8
 Temperature_Controls:
   Extruder_1: "Estrusore 1"
   Extruder_2: "Estrusore 2"
@@ -221,7 +209,7 @@ Temperature_Controls:
   Celsius_Alone: "°C"
   Celsius_with_slash: "°C /"
   Current: "Attuale:"
-  Desired: "Obiettivo:"
+  Desired: "Obbiettivo:"
   Delete: "Delete"
   Set: "Imposta"
   one: "1"
@@ -235,7 +223,8 @@ Temperature_Controls:
   nine: "9"
   zero: "0"
 
-##Keep underscores '_' in between words where shown, if multiple spaces are required for a translation use an underscore instead of a space
+#Keep underscores '_' in between words where shown, if multiple spaces are required for a translation use an underscore instead of a space
+# https://drive.google.com/open?id=0BzFKb1u9WhGPbnJDR1d0UnFWbFE
 WiFi:
   Start_Hotspot: "Connettendo un hot-spot Wi-Fi, \npuoi connetterti alla tua stampante attraverso\n delle periferiche Wi-Fi abilitate."
   Start: "Inizia"
@@ -276,8 +265,7 @@ WiFi:
   IP: "IP:"
   Getting_Status: "Ottengo lo stato della rete..."
 
-##In this screen the extruder is being designated a temperature to heat up to. 
-##PLA and ABS are standardized types of plastic filament for 3D printers. 
+# https://drive.google.com/open?id=1lpM9q8Ajjh-B7IMms_JRZgf41O1z0Y9EY8iLHZcs2OQ
 Preheat:
   Celsius_Alone: "°C"
   Celsius_190: "°C/190°C"
@@ -336,16 +324,13 @@ Preheat:
     negative: "Annulla"
     Deleted: "è stato cancellato."
   Duplicate:
-    Title: "Nome Duplicato"
-    Body_Text: "C'è già un materiale chiamato\n[color=#69B3E7][font=fonts/S-Core - CoreSansD55Bold.otf][b]"
-    Body_Text1: "\n[/color][/b][/font]Vuoi sovrascriverlo?"
-    option1: "Sovrascrivi"
-    option2: "Annulla"
+    Title: "Duplicate Name"
+    Body_Text: "There is already a material named\n[color=#69B3E7][font=fonts/S-Core - CoreSansD55Bold.otf][b]"
+    Body_Text1: "\n[/color][/b][/font]Would you like to overwrite it?"
+    option1: "Overwrite"
+    option2: "Cancel"
 
-
-
-#The Filament Wizard is a tool that guides the user through the process of loading plastic filament into extruder for printing. 
-##Plastic filaments are packaged in spools, which are reels of material.  
+# https://drive.google.com/open?id=1VgABcOtuwsnB-VknxPoIZpQNsRTxRebdJobK_mkPpSc
 Filament_Wizard:
   Wizard_Description: "Usa questa procedura per caricare una nuova bobina\n di filamento nella tua stampante."
   Start: "Inizia"
@@ -372,8 +357,7 @@ Filament_Wizard:
   Title_44: "Carica del filamento Completato"
 
 
-#The Z Offset Wizard is a tool that guides the user to calibrate the distance between the extruder and the printing bed. 
-#XYZ are the variables used to characterize a 3 Dimensional Space
+# https://drive.google.com/open?id=1bAXEAEQoVEFHL2dvBLB0XiQA6E9x9lHr3dHif4G90kA
 ZOffset_Wizard:
   Wizard_Description: "Usa questa procedura per impostare l'offset Z.\nQuesto imposta l'altezza del piatto quando si stampa.\nAssicurati che l'ugello sia pulito prima di usare questo attrezzo."
   Start: "Inizia"
@@ -398,14 +382,14 @@ ZOffset_Wizard:
   one_zero: "0.1mm"
   two_zero: "0.2mm"
 
-
+# https://drive.google.com/open?id=137QBx6Mrh9I5fQvSg3zSah92BXNLY8PNN4jf6nt8QZY
 Print_Tuning:
   Fan_Speed: "Velocità ventola"
   Print_Speed: "Velocità Stampa"
   Flow_Rate: "Flusso Estrusione"
   Printing_Speed: "Velocità di Stampa"
-  
-#The EEPROM screen has various settings for the printer that can be customized
+
+# https://drive.google.com/open?id=1ITFkJSPXlkAuTIzF2lx5shUg3bh7UTvtOPoqMAL0lKY
 EEPROM:
   Apply: "Applica"  
   Home_Offset: "Offset Inizio"
@@ -431,8 +415,7 @@ EEPROM:
     Body_Text: "I valori di default della EEPROM sono stati ripristinati." #NOT_TRANSLATED
     Button: "OK" #NOT_TRANSLATED
 
-##Slicing is a process in which a program takes a 3D model and turns it into a printable file. 
-##The infill is the density within the model.
+# https://drive.google.com/open?id=1OadGDWWEgn3LI-ACGgr8l-uXONnXA4z9TA8UlKme0JQ
 Slicing_Wizard:
   Wizard_Description: "Usa questa procedura per preparare il file STL da stampare.\nIl tempo di elaborazione dipende dalle dimensioni del file."
   Continue: "Inizia"
@@ -443,6 +426,7 @@ Slicing_Wizard:
   Supports: "Supporti"
   
 
+# https://drive.google.com/open?id=1bAXEAEQoVEFHL2dvBLB0XiQA6E9x9lHr3dHif4G90kA
 FT_ZOffset_Wizard:
   Side_View: "Vista Laterale"
   Front_View: "Vista Frontale"
@@ -470,7 +454,7 @@ FT_ZOffset_Wizard:
     Body: "Lo Z-Offset è impostato a "
     Body1: ". Impostare lo\nZ-Offset prima di usare questo strumento."
 
-#Here do not change what is inside the brackets []. 
+#Ignore what is inside the brackets [].
   Prepare_Lines:
     Title: "Preparazione stampante"
     Sub_Title: "Preparazione stampante"
@@ -507,9 +491,10 @@ FT_ZOffset_Wizard:
     mm_005: "0.05mm"
     Body: "Usa i pulsanti sotto per regolare e verificare l'offset attuale."
 
-#The firmware wizard guides a user through the process of updating the version of the printer software. 
-#Hex files are the file type that contains the software update
+#Do not translate "hex"
+# https://drive.google.com/open?id=1U7WGJJ5kmrQyPGfiwCcSwOyQts6LGqwcQ0ROSgdKLVg
 Firmware_Wizard:
+  Title: "Firmware Wizard"
   Select_Firmware: "Seleziona Firmware"
   Hex_Error_Title: "Nessun File Hex"
   Hex_Error_Body: "Fornire un file hex\nvalido su una penna USB."
@@ -517,7 +502,6 @@ Firmware_Wizard:
   Start_Firmware: "Premi Inizio per aggiornare il firmware.\nQuesta azione riprisinerà tutte le impostazioni di base."
   Start: "Inizio"
 
-#The bed calibration wizard is a guide that instructs the user to calibrate the bed to lay flat
 Bed_Cal_Wizard:
   Welcome:
     Title: "Procedura calibrazione piatto"
@@ -572,6 +556,7 @@ Bed_Cal_Wizard:
     Body: "Ora sei pronto per stampare!"
 
 #Here do not translate \robo.profile\
+# https://drive.google.com/open?id=1OadGDWWEgn3LI-ACGgr8l-uXONnXA4z9TA8UlKme0JQ
 Slicer_Wizard:
   Confirmation:
     Title: "Procedura di slicing"
@@ -602,7 +587,6 @@ Slicer_Wizard:
     fan_on: "On" #NOT_TRANSLATED
     fan_off: "Off" #NOT_TRANSLATED
 
-#Overhangs are shapes in a 3D model that have no material or structure beneath them. 
   Raft_Support:
     Title: "Aderenza al piatto" #NOT_TRANSLATED
     Body: "Aggiungi una base sotto la tua stampa o un bordo attorno\nad essa per migliorare l'adesione al piano." #NOT_TRANSLATED
@@ -617,7 +601,7 @@ Slicer_Wizard:
     mm_15: "0.15 mm"
     mm_10: "0.10 mm"
     mm_06: "0.06 mm"
-  
+
   Infill:
     Title: "Densità riempimento"
     Body: "Il riempimento determina la densità interna di stampa. \nStampe ad alta densità sono più robuste, ma usano più filamento."
@@ -643,22 +627,25 @@ Refresh_Screen:
     bed_connect: "Controllo connessione del piatto"
     offline: "Offline"
 
+# # https://drive.google.com/open?id=1NBYrF4mbHXkyxkuTnYFRIEY64eo249s4pGMOtMxbNmU
 Firmware:
   Title: "Aggiornamento Firmware"
   Body: "Prego attendere. Molte funzioni sono disabilitate fino a che\nl'aggiornamento non è completato."
 
+# # https://drive.google.com/open?id=1NY4iQfCJHCgD1-epKEv9iCR6sKY_XRxXdjXjnZ10aZw
 Bed_Hot:
   Title: "Il piano di stampa è caldo"
   Body: "Non rimuovere il piano di stampa mentre è in uso.\naltrimenti potrebbero essere causati danni permanenti al piatto."
 
+# # https://drive.google.com/open?id=13kowfaZp4buygNewhMEuHXeXxFs93PbfXvK1Xl3509g
 Filament:
   Title: "Il Filamento è terminato"
   Body: "\nCaricare altro filamento quando la stampante è in pausa.\nquindi ripristinare la stampa."
   Button1: "OK"
   Button2: "Procedura per il filamento"
 
-#Robo is the product name
 Error_Detection:
+  # https://drive.google.com/open?id=10LtQ_Wh4iQkXg6K3BUS1vk88fJF8dymslyoj-csJQ6c
   MAINBOARD:
     Title: "Errore di connessione"
     Body: "Reimpostare la connessione"
@@ -672,13 +659,16 @@ Error_Detection:
       Body: "Sei sicuro di voler reimpostare la connessione ai \ncontrolli della stampante? Questo interromperà ogni attività della stampante come stampare e scaldarsi." #NOT_TRANSLATED
       positive: "Si" #NOT_TRANSLATED
       negative: "No" #NOT_TRANSLATED
+  # https://drive.google.com/open?id=1NBYrF4mbHXkyxkuTnYFRIEY64eo249s4pGMOtMxbNmU
   FIRMWARE:
     Title: "Aggiornamento Firmware"
     Body: "Attendere..."
     E_Title: "Aggiornamento Firmware"
+  # https://drive.google.com/open?id=1NY4iQfCJHCgD1-epKEv9iCR6sKY_XRxXdjXjnZ10aZw
   BED_HOT:
     Title: "Il piano di stampa è caldo"
     Body: "Non rimuovere il piano"
+  # https://drive.google.com/open?id=1fVRiDXVQ7OQTN-z4p0ACB1E_sbk56jeCJ7Wj675t04o
   BED_DISCONNECT:
     Title: "Il piano è disconnesso"
     Body: "Riconnettere il piano"
@@ -686,9 +676,11 @@ Error_Detection:
     E_Body: "Rimettere il piano di stampa a posto, quindi ricollegarlo.."
     E_Button: "Riconnesso"
     E_Title: "Stato del piano di stampa"
+  # https://drive.google.com/open?id=1KuIl2yQle6Bs3Z3onAhJE9r_k8d3G7UC1VkIg6OORJs
   PAUSED:
     Title: "Stampa in pausa"
     Body: "Riprendere quando si è pronti"
+  # https://drive.google.com/open?id=13kowfaZp4buygNewhMEuHXeXxFs93PbfXvK1Xl3509g
   FIL_RUNOUT:
     Title: "Filamento esaurito"
     Body: "Caricare altro filamento"
@@ -698,14 +690,89 @@ Error_Detection:
     Title_Active: "Stampante attiva"
     Body_Idle: "Stampiamo qualcosa!"
     Body_Active: "Stampa in corso."
+File_Options:   
+  Delete: "Delete"    
+  Add_Folder: "Add Folder"    
+  Move_File: "Move File"    
+  Move_Folder: "Move Folder"    
+  Continue: "Continue"    
+  Show_Keyboard: "Show Keyboard"    
+  New_Folder: "New_Folder"    
+
 
 Files:
+  Local: "Local"
   File_Options:
     Title: "Menu File"
     Move: "Muovi File"
     MoveF: "Muovi Cartella"
     Delete: "Cancella"
     AddF: "Aggiungi Cartella"
+    Sort_Files: "Sort Files"
+    Select_Items: "Select Items to Edit"
+    Create_Folder: "Create New Folder"
+    Refresh: "Refresh"
+    Exit_File_Options:
+      Title: "Confirm Exit"
+      Body: "Are you sure you want to exit the File Explorer?"
+      Option1: "Exit"
+      Option2: "Cancel"
+    Copy_Error:
+      Title: "Copy Failed"
+      Body: "This can happen if the USB Drive\nwas removed or a file is corrupt"
+    Move_Error:
+      Title: "Move Failed"
+      Body: "This can happen if the USB Drive\nwas removed or a file is corrupt"
+    Delete_Error:
+      Title: "Delete Failed"
+      Body: "This can happen if the USB Drive\nwas removed or a file is corrupt"
+  File_Tab:
+    USB_Files: "USB Storage"
+    Local_Files: "[color=#69B3E7]Local Storage[/color]"
+    Loading: "Loading...\n"
+  File_Progress:
+    Waiting: "Waiting..."
+    Replace: "Replace"
+    Keep: "Keep Both"
+    Skip: "Skip"
+    In_Progress: "In Progress"
+  Sort_Files:
+    Title: "Sort Files"
+    Alphabet: "Alphabetically"
+    Alphabet_Options:
+      A2Z: "A - Z"
+      Z2A: "Z - A"
+    Size: "By Size"
+    Size_Options:
+      L2S: "Large to Small"
+      S2L: "Small to Large"
+    Date: "By Date"
+    Date_Options:
+      New: "Newest"
+      Old: "Oldest"
+    Type: "By Type"
+    Type_Options:
+      STL: "STL First"
+      GCODE: "GCODE First"
+      HEX: "Hex First"
+      Folder: "Folders First"
+  Modify_Files:
+    Title: "Edit Items"
+    Copy: "Copy Files"
+    Move: "Move Files"
+    Delete: "Delete Files"
+    Files_Selected: "Files Selected: " 
+    Progress: "Progress: "
+    Files: " Files"
+    File_Exists: "File already exists at location. Please Choose an Option."
+    copy_underscore: "copy_"
+  Errors:
+    No_Items1:
+      Title: "No items are selected"
+      Body: "\nPlease Select at least one file to continue."
+    No_Items2:
+      Title: "No option selected"
+      Body: "\nPlease Select an option to continue."
   Delete_File_Conf: #NOT_TRANSLATED
     Title: "Cancella File" #NOT_TRANSLATED
     Body: "Sei sicuro di vole cancellare questo file?" #NOT_TRANSLATED
@@ -731,6 +798,11 @@ Files:
     Title: "Nome Cartella"
     New_Folder: "Nuova cartella"
     Default_Title: "Tastiera"
+    Error:
+      Title: "Folder Exists"
+      Body: "The folder already exists, Do you want to rename it?"
+      Rename: "Rename"
+      Cancel: "Cancel"
 
   Save_File:
     Title: "Salva File"
@@ -801,4 +873,3 @@ Webcam:
   Webcam_Off: "Webcam Spenta"
   Button_On: "On"
   Button_Off: "Off"
-
