@@ -37,7 +37,7 @@ File_Options:
   Delete: "Cancella"
   Add_Folder: "Aggiungi Cartella"
   Move_File: "Sposta File"
-  Move_Folder: "Move Cartella"
+  Move_Folder: "Sposta Cartella"
   Continue: "Continua"
   Show_Keyboard: "Mostra Tastiera"
   New_Folder: "Nuova_cartella"
@@ -64,7 +64,7 @@ Warning:
     Body2: ". Impostare\nlo Z-Offset prima di usare questo strumento."
 
   Update:
-    Sub_Title: "Aggiornameto disponibile"
+    Sub_Title: "Aggiornamento disponibile"
     Body: "\n\nVuoi installare l'aggiornamento?"
 
   USB_Progress:

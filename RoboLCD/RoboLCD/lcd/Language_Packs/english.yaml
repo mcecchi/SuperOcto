@@ -105,7 +105,7 @@ Mainboard:
 ##Slicing is a process in which a program takes a 3D model and divides it up into layers for the printer to process. 
 Utilities:
   Wizards: "Wizards"
-  Network: "Network Utilities"
+  Network: "Network"
   Update: "Update"
   Options: "Options"
   System: "System"

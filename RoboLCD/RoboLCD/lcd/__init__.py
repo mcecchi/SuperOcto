@@ -119,7 +119,7 @@ def start():
                'function': self.generate_wizards_screen},
 
         'NETWORK' : {'name':'network_utilities_screen', 
-               'title':roboprinter.lang.pack['Utilities']['Wizards'], 
+               'title':roboprinter.lang.pack['Utilities']['Network'], 
                'back_destination':'main', 
                'function': self.generate_network_utilities_screen},
 
