@@ -55,8 +55,8 @@ Error:
 ##The bed is the platform which plastic gets extruded onto
 
 Warning:
-  Mintemp: "Errore dell estrusore"
-  Mintemp_Body: "°C / 175°C\nl'estrusore non è abbastanza caldo per muovere il\nfilamento. Impostare una temperatura\nsopra i 175°C."
+  Mintemp: "Errore dell'estrusore"
+  Mintemp_Body: "°C / 175°C\nL'estrusore non è abbastanza caldo\nper muovere il filamento. Impostare\nuna temperatura sopra i 175°C."
   Mintemp: "Errore Min. Temp. "
   Z_Offset_Warning:
     Title: "Z-Offset Non Impostato"
@@ -351,12 +351,12 @@ Filament_Wizard:
   Start: "Inizia"
   Heat_230: "Scalda a "
   Celsius_Alone: "°C"
-  Auto_Next: "Riscaldamento estrusore. La procedura andrà al\nprossimo passaggio una volta raggiunta la temperatura\n obiettivo."
+  Auto_Next: "Riscaldamento estrusore. La procedura andrà al\nprossimo passaggio una volta raggiunta\nla temperatura obiettivo."
   Remove_Filament: "Rimuovi il filamento dalla tua stampante."
   Next: "Successivo"
   Cut_Tip: "Taglia di netto la fine del filamento,\n quindi inserici la punta del filamento nell'estrusore."
   Extrude_Filament: "Premi il bottone Successivo quando vedi il\n filamento uscire fuori dall'ugello."
-  Complete_Title: "procedura Completata"
+  Complete_Title: "Procedura Completata"
   Complete_Body: "\nIl nuovo filamento è pronto per la stampa!"
   Ok: "OK"
 
