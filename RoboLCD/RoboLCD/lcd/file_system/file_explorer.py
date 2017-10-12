@@ -429,10 +429,12 @@ class File_Explorer(Scroll_Box_File_List):
 
             return sorted_files
         #sort by date
-        elif sorting_option['sort'] == lang.pack['Files']['Sort_Files']['Date']:
+        #elif sorting_option['sort'] == lang.pack['Files']['Sort_Files']['Date']:
+        else:
             #Logger.info("Sorting By Date!")
-            if sorting_option['modify'] == lang.pack['Files']['Sort_Files']['Date_Options']['New']:
-                reverse = True
+            reverse = True
+            if sorting_option['modify'] == lang.pack['Files']['Sort_Files']['Date_Options']['Old']:
+                reverse = False
 
             key = 'date'
 

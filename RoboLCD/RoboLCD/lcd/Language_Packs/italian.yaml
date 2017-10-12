@@ -41,8 +41,8 @@ Error:
   Filament_Error_Body: "Caricare altro filamento e ripristinare la stampa."
 
 Warning:
-  Mintemp: "Errore dell estrusore"
-  Mintemp_Body: "°C / 175°C\nl'estrusore non è abbastanza caldo per muovere il\nfilamento. Impostare una temperatura\nsopra i 175°C."
+  Mintemp: "Errore dell'estrusore"
+  Mintemp_Body: "°C / 175°C\nL'estrusore non è abbastanza caldo\nper muovere il filamento. Impostare\nuna temperatura sopra i 175°C."
   Mintemp: "Errore Min. Temp. "
   Z_Offset_Warning:
     Title: "Z-Offset Non Impostato"
@@ -51,7 +51,7 @@ Warning:
 
   #https://docs.google.com/presentation/d/1iEd7ki0_fwSYEnNK841HurdfQlp2GWo3jn3CdA2OZVw/edit#slide=id.g23e889f9e4_0_19
   Update:
-    Sub_Title: "Aggiornameto disponibile"
+    Sub_Title: "Aggiornamento disponibile"
     Body: "\n\nVuoi installare l'aggiornamento?"
 
   USB_Progress:
@@ -206,7 +206,7 @@ Temperature_Controls:
   Celsius_Alone: "°C"
   Celsius_with_slash: "°C /"
   Current: "Attuale:"
-  Desired: "Obbiettivo:"
+  Desired: "Obiettivo:"
   Delete: "Delete"
   Set: "Imposta"
   one: "1"
@@ -333,12 +333,12 @@ Filament_Wizard:
   Start: "Inizia"
   Heat_230: "Scalda a "
   Celsius_Alone: "°C"
-  Auto_Next: "Riscaldamento estrusore. La procedura andrà al\nprossimo passaggio una volta raggiunta la temperatura\n obiettivo."
+  Auto_Next: "Riscaldamento estrusore. La procedura andrà al\nprossimo passaggio una volta raggiunta\nla temperatura obiettivo."
   Remove_Filament: "Rimuovi il filamento dalla tua stampante."
   Next: "Successivo"
   Cut_Tip: "Taglia di netto la fine del filamento,\n quindi inserici la punta del filamento nell'estrusore."
   Extrude_Filament: "Premi il bottone Successivo quando vedi il\n filamento uscire fuori dall'ugello."
-  Complete_Title: "procedura Completata"
+  Complete_Title: "Procedura Completata"
   Complete_Body: "\nIl nuovo filamento è pronto per la stampa!"
   Ok: "OK"
 
@@ -704,71 +704,71 @@ Files:
     MoveF: "Muovi Cartella"
     Delete: "Cancella"
     AddF: "Aggiungi Cartella"
-    Sort_Files: "Sort Files"
-    Select_Items: "Select Items to Edit"
-    Create_Folder: "Create New Folder"
-    Refresh: "Refresh"
+    Sort_Files: "Ordina Files"
+    Select_Items: "Seleziona Oggetto da Modificare"
+    Create_Folder: "Crean Nuova Cartella"
+    Refresh: "Aggiorna"
     Exit_File_Options:
-      Title: "Confirm Exit"
-      Body: "Are you sure you want to exit the File Explorer?"
-      Option1: "Exit"
-      Option2: "Cancel"
+      Title: "Conferma Uscita"
+      Body: "Sei sicuro di voler uscire da File Explorer?"
+      Option1: "Uscita"
+      Option2: "Annulla"
     Copy_Error:
-      Title: "Copy Failed"
-      Body: "This can happen if the USB Drive\nwas removed or a file is corrupt"
+      Title: "Copia Fallita"
+      Body: "Può succedere se viene rimossa la\nchiavetta USB o se un file è danneggiato"
     Move_Error:
-      Title: "Move Failed"
-      Body: "This can happen if the USB Drive\nwas removed or a file is corrupt"
+      Title: "Spostamento Fallito"
+      Body: "Può succedere se viene rimossa la\nchiavetta USB o se un file è danneggiato"
     Delete_Error:
-      Title: "Delete Failed"
-      Body: "This can happen if the USB Drive\nwas removed or a file is corrupt"
+      Title: "Cancellazione Fallita"
+      Body: "Può succedere se viene rimossa la\nchiavetta USB o se un file è danneggiato"
   File_Tab:
-    USB_Files: "USB Storage"
-    Local_Files: "[color=#69B3E7]Local Storage[/color]"
-    Loading: "Loading...\n"
+    USB_Files: "Memoria USB"
+    Local_Files: "[color=#69B3E7]Memoria Locale[/color]"
+    Loading: "Carico...\n"
   File_Progress:
-    Waiting: "Waiting..."
-    Replace: "Replace"
-    Keep: "Keep Both"
-    Skip: "Skip"
-    In_Progress: "In Progress"
+    Waiting: "Attendi..."
+    Replace: "Sostituisci"
+    Keep: "Tieni Entrambi"
+    Skip: "Salta"
+    In_Progress: "In Corso"
   Sort_Files:
-    Title: "Sort Files"
-    Alphabet: "Alphabetically"
+    Title: "Ordinamento"
+    Alphabet: "Alfabetico"
     Alphabet_Options:
       A2Z: "A - Z"
       Z2A: "Z - A"
-    Size: "By Size"
+    Size: "Per Dimensione"
     Size_Options:
-      L2S: "Large to Small"
-      S2L: "Small to Large"
-    Date: "By Date"
+      L2S: "Grande a Piccolo"
+      S2L: "Piccolo a Grande"
+    Date: "Per Data"
     Date_Options:
-      New: "Newest"
-      Old: "Oldest"
-    Type: "By Type"
+      New: "Più Nuovo"
+      Old: "Più Vecchio"
+    Type: "Per Tipo"
     Type_Options:
-      STL: "STL First"
-      GCODE: "GCODE First"
-      HEX: "Hex First"
-      Folder: "Folders First"
+      STL: "Prima STL"
+      GCODE: "Prima GCODE"
+      HEX: "Prima Hex"
+      Folder: "Prima Cartelle"
   Modify_Files:
-    Title: "Edit Items"
-    Copy: "Copy Files"
-    Move: "Move Files"
-    Delete: "Delete Files"
-    Files_Selected: "Files Selected: " 
-    Progress: "Progress: "
+    Title: "Modifica Elemento"
+    Copy: "Copia Files"
+    Move: "Sposta Files"
+    Delete: "Cancella Files"
+    Files_Selected: "Files Selezionati: " 
+    Progress: "Avanzamento: "
     Files: " Files"
-    File_Exists: "File already exists at location. Please Choose an Option."
+    File_Exists: "Il File esiste già. Scegli un opzione."
     copy_underscore: "copy_"
   Errors:
     No_Items1:
-      Title: "No items are selected"
-      Body: "\nPlease Select at least one file to continue."
+      Title: "Nessun elemento selezionato"
+      Body: "\nPer favore seleziona almeno un file per continuare."
     No_Items2:
-      Title: "No option selected"
-      Body: "\nPlease Select an option to continue."
+      Title: "Nessuna opzione selezionata"
+      Body: "\nPer favore seleziona almeno un'opzione per continuare."
   Delete_File_Conf: #NOT_TRANSLATED
     Title: "Cancella File" #NOT_TRANSLATED
     Body: "Sei sicuro di vole cancellare questo file?" #NOT_TRANSLATED
@@ -795,10 +795,10 @@ Files:
     New_Folder: "Nuova cartella"
     Default_Title: "Tastiera"
     Error:
-      Title: "Folder Exists"
-      Body: "The folder already exists, Do you want to rename it?"
-      Rename: "Rename"
-      Cancel: "Cancel"
+      Title: "Cartella Esistente"
+      Body: "La cartella esiste già, vuoi rinominarla?"
+      Rename: "Rinomina"
+      Cancel: "Annulla"
 
   Save_File:
     Title: "Salva File"

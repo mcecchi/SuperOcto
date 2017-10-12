@@ -26,10 +26,8 @@ class PConsole(octoprint.printer.PrinterCallback):
     eeprom = {}
     counter = 0
     t_counter = 2
-    temperature = {}
     sent_M114 = False
     cur_time = 0
-
     busy = False
     temperature = {
                     'tool1': 0,
@@ -39,6 +37,7 @@ class PConsole(octoprint.printer.PrinterCallback):
                     'bed': 0,
                     'bed_desired': 0,
                     }
+    temperature = {}
 
     def on_printer_add_message(self, data):
 
