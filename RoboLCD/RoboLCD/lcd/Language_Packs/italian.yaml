@@ -610,7 +610,7 @@ Refresh_Screen:
     Status: "Connessione Offline"
     Title: "Connessione Interrotta"
     Please: "Prego "
-    Body: " la connessione dai controlli della stampante. Se\nl'errore persiste, chiamare l'assistenza clienti e riferie:\n"
+    Body: " la connessione dai controlli della stampante. Se\nl'errore persiste, chiamare l'assistenza clienti e riferire:\n"
 
   Reset:
     Title: " In Corso"
@@ -646,7 +646,7 @@ Error_Detection:
     Body: "Reimpostare la connessione"
     Connection_Offline: "Connessione Offline"
     E_Sub_Title: "Connessione Interrotta"
-    E_Body: "Reimpostare la connessione dai controlli della stampante. Se\nl'errore persiste, chiamare l'assistenza clienti e riferie:"
+    E_Body: "Reimpostare la connessione dai controlli della stampante. Se\nl'errore persiste, chiamare l'assistenza clienti e riferire:"
     E_Button: "Reimposta"
     E_Title: "Rilevato errore"
     Reset_Confirmation: #NOT_TRANSLATED
@@ -706,7 +706,7 @@ Files:
     AddF: "Aggiungi Cartella"
     Sort_Files: "Ordina Files"
     Select_Items: "Seleziona Oggetto da Modificare"
-    Create_Folder: "Crean Nuova Cartella"
+    Create_Folder: "Crea Nuova Cartella"
     Refresh: "Aggiorna"
     Exit_File_Options:
       Title: "Conferma Uscita"
