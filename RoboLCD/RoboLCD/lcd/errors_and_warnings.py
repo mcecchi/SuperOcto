@@ -569,8 +569,6 @@ class Error_Detection(Button):
         else:
             self.populate_error('DEFAULT')
 
-        
-
     ############################################Detirmine Errors##################################################
             
         

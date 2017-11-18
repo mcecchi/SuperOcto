@@ -98,7 +98,7 @@ class Slicer_Wizard(FloatLayout):
 
     def start_slice(self,dt):
         profiles = roboprinter.printer_instance._slicing_manager.all_profiles('cura', require_configured=False)
-        if 'robo' in profiles:
+        if 'odm-1' in profiles:
             #start slice
             self.temp_path = TEMP_DIR + "/" + self.stl_name
             Logger.info("Starting Slice")
@@ -106,18 +106,18 @@ class Slicer_Wizard(FloatLayout):
             roboprinter.printer_instance._slicing_manager.slice('cura', 
                                                                 self.stl_path, 
                                                                 self.temp_path, 
-                                                                'robo', 
+                                                                'odm-1', 
                                                                 self.sliced, 
                                                                 overrides=self.overrides,
                                                                 on_progress = self.slice_progress)
         else:
             #put our profile in the profile list
             profile_path = os.path.dirname(os.path.realpath(__file__))
-            profile_path += '/slicer_profile/robo.profile'
+            profile_path += '/slicer_profile/odm-1.profile'
 
             if os.path.isfile(profile_path):
                 #copy a backup of the profile to the default profile directory
-                shutil.copyfile(profile_path, CURA_DIR + '/robo.profile')
+                shutil.copyfile(profile_path, CURA_DIR + '/odm-1.profile')
                 
                 #if the backup exists and we have tried restoring it 5 times give up and error out
                 if dt < 5:

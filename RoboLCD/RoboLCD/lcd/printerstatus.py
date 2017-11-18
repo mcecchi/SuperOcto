@@ -10,7 +10,7 @@ from kivy.logger import Logger
 from kivy.clock import Clock
 from kivy.uix.modalview import ModalView
 from .. import roboprinter
-from connection_popup import Zoffset_Warning_Popup, Update_Warning_Popup
+from connection_popup import Error_Popup, Zoffset_Warning_Popup, Update_Warning_Popup
 import math
 import subprocess
 from multiprocessing import Process
@@ -90,10 +90,16 @@ class PrinterStatusContent(BoxLayout):
         self.update_lock = False
         Clock.schedule_interval(self.safety, 1)
         Clock.schedule_interval(self.update, 0.2)   
+        Clock.schedule_interval(self.poll_ups_event, 1)   
 
         #add the move tools function to a global space
         session_saver.saved['Move_Tools'] = self.move_tools_to    
 
+    def poll_ups_event(self, dt):
+        ups_event = getattr(roboprinter.printer_instance, 'ups_event', None)
+        if ups_event != None:
+            ep = Error_Popup(roboprinter.lang.pack['UPS_Event']['Error'],roboprinter.lang.pack['UPS_Event']['Body_Text']+ups_event.upper()).open()
+            roboprinter.printer_instance.ups_event = None
 
     def move_tools_to(self, content_space):
         

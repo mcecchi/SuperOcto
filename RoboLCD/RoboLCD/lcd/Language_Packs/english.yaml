@@ -59,6 +59,10 @@ Warning:
     P_Completed: "% Completed"
     Error: "Error"
 
+UPS_Event:
+  Error: "UPS notification"
+  Body_Text: "The UPS has detected\nthe event "
+
 Popup:
   PYes: "[size=30]Yes"
   PNo: "[size=30]No"

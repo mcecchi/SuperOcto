@@ -59,6 +59,10 @@ Warning:
     P_Completed: "% Completato"
     Error: "Errore"
 
+UPS_Event:
+  Error: "Notifica UPS"
+  Body_Text: "Il gruppo di continuità ha rilevato\nl'evento "
+
 Popup:
   PYes: "[size=30]Si"
   PNo: "[size=30]No"

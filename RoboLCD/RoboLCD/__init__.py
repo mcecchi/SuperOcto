@@ -14,6 +14,7 @@ from .lcd.session_saver import session_saver
 import os
 from .lcd.Language import lang
 import time
+import flask
 
 
 
@@ -21,6 +22,7 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
                     octoprint.plugin.AssetPlugin,
                     octoprint.plugin.StartupPlugin,
                     octoprint.plugin.EventHandlerPlugin,
+					octoprint.plugin.SimpleApiPlugin,
                     ):
 
     def __init__(self, **kwargs):
@@ -38,6 +40,17 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
             sorting_config = {},
             Screen_Blank_Interval = 0
             )
+
+    def get_api_commands(self):
+        return dict(event=['event_type'])
+
+    def on_api_command(self, command, data):
+        if command == 'event':
+            self._logger.info('UPS event received, event_type is {event_type}'.format(**data))
+            self.ups_event = data['event_type']
+
+    def on_api_get(self, request):
+        return flask.jsonify(result="ok")
 
     def _get_api_key(self):
         return self._settings.global_get(['api', 'key'])
