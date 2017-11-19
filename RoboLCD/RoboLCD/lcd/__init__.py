@@ -342,7 +342,8 @@ def start():
           apc_status[key] = val.strip()
         t = ''
         for thing in interesting:
-          t += thing.capitalize() + u': {}\n'.format(apc_status[thing])
+          if thing in apc_status:
+            t += thing.capitalize() + u': {}\n'.format(apc_status[thing])
         c.text = t
         return
 
