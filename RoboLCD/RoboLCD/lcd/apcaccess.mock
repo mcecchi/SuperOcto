@@ -1,0 +1,46 @@
+APC      : 001,045,1053
+DATE     : 2017-11-19 09:48:34 +0100  
+HOSTNAME : SuperOcto
+VERSION  : 3.14.12 (29 March 2014) debian
+UPSNAME  : SuperOcto
+CABLE    : USB Cable
+DRIVER   : USB UPS Driver
+UPSMODE  : Stand Alone
+STARTTIME: 2017-11-04 10:31:29 +0100  
+MODEL    : Back-UPS BF500 
+STATUS   : ONLINE 
+LINEV    : 244.0 Volts
+LOADPCT  : 7.0 Percent
+BCHARGE  : 100.0 Percent
+TIMELEFT : 33.0 Minutes
+MBATTCHG : 5 Percent
+MINTIMEL : 3 Minutes
+MAXTIME  : 0 Seconds
+OUTPUTV  : 230.0 Volts
+SENSE    : Medium
+DWAKE    : 0 Seconds
+DSHUTD   : 0 Seconds
+LOTRANS  : 180.0 Volts
+HITRANS  : 266.0 Volts
+RETPCT   : 0.0 Percent
+ITEMP    : 29.2 C
+ALARMDEL : 30 Seconds
+BATTV    : 13.5 Volts
+LINEFREQ : 50.0 Hz
+LASTXFER : No transfers since turnon
+NUMXFERS : 0
+TONBATT  : 0 Seconds
+CUMONBATT: 0 Seconds
+XOFFBATT : N/A
+SELFTEST : NO
+STESTI   : None
+STATFLAG : 0x05000008
+MANDATE  : 2004-12-06
+SERIALNO : AB0450140102  
+BATTDATE : 2016-01-01
+NOMOUTV  : 230 Volts
+NOMINV   : 230 Volts
+NOMBATTV : 12.0 Volts
+NOMPOWER : 325 Watts
+FIRMWARE : 814.s3.I  USB FW:s3
+END APC  : 2017-11-19 09:49:10 +0100  

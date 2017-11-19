@@ -246,6 +246,10 @@ def start():
               'title': roboprinter.lang.pack['Utilities']['Webcam_Status'], 
               'back_destination': 'options', 
               'function': self.webcam_status},
+        'UPS_STATUS': {'name':'ups_status', 
+                  'title':roboprinter.lang.pack['Utilities']['UPS_Status'], 
+                  'back_destination':'options', 
+                  'function':self.generate_ups_screen},
 
         #System Sub Screen
         'SHUTDOWN': {'name': 'Shutdown', 
@@ -317,6 +321,32 @@ def start():
       sb = Scroll_Box_Icons(buttons)
 
       self._generate_backbutton_screen(name=kwargs['name'], title=kwargs['title'], back_destination=kwargs['back_destination'], content=sb)
+
+    def generate_ups_screen(self, **kwargs):
+
+      def get_ups_status():
+        interesting = ('status', 'linev', 'loadpct', 'bcharge', 'timeleft', 'itemp', 'battv')
+        apc_status = {}
+        if sys.platform == 'win32':
+          cmd = 'type ' + os.path.dirname(os.path.realpath(__file__)) + '\\apcaccess.mock'
+        else:
+          cmd = '/sbin/apcaccess'
+        res = subprocess.check_output(cmd, shell=True)
+        for line in res.split('\n'):
+          (key,spl,val) = line.partition(': ')
+          key = key.rstrip().lower()
+          #apc_status[key] = val.strip().split(' ')[0]
+          apc_status[key] = val.strip()
+        t = ''
+        for thing in interesting:
+          t += thing.capitalize() + u': {}\n'.format(apc_status[thing])
+        c.text = t
+        return
+
+      t = roboprinter.lang.pack['Utilities']['UPS_Getting_Status']
+      c = Label(text=t, font_size=30, background_color=[0,0,0,1])
+      self._generate_backbutton_screen(name=kwargs['name'], title=kwargs['title'], back_destination=kwargs['back_destination'], content=c)
+      thread.start_new_thread(get_ups_status, ())
 
     def generate_ip_screen(self, **kwargs):
       # Misnomer -- Network Status
@@ -625,15 +655,16 @@ def start():
       language = Robo_Icons('Icons/System_Icons/Language.png', roboprinter.lang.pack['RoboIcons']['Language'], 'LANGUAGE')
       main_status = Robo_Icons('Icons/Printer Status/Connection.png', roboprinter.lang.pack['RoboIcons']['Mainboard'], 'MAINBOARD')
       cam = Robo_Icons('Icons/System_Icons/Webcam.png', roboprinter.lang.pack['RoboIcons']['Webcam'], 'WEBCAM')
+      ups = Robo_Icons('Icons/Icon_Buttons/UPS_Status.png', roboprinter.lang.pack['RoboIcons']['UPS_Status'], 'UPS_STATUS')
 
       model = roboprinter.printer_instance._settings.get(['Model'])
       if model == "Robo R2":
        #buttons = [opt, usb, firm, language, main_status, cam]
-       buttons = [opt, usb, main_status, cam]
+       buttons = [opt, usb, main_status, cam, ups]
       else:
        #buttons = [opt, usb, firm, language, main_status]
        #buttons = [opt, usb, main_status]
-       buttons = [opt, usb, language, main_status, cam]
+       buttons = [opt, usb, language, main_status, cam, ups]
 
 
       layout = Scroll_Box_Icons(buttons)

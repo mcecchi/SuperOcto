@@ -118,6 +118,8 @@ Utilities:
   Tool2: "Extruder 2"
   Bed: "Bed"
   Webcam_Status: "Camera Status"
+  UPS_Status: "UPS Status"
+  UPS_Getting_Status: "Getting UPS Status..."
 
 
 RoboIcons:
@@ -154,6 +156,7 @@ RoboIcons:
   Options: "Options"
   Language: "Language"
   Webcam: "Camera"
+  UPS_Status: "UPS Status"
 
 
 System:

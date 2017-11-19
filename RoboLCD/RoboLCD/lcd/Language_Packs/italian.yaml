@@ -118,6 +118,8 @@ Utilities:
   Tool2: "Estrusore 2"
   Bed: "Piano"
   Webcam_Status: "Stato webcam"
+  UPS_Status: "Stato UPS"
+  UPS_Getting_Status: "Ottengo lo stato dell'UPS..."
 
 
 RoboIcons:
@@ -154,6 +156,7 @@ RoboIcons:
   Options: "Opzioni"
   Language: "Lingua"
   Webcam: "Webcam"
+  UPS_Status: "Stato UPS"
 
 
 System:
