@@ -330,7 +330,10 @@ def start():
         if sys.platform == 'win32':
           cmd = 'type ' + os.path.dirname(os.path.realpath(__file__)) + '\\apcaccess.mock'
         else:
-          cmd = '/sbin/apcaccess'
+          if roboprinter.printer_instance._settings.getBoolean(['UPS_Mock']):
+            cmd = 'cat ' + os.path.dirname(os.path.realpath(__file__)) + '/apcaccess.mock'
+          else:
+            cmd = '/sbin/apcaccess'
         res = subprocess.check_output(cmd, shell=True)
         for line in res.split('\n'):
           (key,spl,val) = line.partition(': ')
