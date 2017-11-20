@@ -98,8 +98,12 @@ class PrinterStatusContent(BoxLayout):
     def poll_ups_event(self, dt):
         ups_event = getattr(roboprinter.printer_instance, 'ups_event', None)
         if ups_event != None:
-            ep = Error_Popup(roboprinter.lang.pack['UPS_Event']['Error'],roboprinter.lang.pack['UPS_Event']['Body_Text']+ups_event.upper()).open()
             roboprinter.printer_instance.ups_event = None
+            ups_event = ups_event.strip().lower()
+            if ups_event in roboprinter.lang.pack['UPS']['Events']:
+              ep = Error_Popup(roboprinter.lang.pack['UPS']['Events'][ups_event]['Title'],roboprinter.lang.pack['UPS']['Events'][ups_event]['Body']).open()
+            else:
+              ep = Error_Popup(roboprinter.lang.pack['UPS']['Default_Event']['Title'],roboprinter.lang.pack['UPS']['Default_Event']['Body']+ups_event.upper()).open()
 
     def move_tools_to(self, content_space):
         

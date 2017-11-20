@@ -59,9 +59,49 @@ Warning:
     P_Completed: "% Completed"
     Error: "Error"
 
-UPS_Event:
-  Error: "UPS notification"
-  Body_Text: "The UPS has detected\nthe event "
+UPS:
+  Getting_Status: "Getting UPS Status..."
+  Events:
+    changeme:
+      Title: "UPS notification"
+      Body: "UPS batteries have failed\nChange them NOW!"
+    commfailure:
+      Title: "UPS notification"
+      Body: "Communications with UPS lost."
+    commok:
+      Title: "UPS notification"
+      Body: "Communications with UPS restored."
+    onbattery:
+      Title: "UPS notification"
+      Body: "Power failure.\nRunning on UPS batteries."
+    offbattery:
+      Title: "UPS notification"
+      Body: "Power restored.\nRunning on mains."
+  Default_Event:
+    Title: "UPS notification"
+    Body: "UPS notification.\nReceived "
+  Params:
+    status:
+      Description: "Status"
+      Units: ""
+    linev:
+      Description: "Mains"
+      Units: "V"
+    loadpct:
+      Description: "Load"
+      Units: "%"
+    bcharge:
+      Description: "Battery Charge"
+      Units: "%"
+    timeleft:
+      Description: "Time Left"
+      Units: "Minutes"
+    itemp:
+      Description: "Temperature"
+      Units: "C°"
+    battv:
+      Description: "Battery"
+      Units: "V"
 
 Popup:
   PYes: "[size=30]Yes"
@@ -119,7 +159,6 @@ Utilities:
   Bed: "Bed"
   Webcam_Status: "Camera Status"
   UPS_Status: "UPS Status"
-  UPS_Getting_Status: "Getting UPS Status..."
 
 
 RoboIcons:

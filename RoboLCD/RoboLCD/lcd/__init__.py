@@ -325,7 +325,7 @@ def start():
     def generate_ups_screen(self, **kwargs):
 
       def get_ups_status():
-        interesting = ('status', 'linev', 'loadpct', 'bcharge', 'timeleft', 'itemp', 'battv')
+        interesting = roboprinter.lang.pack['UPS']['Params']
         apc_status = {}
         if sys.platform == 'win32':
           cmd = 'type ' + os.path.dirname(os.path.realpath(__file__)) + '\\apcaccess.mock'
@@ -337,17 +337,16 @@ def start():
         res = subprocess.check_output(cmd, shell=True)
         for line in res.split('\n'):
           (key,spl,val) = line.partition(': ')
-          key = key.rstrip().lower()
-          #apc_status[key] = val.strip().split(' ')[0]
-          apc_status[key] = val.strip()
+          key = key.strip().lower()
+          apc_status[key] = val.strip().split(' ')[0]
         t = ''
         for thing in interesting:
           if thing in apc_status:
-            t += thing.capitalize() + u': {}\n'.format(apc_status[thing])
+            t += roboprinter.lang.pack['UPS']['Params'][thing]['Description']+': '+apc_status[thing]+' '+roboprinter.lang.pack['UPS']['Params'][thing]['Units']+'\n'
         c.text = t
         return
 
-      t = roboprinter.lang.pack['Utilities']['UPS_Getting_Status']
+      t = roboprinter.lang.pack['UPS']['Getting_Status']
       c = Label(text=t, font_size=30, background_color=[0,0,0,1])
       self._generate_backbutton_screen(name=kwargs['name'], title=kwargs['title'], back_destination=kwargs['back_destination'], content=c)
       thread.start_new_thread(get_ups_status, ())

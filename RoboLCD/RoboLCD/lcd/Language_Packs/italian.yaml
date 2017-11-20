@@ -59,9 +59,49 @@ Warning:
     P_Completed: "% Completato"
     Error: "Errore"
 
-UPS_Event:
-  Error: "Notifica UPS"
-  Body_Text: "Il gruppo di continuità ha rilevato\nl'evento "
+UPS:
+  Getting_Status: "Ottengo lo stato dell'UPS..."
+  Events:
+    changeme:
+      Title: "Notifica UPS"
+      Body: "Le batterie del gruppo di continuità\nsono esauste o danneggiate.\nSostituirle al più presto."
+    commfailure:
+      Title: "Notifica UPS"
+      Body: "La comunicazione con il gruppo\ndi continuità si è interrotta."
+    commok:
+      Title: "Notifica UPS"
+      Body: "La comunicazione con il gruppo\ndi continuità è stata ripristinata."
+    onbattery:
+      Title: "Notifica UPS"
+      Body: "Rilevata mancanza di rete elettrica.\nIl sistema è alimentato dalle batterie."
+    offbattery:
+      Title: "Notifica UPS"
+      Body: "La rete elettrica è stata ripristinata.\nIl sistema è ora alimentato normalmente."
+  Default_Event:
+    Title: "Notifica UPS"
+    Body: "Notifica dal gruppo di continuità.\nL'evento ricevuto è "
+  Params:
+    status:
+      Description: "Stato"
+      Units: ""
+    linev:
+      Description: "Tensione di Rete"
+      Units: "V"
+    loadpct:
+      Description: "Carico"
+      Units: "%"
+    bcharge:
+      Description: "Carica Batteria"
+      Units: "%"
+    timeleft:
+      Description: "Tempo Rimasto"
+      Units: "Minuti"
+    itemp:
+      Description: "Temperatura"
+      Units: "C°"
+    battv:
+      Description: "Tensione Batteria"
+      Units: "V"
 
 Popup:
   PYes: "[size=30]Si"
@@ -119,7 +159,6 @@ Utilities:
   Bed: "Piano"
   Webcam_Status: "Stato webcam"
   UPS_Status: "Stato UPS"
-  UPS_Getting_Status: "Ottengo lo stato dell'UPS..."
 
 
 RoboIcons:
