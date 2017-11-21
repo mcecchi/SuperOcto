@@ -59,8 +59,7 @@ Warning:
     P_Completed: "% Completed"
     Error: "Error"
 
-UPS:
-  Getting_Status: "Getting UPS Status..."
+System_Events:
   Events:
     changeme:
       Title: "UPS notification"
@@ -77,9 +76,15 @@ UPS:
     offbattery:
       Title: "UPS notification"
       Body: "Power restored.\nRunning on mains."
+    powerdown:
+      Title: "Shutdown"
+      Body: "Shutdown started.\nSystem is powering down."
   Default_Event:
-    Title: "UPS notification"
-    Body: "UPS notification.\nReceived "
+    Title: "System notification"
+    Body: "System notification.\nReceived event "
+
+UPS:
+  Getting_Status: "Getting UPS Status..."
   Params:
     status:
       Description: "Status"

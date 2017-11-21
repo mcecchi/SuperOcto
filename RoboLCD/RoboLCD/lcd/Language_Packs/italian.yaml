@@ -59,8 +59,7 @@ Warning:
     P_Completed: "% Completato"
     Error: "Errore"
 
-UPS:
-  Getting_Status: "Ottengo lo stato dell'UPS..."
+System_Events:
   Events:
     changeme:
       Title: "Notifica UPS"
@@ -77,9 +76,15 @@ UPS:
     offbattery:
       Title: "Notifica UPS"
       Body: "La rete elettrica è stata ripristinata.\nIl sistema è ora alimentato normalmente."
+    powerdown:
+      Title: "Spegnimento"
+      Body: "Il sistema ha avviato la\nprocedura di spegnimento."
   Default_Event:
-    Title: "Notifica UPS"
-    Body: "Notifica dal gruppo di continuità.\nL'evento ricevuto è "
+    Title: "Notifica di Sistema"
+    Body: "Notifica di sistema.\nL'evento ricevuto è "
+
+UPS:
+  Getting_Status: "Ottengo lo stato dell'UPS..."
   Params:
     status:
       Description: "Stato"

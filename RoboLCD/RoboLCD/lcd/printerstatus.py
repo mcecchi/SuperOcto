@@ -90,20 +90,20 @@ class PrinterStatusContent(BoxLayout):
         self.update_lock = False
         Clock.schedule_interval(self.safety, 1)
         Clock.schedule_interval(self.update, 0.2)   
-        Clock.schedule_interval(self.poll_ups_event, 1)   
+        Clock.schedule_interval(self.poll_system_event, 1)   
 
         #add the move tools function to a global space
         session_saver.saved['Move_Tools'] = self.move_tools_to    
 
-    def poll_ups_event(self, dt):
-        ups_event = getattr(roboprinter.printer_instance, 'ups_event', None)
-        if ups_event != None:
-            roboprinter.printer_instance.ups_event = None
-            ups_event = ups_event.strip().lower()
-            if ups_event in roboprinter.lang.pack['UPS']['Events']:
-              ep = Error_Popup(roboprinter.lang.pack['UPS']['Events'][ups_event]['Title'],roboprinter.lang.pack['UPS']['Events'][ups_event]['Body']).open()
+    def poll_system_event(self, dt):
+        system_event = getattr(roboprinter.printer_instance, 'system_event', None)
+        if system_event != None:
+            roboprinter.printer_instance.system_event = None
+            system_event = system_event.strip().lower()
+            if system_event in roboprinter.lang.pack['System_Events']['Events']:
+              ep = Error_Popup(roboprinter.lang.pack['System_Events']['Events'][system_event]['Title'],roboprinter.lang.pack['System_Events']['Events'][system_event]['Body']).open()
             else:
-              ep = Error_Popup(roboprinter.lang.pack['UPS']['Default_Event']['Title'],roboprinter.lang.pack['UPS']['Default_Event']['Body']+ups_event.upper()).open()
+              ep = Error_Popup(roboprinter.lang.pack['System_Events']['Default_Event']['Title'],roboprinter.lang.pack['System_Events']['Default_Event']['Body']+system_event.upper()).open()
 
     def move_tools_to(self, content_space):
         

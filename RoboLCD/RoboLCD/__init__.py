@@ -46,8 +46,8 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
 
     def on_api_command(self, command, data):
         if command == 'event':
-            self._logger.info('UPS event received, event_type is {event_type}'.format(**data))
-            self.ups_event = data['event_type']
+            self._logger.info('System event received, event_type is {event_type}'.format(**data))
+            self.system_event = data['event_type']
 
     def on_api_get(self, request):
         return flask.jsonify(result="ok")
