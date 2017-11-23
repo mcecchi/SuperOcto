@@ -260,14 +260,18 @@ def __plugin_load__():
     __plugin_implementation__ = RobolcdPlugin()
 
     global __plugin_hooks__
-    if sys.platform == "win32":
-        __plugin_hooks__ = {
-            "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
-            "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
-        }
-    else:
-        __plugin_hooks__ = {
-            "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
-            "octoprint.comm.transport.serial.factory": __plugin_implementation__.serial_hook,
-            "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
-        }
+    # if sys.platform == "win32":
+        # __plugin_hooks__ = {
+            # "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+            # "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
+        # }
+    # else:
+        # __plugin_hooks__ = {
+            # "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+            # "octoprint.comm.transport.serial.factory": __plugin_implementation__.serial_hook,
+            # "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
+        # }
+    __plugin_hooks__ = {
+        "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+        "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
+    }
