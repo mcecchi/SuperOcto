@@ -14,6 +14,7 @@ from RoboLCD.lcd.slicer_wizard import Slicer_Wizard
 
 #python
 from datetime import datetime
+import sys
 import os
 import shutil
 import traceback
@@ -26,8 +27,13 @@ import time
 
 #File explorer and directory browser use each other to navigate through the filesystem. File Explorer will use the information from Directory_Browser and
 #display the current file system. File Explorer will just maintain the list and the graphical interface to all files.
-USB_DIR = '/home/pi/.octoprint/uploads/USB'
-FILES_DIR = '/home/pi/.octoprint/uploads'
+if sys.platform == "win32":
+    USB_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\uploads\\USB'
+    FILES_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\uploads'
+else:
+    USB_DIR = '/home/pi/.octoprint/uploads/USB'
+    FILES_DIR = '/home/pi/.octoprint/uploads'
+
 class File_Explorer(Scroll_Box_File_List):
     
     def __init__(self, storage_manager, show_only_folders_callback, **kwargs):
