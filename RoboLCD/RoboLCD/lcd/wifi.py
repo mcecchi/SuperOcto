@@ -19,7 +19,11 @@ from functools import partial
 from kivy.core.window import Window
 from scrollbox import Scroll_Box_Even
 
-from netconnectd import NetconnectdClient
+import sys
+if sys.platform == "win32":
+    from netconnectd_mock import NetconnectdClient
+else:
+    from netconnectd import NetconnectdClient
 import base64
 
 class QR_Button(Button):

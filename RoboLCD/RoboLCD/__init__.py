@@ -22,7 +22,7 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
                     octoprint.plugin.AssetPlugin,
                     octoprint.plugin.StartupPlugin,
                     octoprint.plugin.EventHandlerPlugin,
-					octoprint.plugin.SimpleApiPlugin,
+                    octoprint.plugin.SimpleApiPlugin,
                     ):
 
     def __init__(self, **kwargs):
@@ -195,12 +195,12 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
 
                 # version check: github repository
                 type="github_release",
-                user="victorevector",
+                user="mcecchi",
                 repo="RoboLCD",
                 current=self._plugin_version,
 
                 # update method: pip w/ dependency links
-                pip="https://github.com/victorevector/RoboLCD/archive/{target_version}.zip"
+                pip="https://github.com/mcecchi/RoboLCD/archive/{target_version}.zip"
             )
         )
 

@@ -45,7 +45,10 @@ def start():
   from wizard import FilamentWizard
   from z_offset_wizard import ZoffsetWizard
   from scrollbox import Scroll_Box_Even, Scroll_Box_Icons, Robo_Icons
-  from netconnectd import NetconnectdClient
+  if sys.platform == "win32":
+    from netconnectd_mock import NetconnectdClient
+  else:
+    from netconnectd import NetconnectdClient
   from RoboLCD import roboprinter
   from kivy.logger import Logger
   import thread
@@ -361,6 +364,7 @@ def start():
           wifi = status['connections']['wifi']
           ap = status['connections']['ap']
           wired = status['connections']['wired']
+
 
           if wifi and wired:
             ssid = status['wifi']['current_ssid']
