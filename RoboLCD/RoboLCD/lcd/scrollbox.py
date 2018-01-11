@@ -190,7 +190,7 @@ class Robo_Icons(Button):
     callback = ObjectProperty(None)
     def __init__(self, _image_source, _icon_name, _generator_function, callback=None):
         super(Robo_Icons, self).__init__()
-        self. generator = _generator_function
+        self.generator = _generator_function
         self.img_source = _image_source
         self.original_icon_name = _icon_name
         self.icon_name = _icon_name
@@ -209,7 +209,7 @@ class Robo_Icons(Button):
         #check if this is the first iteration
         if not self.first_loop:
             self.first_loop = True
-            self.callback(generator=self. generator, name=self.icon_name)
+            self.callback(generator=self.generator, name=self.icon_name)
 
         if self.current_screen != roboprinter.robosm.current:
             self.icon_name = self.original_icon_name
@@ -226,7 +226,7 @@ class Storage_Icons(Button):
     callback = ObjectProperty(None)
     def __init__(self, _image_source, _icon_name, _generator_function, callback=None):
         super(Storage_Icons, self).__init__()
-        self. generator = _generator_function
+        self.generator = _generator_function
         self.img_source = _image_source
         self.original_icon_name = _icon_name
         self.icon_name = _icon_name
@@ -245,7 +245,7 @@ class Storage_Icons(Button):
         #check if this is the first iteration
         if not self.first_loop:
             self.first_loop = True
-            self.callback(generator=self. generator, name=self.icon_name)
+            self.callback(generator=self.generator, name=self.icon_name)
 
         if self.current_screen != roboprinter.robosm.current:
             self.icon_name = self.original_icon_name
@@ -284,7 +284,7 @@ class Robo_Icons_Anchor(Button):
     anchory = StringProperty("center")
     def __init__(self, _image_source, _icon_name, _generator_function, position):
         super(Robo_Icons_Anchor, self).__init__()
-        self. generator = _generator_function
+        self.generator = _generator_function
         self.img_source = _image_source
         self.icon_name = _icon_name
 

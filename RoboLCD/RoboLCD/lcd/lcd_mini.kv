@@ -744,29 +744,33 @@
             close: False
             width: 3
             points: popup.x, popup.y, popup.x, popup.y + 400, popup.x + 600, popup.y + 400, popup.x + 600, popup.y, popup.x,popup.y
-    BoxLayout:
+    GridLayout:
+        cols:1
+        rows:1
         background_color: 0,0,0,1
-        size: popup.size
-        orientation: 'vertical'
-        
         BoxLayout:
+            background_color: 0,0,0,1
+            size: popup.size
             orientation: 'vertical'
-            padding: 0,15,0,0
-            Image:
-                source: 'Icons/Manual_Control/failure_icon.png'
-            Label:
-                id: modal_question
-                size: self.texture_size
-                text: app.root.lang.pack['Popup']['Cancel_Print'] 
-                valign: 'center'
-                halign: 'center'
-                font_size: 30
-        BoxLayout:
-            size_hint_y: 0.5
-            padding: 50,15,50,15
-            spacing: 50
-            id: yes_no_grid
             
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 0,15,0,0
+                Image:
+                    source: 'Icons/Manual_Control/failure_icon.png'
+                Label:
+                    id: modal_question
+                    size: self.texture_size
+                    text: app.root.lang.pack['Popup']['Cancel_Print'] 
+                    valign: 'center'
+                    halign: 'center'
+                    font_size: 30
+            BoxLayout:
+                size_hint_y: 0.5
+                padding: 50,15,50,15
+                spacing: 50
+                id: yes_no_grid
+
 <Connection_Popup>:
     background_color: 0,0,0,1
     id: popup
@@ -911,33 +915,36 @@
             close: False
             width: 3
             points: popup.x, popup.y, popup.x, popup.y + 400, popup.x + 600, popup.y + 400, popup.x + 600, popup.y, popup.x,popup.y
-
-    BoxLayout:
-        orientation: 'vertical'
-
-        Label:
-            id: modal_question
-            markup: True
-            text: root.body_text
-            valign: 'middle'
-            halign: 'center'
-
+    GridLayout:
+        cols:1
+        rows:1
+        background_color: 0,0,0,1
         BoxLayout:
-            orientation: 'horizontal'
-            size_hint_y: 0.5
-            spacing: 25
-            padding: 25, 15, 25, 15
-            Auto_Image_Label_Button:
-                button_text: "[size=30]" + app.root.lang.pack['Popup']['Later']
-                image_icon: "Icons/Manual_Control/cancel_button_icon.png"
-                background_normal: 'Icons/red_button_style.png'
-                callback: root.dismiss_popup
+            orientation: 'vertical'
 
-            Auto_Image_Label_Button:
-                button_text: "[size=30]" + app.root.lang.pack['Popup']['Update']
-                image_icon: 'Icons/Manual_Control/start_button_icon.png'
-                background_normal: 'Icons/blue_button_style.png'
-                callback: root.start_update_button
+            Label:
+                id: modal_question
+                markup: True
+                text: root.body_text
+                valign: 'middle'
+                halign: 'center'
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: 0.5
+                spacing: 25
+                padding: 25, 15, 25, 15
+                Auto_Image_Label_Button:
+                    button_text: "[size=30]" + app.root.lang.pack['Popup']['Later']
+                    image_icon: "Icons/Manual_Control/cancel_button_icon.png"
+                    background_normal: 'Icons/red_button_style.png'
+                    callback: root.dismiss_popup
+
+                Auto_Image_Label_Button:
+                    button_text: "[size=30]" + app.root.lang.pack['Popup']['Update']
+                    image_icon: 'Icons/Manual_Control/start_button_icon.png'
+                    background_normal: 'Icons/blue_button_style.png'
+                    callback: root.start_update_button
 
 
 <Mintemp_Warning_Popup>:
@@ -1029,33 +1036,37 @@
             close: False
             width: 3
             points: popup.x, popup.y, popup.x, popup.y + 400, popup.x + 600, popup.y + 400, popup.x + 600, popup.y, popup.x,popup.y
-    BoxLayout:
-        orientation: 'vertical'
-        padding: 0, 10, 0 ,0
-
-        Image:
-            size_hint_y: 0.5
-            source: 'Icons/Manual_Control/failure_icon.png'
-            
-        Label:
-            id: modal_question
-            markup: True
-            text: '[size=40][color=#69B3E7]'+ root.error + '[/size][/color]\n[size=30]'+ root.body_text + '[/size]'
-            valign: 'middle'
-            halign: 'center'
-            
+    GridLayout:
+        cols:1
+        rows:1
+        background_color: 0,0,0,1
         BoxLayout:
-            orientation: 'horizontal'
-            size_hint_y: 0.6
-            spacing: 25
-            padding: 175, 15, 175, 15
+            orientation: 'vertical'
+            padding: 0, 10, 0 ,0
 
-            Auto_Image_Label_Button:
-                button_text: "[size=30]" + app.root.lang.pack['Popup']['OK']
-                image_icon: 'Icons/Manual_Control/ok_button_icon.png'
-                background_normal: 'Icons/blue_button_style.png'
-                callback: root.callback
-                on_press: root.dismiss()
+            Image:
+                size_hint_y: 0.5
+                source: 'Icons/Manual_Control/failure_icon.png'
+                
+            Label:
+                id: modal_question
+                markup: True
+                text: '[size=40][color=#69B3E7]'+ root.error + '[/size][/color]\n[size=30]'+ root.body_text + '[/size]'
+                valign: 'middle'
+                halign: 'center'
+                
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: 0.6
+                spacing: 25
+                padding: 175, 15, 175, 15
+
+                Auto_Image_Label_Button:
+                    button_text: "[size=30]" + app.root.lang.pack['Popup']['OK']
+                    image_icon: 'Icons/Manual_Control/ok_button_icon.png'
+                    background_normal: 'Icons/blue_button_style.png'
+                    callback: root.callback
+                    on_press: root.dismiss()
 <Info_Popup>:
     background_color: 0,0,0,1
     id: popup
@@ -1072,37 +1083,40 @@
             close: False
             width: 3
             points: popup.x, popup.y, popup.x, popup.y + 400, popup.x + 600, popup.y + 400, popup.x + 600, popup.y, popup.x,popup.y
-           
-    BoxLayout:
+    GridLayout:
+        cols:1
+        rows:1
         background_color: 0,0,0,1
-        orientation: 'vertical'
-        padding: 10, 0, 10, 10
-        Label:
-            size_hint_y: 0.5
-            id: modal_question
-            markup: True
-            text: '[size=40][color=#69B3E7]'+ root.error + '[/size][/color]'
-            valign: 'center'
-            halign: 'center'
-            size: self.size
-        Label:
-            id: body_text
-            markup: True
-            text: '[size=30]'+ root.body_text + '[/size]'
-            valign: 'center'
-            halign: 'center'
-            size: self.size
-
         BoxLayout:
-            orientation: 'horizontal'
-            size_hint_y: 0.6
-            padding: 100, 0, 100, 15
+            background_color: 0,0,0,1
+            orientation: 'vertical'
+            padding: 10, 0, 10, 10
+            Label:
+                size_hint_y: 0.5
+                id: modal_question
+                markup: True
+                text: '[size=40][color=#69B3E7]'+ root.error + '[/size][/color]'
+                valign: 'center'
+                halign: 'center'
+                size: self.size
+            Label:
+                id: body_text
+                markup: True
+                text: '[size=30]'+ root.body_text + '[/size]'
+                valign: 'center'
+                halign: 'center'
+                size: self.size
 
-            Auto_Image_Label_Button:
-                button_text: "[size=30]" + app.root.lang.pack['Popup']['OK']
-                image_icon: 'Icons/Manual_Control/ok_button_icon.png'
-                background_normal: 'Icons/blue_button_style.png'
-                on_press: root.dismiss()
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: 0.6
+                padding: 100, 0, 100, 15
+
+                Auto_Image_Label_Button:
+                    button_text: "[size=30]" + app.root.lang.pack['Popup']['OK']
+                    image_icon: 'Icons/Manual_Control/ok_button_icon.png'
+                    background_normal: 'Icons/blue_button_style.png'
+                    on_press: root.dismiss()
 <Status_Popup>:
     background_color: 0,0,0,1
     id: popup
@@ -1119,33 +1133,37 @@
             close: False
             width: 3
             points: popup.x, popup.y, popup.x, popup.y + 400, popup.x + 600, popup.y + 400, popup.x + 600, popup.y, popup.x,popup.y
-    BoxLayout:
-        orientation: 'vertical'
-        padding: 0, 15, 0, 0
-
-        Image:
-            size_hint_y: 0.5
-            source: 'Icons/Manual_Control/failure_icon.png'
-            
-        Label:
-            id: modal_question
-            markup: True
-            text: '[size=40][color=#69B3E7]'+ root.error + '[/size][/color]\n[size=30]'+ root.body_text + '[/size]'
-            valign: 'middle'
-            halign: 'center'
-            
+    GridLayout:
+        cols:1
+        rows:1
+        background_color: 0,0,0,1
         BoxLayout:
-            orientation: 'horizontal'
-            size_hint_y: 0.6
-            spacing: 25
-            padding: 175, 15, 175, 15
+            orientation: 'vertical'
+            padding: 0, 15, 0, 0
+
+            Image:
+                size_hint_y: 0.5
+                source: 'Icons/Manual_Control/failure_icon.png'
+                
+            Label:
+                id: modal_question
+                markup: True
+                text: '[size=40][color=#69B3E7]'+ root.error + '[/size][/color]\n[size=30]'+ root.body_text + '[/size]'
+                valign: 'middle'
+                halign: 'center'
+                
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: 0.6
+                spacing: 25
+                padding: 175, 15, 175, 15
 
 
-            Auto_Image_Label_Button:
-                button_text: "[size=30]" + app.root.lang.pack['Popup']['OK']
-                image_icon: 'Icons/Manual_Control/ok_button_icon.png'
-                background_normal: 'Icons/blue_button_style.png'
-                on_press: root.dismiss()
+                Auto_Image_Label_Button:
+                    button_text: "[size=30]" + app.root.lang.pack['Popup']['OK']
+                    image_icon: 'Icons/Manual_Control/ok_button_icon.png'
+                    background_normal: 'Icons/blue_button_style.png'
+                    on_press: root.dismiss()
 
 <USB_Progress_Popup>:
     background_color: 0,0,0,1
