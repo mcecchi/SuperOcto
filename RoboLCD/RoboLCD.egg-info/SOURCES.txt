@@ -23,12 +23,11 @@ RoboLCD/lcd/bed_calibration_wizard.py
 RoboLCD/lcd/common_screens.py
 RoboLCD/lcd/connection_popup.py
 RoboLCD/lcd/errors_and_warnings.py
-RoboLCD/lcd/file_explorer.py
-RoboLCD/lcd/files.py
 RoboLCD/lcd/fine_tune_zoffset.py
 RoboLCD/lcd/mainscreen.py
 RoboLCD/lcd/manualcontrol.py
 RoboLCD/lcd/netconnectd.py
+RoboLCD/lcd/netconnectd_mock.py
 RoboLCD/lcd/noheaderscreen.py
 RoboLCD/lcd/pconsole.py
 RoboLCD/lcd/printer_jog.py

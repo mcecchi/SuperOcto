@@ -37,6 +37,7 @@ class PConsole(octoprint.printer.PrinterCallback):
                     'bed': 0,
                     'bed_desired': 0,
                     }
+    temperature = {}
 
     def on_printer_add_message(self, data):
 
