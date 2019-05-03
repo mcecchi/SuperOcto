@@ -34,7 +34,6 @@ def start():
   from kivy.uix.label import Label
   from functools import partial
   from mainscreen import MainScreen, MainScreenTabbedPanel
-  from files import FilesTab, FilesContent, PrintFile, PrintUSB
   from utilities import UtilitiesTab, UtilitiesContent, QRCodeScreen
   from printerstatus import PrinterStatusTab, PrinterStatusContent
   from wifi import WifiPasswordInput, WifiConfirmation, AP_Mode, APConfirmation, WifiUnencrypted, WifiConfiguration, WifiConnecting
@@ -45,9 +44,12 @@ def start():
   from Preheat_Wizard import Preheat_Overseer
   from wizard import FilamentWizard
   from z_offset_wizard import ZoffsetWizard
-  from scrollbox import ScrollBox, Scroll_Box_Even, Scroll_Box_Icons, Robo_Icons, Robo_Icons_Anchor, Scroll_Box_Icons_Anchor
-  from netconnectd import NetconnectdClient
-  from .. import roboprinter
+  from scrollbox import Scroll_Box_Even, Scroll_Box_Icons, Robo_Icons
+  if sys.platform == "win32":
+    from netconnectd_mock import NetconnectdClient
+  else:
+    from netconnectd import NetconnectdClient
+  from RoboLCD import roboprinter
   from kivy.logger import Logger
   import thread
   from kivy.core.window import Window
@@ -59,10 +61,9 @@ def start():
   from Print_Tuning import Tuning_Overseer
   from updater import UpdateScreen
   from EEPROM import EEPROM
-  from Firmware_Wizard import Firmware_Wizard
-  from slicer_wizard import Slicer_Wizard
   from session_saver import session_saver
-  from file_explorer import FileOptions
+  from RoboLCD.lcd.file_system.file_options import FileOptions
+  from RoboLCD.lcd.file_system.files import FilesTab, FilesContent
   from fine_tune_zoffset import Fine_Tune_ZOffset
 
   from bed_calibration_wizard import Bed_Calibration
@@ -186,11 +187,6 @@ def start():
                 'back_destination':'wizards_screen', 
                 'function': self.genetate_filament_change_wizard},
 
-        'SLICER' : {'name': 'slicing_wizard', 
-              'title': roboprinter.lang.pack['Utilities']['Slicer'], 
-              'back_destination': 'wizards_screen', 
-              'function': self.slicer_wizard},
-
         'FINE_TUNE':{'name': 'fine_tune_wizard', 
                'title': roboprinter.lang.pack['Utilities']['FT_Wizard'], 
                'back_destination': 'wizards_screen', 
@@ -233,11 +229,6 @@ def start():
                 'back_destination': '', 
                 'function':self.system_handler},
 
-        'FIRMWARE' : {'name': 'firmware_updater',
-               'title': roboprinter.lang.pack['Utilities']['Firmware'], 
-               'back_destination': 'main', 
-               'function': self.update_firmware},
-
         'MOTORS_OFF':{'name': 'Motors_Off', 
                'title':'', 
                'back_destination':'options', 
@@ -258,6 +249,10 @@ def start():
               'title': roboprinter.lang.pack['Utilities']['Webcam_Status'], 
               'back_destination': 'options', 
               'function': self.webcam_status},
+        'UPS_STATUS': {'name':'ups_status', 
+                  'title':roboprinter.lang.pack['Utilities']['UPS_Status'], 
+                  'back_destination':'options', 
+                  'function':self.generate_ups_screen},
 
         #System Sub Screen
         'SHUTDOWN': {'name': 'Shutdown', 
@@ -316,39 +311,6 @@ def start():
 
       return
 
-    def generate_file_screen(self, **kwargs):
-      # Accesible to FilesButton
-      # Instantiates BackButtonScreen and passes values for dynamic properties:
-      # backbutton label text, print information, and print button.
-      file_name = kwargs['filename']
-      file_path = kwargs['file_path']
-      is_usb = kwargs['is_usb']
-      title = file_name.replace('.gcode', '').replace('.gco', '')
-
-      Logger.info('Function Call: generate_new_screen {}'.format(file_name))
-
-      def delete_file(*args): #gets binded to CTA in header
-        roboprinter.printer_instance._file_manager.remove_file('local', file_path)
-        self.go_back_to_main('files_tab')
-
-      if is_usb:
-        c = PrintUSB(name='print_file',
-                  file_name=file_name,
-                  file_path=file_path)
-      else:
-        c = PrintFile(name='print_file',
-               file_name=file_name,
-               file_path=file_path)
-      def file_options():
-        FileOptions(file_name, file_path)
-
-      if not is_usb:
-        self._generate_backbutton_screen(name=c.name, title=title, back_destination=self.current, content=c, cta=file_options, icon='Icons/settings.png')
-      else:
-        self._generate_backbutton_screen(name=c.name, title=title, back_destination=self.current, content=c, cta=file_options, icon='Icons/settings.png')
-
-      return
-
     def generate_network_utilities_screen(self, **kwargs):
       #generates network option screen. Utilities > Network > Network Utilities > wifi list || start ap
 
@@ -363,6 +325,35 @@ def start():
 
       self._generate_backbutton_screen(name=kwargs['name'], title=kwargs['title'], back_destination=kwargs['back_destination'], content=sb)
 
+    def generate_ups_screen(self, **kwargs):
+
+      def get_ups_status():
+        interesting = roboprinter.lang.pack['UPS']['Params']
+        apc_status = {}
+        if sys.platform == 'win32':
+          cmd = 'type ' + os.path.dirname(os.path.realpath(__file__)) + '\\apcaccess.mock'
+        else:
+          if roboprinter.printer_instance._settings.getBoolean(['UPS_Mock']):
+            cmd = 'cat ' + os.path.dirname(os.path.realpath(__file__)) + '/apcaccess.mock'
+          else:
+            cmd = '/sbin/apcaccess'
+        res = subprocess.check_output(cmd, shell=True)
+        for line in res.split('\n'):
+          (key,spl,val) = line.partition(': ')
+          key = key.strip().lower()
+          apc_status[key] = val.strip().split(' ')[0]
+        t = ''
+        for thing in interesting:
+          if thing in apc_status:
+            t += roboprinter.lang.pack['UPS']['Params'][thing]['Description']+': '+apc_status[thing]+' '+roboprinter.lang.pack['UPS']['Params'][thing]['Units']+'\n'
+        c.text = t
+        return
+
+      t = roboprinter.lang.pack['UPS']['Getting_Status']
+      c = Label(text=t, font_size=30, background_color=[0,0,0,1])
+      self._generate_backbutton_screen(name=kwargs['name'], title=kwargs['title'], back_destination=kwargs['back_destination'], content=c)
+      thread.start_new_thread(get_ups_status, ())
+
     def generate_ip_screen(self, **kwargs):
       # Misnomer -- Network Status
       def get_network_status():
@@ -373,6 +364,7 @@ def start():
           wifi = status['connections']['wifi']
           ap = status['connections']['ap']
           wired = status['connections']['wired']
+
 
           if wifi and wired:
             ssid = status['wifi']['current_ssid']
@@ -445,7 +437,6 @@ def start():
       #Moves user to main screen and deletes all other screens
       #used by end of sequence confirmation buttons
       #optional tab parameter. If not None it will go back to that tab
-      Logger.info('Function Call: go_back_to_main')
       self.current = 'main'
 
       if tab is not None:
@@ -460,11 +451,7 @@ def start():
         else:
           continue
 
-
-      Logger.info('Screens: {}'.format(
-        self.screen_names))  # not necessary; using this to show me that screen gets properly deleted
-
-    def go_back_to_screen(self, current=None, destination=None, **kwargs):
+    def go_back_to_screen(self, current, destination):
       # Goes back to destination and deletes current screen
       #ps = self.get_screen(current)
       try:
@@ -474,7 +461,7 @@ def start():
            self.remove_widget(d)
        self.current = destination
        #self.remove_widget(ps)
-       Logger.info('go_back_to_screen: current {}, dest {}'.format(current, destination))
+       #Logger.info('go_back_to_screen: current {}, dest {}'.format(current, destination))
  
        if current == 'wifi_config[1]':
          Window.release_all_keyboards()
@@ -497,18 +484,15 @@ def start():
       z = Robo_Icons('Icons/Zoffset illustration/Z-offset.png', roboprinter.lang.pack['RoboIcons']['Z_Offset'], 'ZOFFSET')
       fl = Robo_Icons('Icons/Icon_Buttons/Load Filament.png', roboprinter.lang.pack['RoboIcons']['Fil_Load'], 'FIL_LOAD')
       fc = Robo_Icons('Icons/Icon_Buttons/Change Filament.png', roboprinter.lang.pack['RoboIcons']['Fil_Change'], 'FIL_CHANGE')
-
-      slicer = Robo_Icons('Icons/Slicer wizard icons/slicer-wizard.png', roboprinter.lang.pack['RoboIcons']['Slicing'], 'SLICER')
       fine_tune = Robo_Icons('Icons/Zoffset illustration/Fine tune.png', roboprinter.lang.pack['RoboIcons']['FTZ_Offset'], 'FINE_TUNE')
 
       #If it's not an R2 we dont need the bed calibration wizard
       if model == "Robo R2":
         bed_calib = Robo_Icons('Icons/Bed_Calibration/Bed placement.png', roboprinter.lang.pack['RoboIcons']['Bed_Cal'], 'BED_CALIBRATION')
-        buttons = [fc, fl, z, slicer, bed_calib, fine_tune]
+        buttons = [fc, fl, z, bed_calib, fine_tune]
       else:
         bed_calib = Robo_Icons('Icons/Bed_Calibration/Bed placement.png', roboprinter.lang.pack['RoboIcons']['Bed_Cal'], 'BED_CALIBRATION')
-        #buttons = [fc, fl, z, slicer, fine_tune]
-        buttons = [fc, fl, z, slicer, bed_calib, fine_tune]
+        buttons = [fc, fl, z, bed_calib, fine_tune]
 
 
       c = Scroll_Box_Icons(buttons)
@@ -675,19 +659,20 @@ def start():
 
       opt = Robo_Icons('Icons/System_Icons/EEPROM Reader.png', roboprinter.lang.pack['RoboIcons']['EEPROM'] , 'EEPROM')
       usb = Robo_Icons('Icons/System_Icons/USB.png', roboprinter.lang.pack['RoboIcons']['USB'], 'UNMOUNT_USB')
-      firm = Robo_Icons('Icons/System_Icons/Firmware update wizard.png', roboprinter.lang.pack['RoboIcons']['Firmware'], 'FIRMWARE')
       language = Robo_Icons('Icons/System_Icons/Language.png', roboprinter.lang.pack['RoboIcons']['Language'], 'LANGUAGE')
       main_status = Robo_Icons('Icons/Printer Status/Connection.png', roboprinter.lang.pack['RoboIcons']['Mainboard'], 'MAINBOARD')
       cam = Robo_Icons('Icons/System_Icons/Webcam.png', roboprinter.lang.pack['RoboIcons']['Webcam'], 'WEBCAM')
+      ups = Robo_Icons('Icons/Icon_Buttons/UPS_Status.png', roboprinter.lang.pack['RoboIcons']['UPS_Status'], 'UPS_STATUS')
 
       model = roboprinter.printer_instance._settings.get(['Model'])
       if model == "Robo R2":
        #buttons = [opt, usb, firm, language, main_status, cam]
-       buttons = [opt, usb, firm, main_status, cam]
+       buttons = [opt, usb, main_status, cam, ups]
       else:
        #buttons = [opt, usb, firm, language, main_status]
-       #buttons = [opt, usb, firm, main_status]
-       buttons = [opt, usb, firm, language, main_status, cam]
+       #buttons = [opt, usb, main_status]
+       buttons = [opt, usb, language, main_status, cam, ups]
+
 
       layout = Scroll_Box_Icons(buttons)
 
@@ -773,11 +758,7 @@ def start():
   
           elif popup == "ERROR":
             Logger.info("Showing Error")
-            if acceptable_options[option]['confirmation']:
-              #ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_main, tab='printer_status_tab'))
-              ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_screen, current='view_preheat', destination='system'))
-            else:
-              ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'])
+            ep = Error_Popup(acceptable_options[option]['error'], acceptable_options[option]['body_text'],callback=partial(roboprinter.robosm.go_back_to_main, tab='printer_status_tab'))
             ep.show()
   
           Logger.info("Executing: " + acceptable_options[option]['command'])
@@ -851,14 +832,7 @@ def start():
                                                    title = roboprinter.lang.pack['Error_Detection']['MAINBOARD']['Reset_Confirmation']['Title'] , 
                                                    back_destination=back_screen, 
                                                    content=content
-                                                   )      
-
-
-    def update_firmware(self, **kwargs):
-      Firmware_Wizard(self, kwargs['back_destination'])
-
-    def slicer_wizard(self, **kwargs):
-      Slicer_Wizard(self, kwargs['back_destination'])
+                                                   )
 
     def fine_tune_wizard(self, **kwargs):
       Fine_Tune_ZOffset()

@@ -84,16 +84,10 @@ class TemperatureControl(BoxLayout):
                 self.input_temp = "290"
                 self.desired_temp = 290
 
-            elif temp > 100 and self.selected_tool == 'bed':
-                if 'bed' in pconsole.temperature:
-                    if float(pconsole.temperature['bed']) > 0:
-                        temp = 100
-                        self.input_temp = "100"
-                        self.desired_temp = 100
-                else:
-                    temp = 100
-                    self.input_temp = "100"
-                    self.desired_temp = 100
+            elif temp > 100 and self.selected_tool == 'bed' and float(pconsole.temperature['bed']) > 0:
+                temp = 100
+                self.input_temp = "100"
+                self.desired_temp = 100
 
         
         Logger.info("Setting " + str(ext) + " to " + str(temp))

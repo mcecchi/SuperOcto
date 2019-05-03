@@ -14,6 +14,7 @@ from .lcd.session_saver import session_saver
 import os
 from .lcd.Language import lang
 import time
+import flask
 
 
 
@@ -21,11 +22,13 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
                     octoprint.plugin.AssetPlugin,
                     octoprint.plugin.StartupPlugin,
                     octoprint.plugin.EventHandlerPlugin,
+                    octoprint.plugin.SimpleApiPlugin,
                     ):
 
     def __init__(self, **kwargs):
         super(RobolcdPlugin, self).__init__(**kwargs)
         self.lcd_thread = None
+        self.file_lock = False
 
 
     def get_settings_defaults(self):
@@ -34,8 +37,20 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
             Model = None,
             Language = None,
             Temp_Preset = {},
+            sorting_config = {},
             Screen_Blank_Interval = 0
             )
+
+    def get_api_commands(self):
+        return dict(event=['event_type'])
+
+    def on_api_command(self, command, data):
+        if command == 'event':
+            self._logger.info('System event received, event_type is {event_type}'.format(**data))
+            self.system_event = data['event_type']
+
+    def on_api_get(self, request):
+        return flask.jsonify(result="ok")
 
     def _get_api_key(self):
         return self._settings.global_get(['api', 'key'])
@@ -129,6 +144,9 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
 
     def on_event(self,event, payload):
 
+        # self._logger.info(str(event))
+        # self._logger.info(str(payload))
+
         def reset_data():
             session_saver.save_variable('FLOW', 100)
             session_saver.save_variable('FEED', 100)
@@ -153,13 +171,20 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
         elif event == "UpdatedFiles":
             if 'file_callback' in session_saver.saved:
                 session_saver.saved['file_callback']()
-                    
+        #throw events to anyone who wants to listen
+        session_saver.update_event(event, payload)
 
 
 
     def updater_placeholder(self, **kwargs):
         return False
 
+    def support_hex_files(*args, **kwargs):
+        return dict(
+                firmware=dict(
+                    hex_file=["hex", "HEX"]
+                    )
+            )
 
 
     def get_update_information(self):
@@ -170,12 +195,12 @@ class RobolcdPlugin(octoprint.plugin.SettingsPlugin,
 
                 # version check: github repository
                 type="github_release",
-                user="victorevector",
+                user="mcecchi",
                 repo="RoboLCD",
                 current=self._plugin_version,
 
                 # update method: pip w/ dependency links
-                pip="https://github.com/victorevector/RoboLCD/archive/{target_version}.zip"
+                pip="https://github.com/mcecchi/RoboLCD/archive/{target_version}.zip"
             )
         )
 
@@ -235,12 +260,18 @@ def __plugin_load__():
     __plugin_implementation__ = RobolcdPlugin()
 
     global __plugin_hooks__
-    if sys.platform == "win32":
-        __plugin_hooks__ = {
-            "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
-        }
-    else:
-        __plugin_hooks__ = {
-            "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
-            "octoprint.comm.transport.serial.factory": __plugin_implementation__.serial_hook
-        }
+    # if sys.platform == "win32":
+        # __plugin_hooks__ = {
+            # "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+            # "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
+        # }
+    # else:
+        # __plugin_hooks__ = {
+            # "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+            # "octoprint.comm.transport.serial.factory": __plugin_implementation__.serial_hook,
+            # "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
+        # }
+    __plugin_hooks__ = {
+        "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+        "octoprint.filemanager.extension_tree": __plugin_implementation__.support_hex_files
+    }

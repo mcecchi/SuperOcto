@@ -62,7 +62,7 @@ class UpdateScreen(FloatLayout):
                 v = f.readline().strip()
         else:
             with open(path, 'w') as f:
-                v = '0.0.0'
+                v = '1.0.3'
                 f.write(v)
         return v
 

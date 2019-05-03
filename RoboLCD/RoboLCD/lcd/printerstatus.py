@@ -10,7 +10,7 @@ from kivy.logger import Logger
 from kivy.clock import Clock
 from kivy.uix.modalview import ModalView
 from .. import roboprinter
-from connection_popup import Zoffset_Warning_Popup, Update_Warning_Popup
+from connection_popup import Error_Popup, Zoffset_Warning_Popup, Update_Warning_Popup
 import math
 import subprocess
 from multiprocessing import Process
@@ -20,7 +20,7 @@ from session_saver import session_saver
 import time
 import traceback
 from functools import partial
-from scrollbox import ScrollBox, Scroll_Box_Even, Scroll_Box_Icons, Robo_Icons
+from scrollbox import Scroll_Box_Even, Scroll_Box_Icons, Robo_Icons
 from common_screens import Auto_Image_Label_Button
 
 #errors and warnings
@@ -82,7 +82,6 @@ class PrinterStatusContent(BoxLayout):
         super(PrinterStatusContent, self).__init__(*args,**kwargs)  
         #get the model
         self.model = roboprinter.printer_instance._settings.get(['Model'])   
-        #Logger.info('===================> model: {}'.format(self.model))
 
         self.splash_event = Clock.schedule_interval(self.turn_off_splash, .1)
         self.extruder = Temp_Control_Button()
@@ -91,10 +90,20 @@ class PrinterStatusContent(BoxLayout):
         self.update_lock = False
         Clock.schedule_interval(self.safety, 1)
         Clock.schedule_interval(self.update, 0.2)   
+        Clock.schedule_interval(self.poll_system_event, 1)   
 
         #add the move tools function to a global space
         session_saver.saved['Move_Tools'] = self.move_tools_to    
 
+    def poll_system_event(self, dt):
+        system_event = getattr(roboprinter.printer_instance, 'system_event', None)
+        if system_event != None:
+            roboprinter.printer_instance.system_event = None
+            system_event = system_event.strip().lower()
+            if system_event in roboprinter.lang.pack['System_Events']['Events']:
+              ep = Error_Popup(roboprinter.lang.pack['System_Events']['Events'][system_event]['Title'],roboprinter.lang.pack['System_Events']['Events'][system_event]['Body']).open()
+            else:
+              ep = Error_Popup(roboprinter.lang.pack['System_Events']['Default_Event']['Title'],roboprinter.lang.pack['System_Events']['Default_Event']['Body']+system_event.upper()).open()
 
     def move_tools_to(self, content_space):
         
@@ -599,14 +608,14 @@ class ModalPopup(ModalView):
 
 class Tool_Status(BoxLayout):
     name = StringProperty("Error")
-    current_temperature = NumericProperty(0)
-    max_temp = NumericProperty(0)
+    current_temperature = NumericProperty(0.0)
+    max_temp = NumericProperty(0.0)
     tool = StringProperty('tool0')
     progress = NumericProperty(0)
 
     def __init__(self, name, tool, **kwargs):
         super(Tool_Status, self).__init__(**kwargs)
-        self.name=name
+        self.name = name
         self.tool = tool
         Clock.schedule_interval(self.update_temp_and_progress, .1)
 
@@ -622,28 +631,30 @@ class Tool_Status(BoxLayout):
             
             self.max_temp = temps[self.tool]['target']
 
+            #round to one decimal place so that the numbers can fit on the screen 
+            if isinstance(self.current_temperature, float):
+                self.current_temperature = round(self.current_temperature,1)
+            else:
+                self.current_temperature = float(self.current_temperature)
+
+            if isinstance(self.max_temp, float):
+                self.max_temp = round(self.max_temp, 1)
+            else:
+                self.max_temp = float(self.max_temp)
+
+
+
             if self.tool == 'bed':
                 if 'bed' in pconsole.temperature:
                     if float(pconsole.temperature['bed']) <= 0:
-                        self.current_temperature = 0
+                        self.current_temperature = 0.0
 
-            #update progress
-            # if int(self.max_temp) == 0:
-            #     self.progress = 0
-            # else:
-            #     self.progress = (float(self.current_temperature) / float(self.max_temp)) * float(self.ids.progress_bar_goes_here.width)
-            #     if self.progress >= float(self.ids.progress_bar_goes_here.width):
-            #         self.progress = float(self.ids.progress_bar_goes_here.width)
-            
-
-            
-            #Logger.info(str(self.current_temperature) + " "  + str(self.max_temp))
         except Exception as e:
             #Logger.info("Temperature Error")
             if self.tool == 'bed':
                 if 'bed' in pconsole.temperature:
                     if float(pconsole.temperature['bed']) <= 0:
-                        self.current_temperature = 0
+                        self.current_temperature = 0.0
           
         
 class Custom_Progress_Bar(FloatLayout):

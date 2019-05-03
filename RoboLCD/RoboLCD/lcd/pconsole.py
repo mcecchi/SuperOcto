@@ -28,16 +28,15 @@ class PConsole(octoprint.printer.PrinterCallback):
     t_counter = 2
     sent_M114 = False
     cur_time = 0
-
     busy = False
-    #temperature = {
-    #                'tool1': 0,
-    #                'tool1_desired': 0,
-    #                'tool2': 0,
-    #                'tool2_desired': 0,
-    #                'bed': 0,
-    #                'bed_desired': 0,
-    #                }
+    temperature = {
+                    'tool1': 0,
+                    'tool1_desired': 0,
+                    'tool2': 0,
+                    'tool2_desired': 0,
+                    'bed': 0,
+                    'bed_desired': 0,
+                    }
     temperature = {}
 
     def on_printer_add_message(self, data):
@@ -173,8 +172,8 @@ class PConsole(octoprint.printer.PrinterCallback):
 
         #get the position
         if self.sent_M114:
-            p = "X:([-0-9.00]+) Y:([-0-9.00]+) Z:([-0-9.00]+) E:([-0-9.00]+) Count X: ([-0-9]+) Y:([-0-9]+) Z:([-0-9]+)"
-            temp_pos = re.findall(p, data)
+            p = "X:([-0-9.00]+)Y:([-0-9.00]+)Z:([-0-9.00]+)E:([-0-9.00]+)CountX:([-0-9]+)Y:([-0-9]+)Z:([-0-9]+)"
+            temp_pos = re.findall(p, data.replace(" ", ""))
             if temp_pos != []:
                 self.position = temp_pos[0]
                 #roboprinter.printer_instance._logger.info('Position Update')

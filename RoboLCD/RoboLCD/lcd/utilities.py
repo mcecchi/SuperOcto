@@ -1,11 +1,11 @@
+import os
 from kivy.uix.label import Label
 from kivy.uix.tabbedpanel import TabbedPanelHeader
-from scrollbox import ScrollBox, Scroll_Box_Even, Scroll_Box_Icons, Robo_Icons
+from scrollbox import Scroll_Box_Even, Scroll_Box_Icons, Robo_Icons
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import NumericProperty, ObjectProperty, StringProperty
 from .. import roboprinter
-from netconnectd import NetconnectdClient
 from kivy.logger import Logger
 from kivy.clock import Clock
 from session_saver import session_saver
@@ -93,4 +93,4 @@ class UtilitiesContent(BoxLayout):
 
 
 class QRCodeScreen(BoxLayout):
-    img_source = roboprinter.printer_instance.get_plugin_data_folder() + '/qr_code.png'
+    img_source = os.path.join(roboprinter.printer_instance.get_plugin_data_folder(), "qr_code.png")
