@@ -15,8 +15,8 @@ class Install_Deps(object):
         local_path = os.path.dirname(os.path.realpath(__file__))
         #r = pip.main(['install', '--upgrade', '--no-deps', '--force-reinstall',
         #              'https://github.com/Robo3D/OctoPrint-FirmwareUpdater/archive/0.2.1.zip',
-        #              "https://github.com/Robo3D/Meta-Reader/archive/1.0.8.zip",
-        #              "https://github.com/Robo3D/roboOctoprint/archive/1.3.2.zip",
+        #              "https://github.com/Robo3D/Meta-Reader/archive/1.1.0.zip",
+        #              "https://github.com/Robo3D/roboOctoprint/archive/1.3.3.zip",
         #             ])
         #if r is not 0:
         #    print("Could not install RoboLCD dependencies: Meta_Reader and/or OctoPrint_FirmwareUpdater")
@@ -57,20 +57,20 @@ plugin_package = "RoboLCD"
 plugin_name = "RoboLCD"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
-plugin_version = "1.9.1"
+plugin_version = "1.10.1"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
 plugin_description = """LCD screen for Printer"""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
-plugin_author = "Victor E Fimbres & Matt Pedler & Peri Smith"
+plugin_author = "Mauro Cecchi"
 
 # The plugin's author's mail address.
-plugin_author_email = "Developer@robo3d.com"
+plugin_author_email = "mauro30061960@gmail.com"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/victorevector/RoboLCD"
+plugin_url = "https://github.com/mcecchi/RoboLCD"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
 plugin_license = "AGPLv3"

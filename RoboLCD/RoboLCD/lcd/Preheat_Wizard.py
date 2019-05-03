@@ -54,12 +54,12 @@ class Preheat_Overseer(object):
 
     def add_defaults(self):
         default_selections = {
-                                'Robo PLA': 
+                                'ODM-1 PLA': 
                                 {
                                     'Extruder1': 190,
                                     'Bed': 60
                                 },
-                                'Robo ABS':
+                                'ODM-1 ABS':
                                 {
                                     'Extruder1': 230,
                                     'Bed': 100

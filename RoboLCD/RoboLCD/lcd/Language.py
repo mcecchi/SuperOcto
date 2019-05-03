@@ -23,4 +23,4 @@ class Language():
     def reload_language(self, language):
         self.load_language(language)
 
-lang = Language("en")
+lang = Language("it")
