@@ -27,12 +27,12 @@ if sys.platform == "win32":
     USB_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\uploads\\USB'
     FILES_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\uploads'
     TEMP_DIR = 'C:\\tmp\\stl'
-    CURA_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\slicingProfiles\\cura'
+    CURA_DIR = 'C:\\Users\\mauro\\AppData\\Roaming\\OctoPrint\\slicingProfiles\\curalegacy'
 else:
     USB_DIR = '/home/pi/.octoprint/uploads/USB'
     FILES_DIR = '/home/pi/.octoprint/uploads'
     TEMP_DIR = '/tmp/stl'
-    CURA_DIR = '/home/pi/.octoprint/slicingProfiles/cura'
+    CURA_DIR = '/home/pi/.octoprint/slicingProfiles/curalegacy'
 
 class Slicer_Wizard(FloatLayout):
 
@@ -97,13 +97,13 @@ class Slicer_Wizard(FloatLayout):
         Clock.schedule_once(self.start_slice, 0.1)
 
     def start_slice(self,dt):
-        profiles = roboprinter.printer_instance._slicing_manager.all_profiles('cura', require_configured=False)
+        profiles = roboprinter.printer_instance._slicing_manager.all_profiles('curalegacy', require_configured=False)
         if 'odm-1' in profiles:
             #start slice
             self.temp_path = TEMP_DIR + "/" + self.stl_name
             Logger.info("Starting Slice")
             Logger.info(self.overrides)
-            roboprinter.printer_instance._slicing_manager.slice('cura', 
+            roboprinter.printer_instance._slicing_manager.slice('curalegacy', 
                                                                 self.stl_path, 
                                                                 self.temp_path, 
                                                                 'odm-1', 
